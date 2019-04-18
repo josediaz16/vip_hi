@@ -2,7 +2,9 @@
   "name": "vip_hi",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.2"
+    "@rails/webpacker": "^4.0.2",
+    "jquery": "^3.4.0",
+    "rails-ujs": "^5.2.3"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.3.1"
