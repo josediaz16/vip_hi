@@ -12,6 +12,9 @@ gem 'webpacker'
 gem 'devise'
 gem "haml-rails", "~> 2.0"
 
+# Countries Db
+gem 'countries'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
