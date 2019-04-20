@@ -1,0 +1,4 @@
+--require spec_helper
+--colour
+--format progress
+--order rand
