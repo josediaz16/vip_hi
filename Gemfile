@@ -15,6 +15,9 @@ gem "haml-rails", "~> 2.0"
 # Countries Db
 gem 'countries'
 
+# React
+gem 'react-rails'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
