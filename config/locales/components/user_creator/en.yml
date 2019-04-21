@@ -1,0 +1,12 @@
+en:
+  components:
+    user_creator:
+      labels:
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+        email: 'Email'
+        country: 'Pais'
+        phone: 'Teléfono'
+        password: 'Password'
+        password_confirmation: 'Confirm Password'
+      actions: :components.actions
