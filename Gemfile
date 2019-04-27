@@ -6,17 +6,28 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
+
+# Assets Related
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker'
+
+# Authentication
 gem 'devise'
+
+# Views and Html
 gem "haml-rails", "~> 2.0"
+
+# React and webpack
+gem 'webpacker'
+gem 'react-rails'
 
 # Countries Db
 gem 'countries'
 
-# React
-gem 'react-rails'
+# Dry Gems
+gem 'dry-auto_inject'
+gem 'dry-validation'
+gem 'dry-transaction'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
