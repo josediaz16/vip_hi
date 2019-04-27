@@ -100,4 +100,5 @@ RSpec.configure do |config|
   end
 
   config.include Support::FeatureHelpers, type: :feature, js: true
+  config.include FactoryBot::Syntax::Methods
 end
