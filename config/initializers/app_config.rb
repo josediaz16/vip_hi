@@ -15,6 +15,12 @@ module AppConfig
     end
   end
 
+  module InstanceMethods
+    def call(input)
+      super input, &Common::Utils.default_hooks
+    end
+  end
+
   class Transaction < Module
     def initialize(**options)
       @options = options
@@ -22,6 +28,7 @@ module AppConfig
 
     def included(base)
       base.include Dry::Transaction(**@options)
+      base.include InstanceMethods
       base.extend  ClassMethods
     end
   end
