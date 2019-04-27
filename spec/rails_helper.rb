@@ -7,6 +7,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -24,12 +26,14 @@ require 'rspec/rails'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
+#
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -58,4 +62,42 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  ## Remote Selenium Configuration
+  ip = `/sbin/ip route|awk '/scope/ { print $9 }'`
+  ip.gsub!(/\n/, "")
+
+  Capybara.javascript_driver = :selenium_chrome
+  Capybara.server = :puma, { Silent: true }
+  Capybara.register_driver :selenium_chrome do |app|
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: {args: %w(headless disable-gpu no-sandbox)}
+    )
+
+    Capybara::Selenium::Driver.new(nil, browser: :remote, url: "http://selenium:4444/wd/hub", desired_capabilities: caps).tap do |driver|
+      driver.browser.file_detector = -> args do
+        str = args.first.to_s
+        str if File.exist?(str)
+      end
+    end
+  end
+  ## Ends Remote Selenium Configuration
+
+  config.around(:each, type: :feature, js: true) do |example|
+    old_host = Capybara.server_host
+    old_port = Capybara.server_port
+    old_app_host = Capybara.app_host
+
+    Capybara.server_host = ip
+    Capybara.server_port = 3001
+    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+
+    example.run
+
+    Capybara.server_host = old_host
+    Capybara.server_port = old_port
+    Capybara.app_host = old_app_host
+  end
+
+  config.include Support::FeatureHelpers, type: :feature, js: true
 end
