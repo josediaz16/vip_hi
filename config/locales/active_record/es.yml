@@ -1,0 +1,9 @@
+es:
+  errors:
+    messages:
+      blank: 'no puede estar vacío'
+      required: 'debe existir'
+      not_a_number: 'no es un número'
+      inclusion: 'no esta incluido en la lista'
+      taken: 'ya ha sido tomado'
+      invalid: 'el formato no es válido'

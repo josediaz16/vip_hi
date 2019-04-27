@@ -1,0 +1,18 @@
+es:
+  errors:
+    filled?: "blank~no puede estar vacío"
+    provided?: "blank~no puede estar vacío"
+    key?: "blank~no puede estar vacío"
+    gt?: "size~no puede ser menor a %{num}"
+    gteq?: "size~no puede ser menor a %{num}"
+    lt?: "size~no puede ser mayor a %{num}"
+    lteq?: "size~no puede ser mayor a %{num}"
+    max_size?: "length~no puede tener más de %{num} carácteres"
+    after_today?: "date~no puede ser menor a hoy"
+    before_end_of_month?: "date~no puede ser mayor al final del mes"
+    hash?: "blank~no puede estar vacío"
+    is_a_file?: "format~debe ser un archivo"
+    included_in?:
+      arg:
+        default: "inclusion~debe ser alguna de estas opciones: %{list}"
+

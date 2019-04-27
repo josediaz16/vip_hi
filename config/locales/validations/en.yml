@@ -1,0 +1,16 @@
+en:
+  errors:
+    filled?: "blank~can't be blank"
+    provided?: "blank~can't be blank"
+    key?: "blank~can't be blank"
+    gt?: "size~must be greater than %{num}"
+    gteq?: "size~must be greater than %{num}"
+    lt?: "size~must be lower than %{num}"
+    lteq?: "size~must be lower than %{num}"
+    max_size?: "length~must not have more than %{num} characters"
+    after_today?: "date~must be greater than today"
+    hash?: "blank~can't be blank"
+    is_a_file?: "format~must be a file"
+    included_in?:
+      arg:
+        default: "inclusion~must be one of: %{list}"

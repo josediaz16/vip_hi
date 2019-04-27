@@ -17,6 +17,8 @@ module VipHi
     # the framework and any gems in your application.
 
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+    config.i18n.default_locale = :es
+
     config.autoload_paths << Rails.root.join('app')
     config.eager_load_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('app')
