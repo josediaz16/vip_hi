@@ -7,10 +7,20 @@ en:
     gteq?: "size~must be greater than %{num}"
     lt?: "size~must be lower than %{num}"
     lteq?: "size~must be lower than %{num}"
+    min_size?: "length~must not have less than %{num} caracteres"
     max_size?: "length~must not have more than %{num} characters"
     after_today?: "date~must be greater than today"
     hash?: "blank~can't be blank"
+    str?: "blank~can't be blank"
     is_a_file?: "format~must be a file"
+    email?: "format~must be a valid email"
+    phone?: "format~must be a valid phone number"
     included_in?:
       arg:
         default: "inclusion~must be one of: %{list}"
+
+    rules:
+      user:
+        rules:
+          password_confirmation:
+            eql?: "confirmation~must be equal to password"

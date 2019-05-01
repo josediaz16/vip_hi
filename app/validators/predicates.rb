@@ -9,5 +9,13 @@ module Validators
     predicate(:is_a_file?) do |value|
       value.is_a?(File) || value.is_a?(ActionDispatch::Http::UploadedFile)
     end
+
+    predicate(:email?) do |value|
+      ! /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/.match(value).nil?
+    end
+
+    predicate(:phone?) do |value|
+      ! /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/.match(value).nil?
+    end
   end
 end

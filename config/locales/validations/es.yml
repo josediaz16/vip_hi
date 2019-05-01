@@ -2,6 +2,7 @@ es:
   errors:
     filled?: "blank~no puede estar vacío"
     provided?: "blank~no puede estar vacío"
+    min_size?: "length~debe tener al menos %{num} caracteres"
     key?: "blank~no puede estar vacío"
     gt?: "size~no puede ser menor a %{num}"
     gteq?: "size~no puede ser menor a %{num}"
@@ -11,8 +12,16 @@ es:
     after_today?: "date~no puede ser menor a hoy"
     before_end_of_month?: "date~no puede ser mayor al final del mes"
     hash?: "blank~no puede estar vacío"
+    str?: "blank~no puede estar vacío"
     is_a_file?: "format~debe ser un archivo"
+    email?: "format~debe ser un correo válido"
+    phone?: "format~debe ser un número válido"
     included_in?:
       arg:
         default: "inclusion~debe ser alguna de estas opciones: %{list}"
 
+    rules:
+      user:
+        rules:
+          password_confirmation:
+            eql?: "confirmation~la contraseña debe coincidir"
