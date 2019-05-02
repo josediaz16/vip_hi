@@ -1,0 +1,4 @@
+es:
+  components:
+    actions:
+      submit: 'Enviar'

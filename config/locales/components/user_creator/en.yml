@@ -2,11 +2,11 @@ en:
   components:
     user_creator:
       labels:
-        first_name: 'Nombre'
-        last_name: 'Apellido'
+        name: 'Name'
+        known_as: 'Known as'
         email: 'Email'
-        country: 'Pais'
-        phone: 'Teléfono'
+        country: 'Country'
+        phone: 'Phone'
         password: 'Password'
-        password_confirmation: 'Confirm Password'
+        password_confirmation: 'Confirm password'
       actions: :components.actions

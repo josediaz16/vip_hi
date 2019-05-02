@@ -1,0 +1,12 @@
+es:
+  components:
+    user_creator:
+      labels:
+        name: 'Nombre'
+        known_as: 'Conocido como'
+        email: 'Email'
+        country: 'País'
+        phone: 'Teléfono'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+      actions: :components.actions
