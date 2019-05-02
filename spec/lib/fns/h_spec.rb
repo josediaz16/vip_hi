@@ -16,7 +16,7 @@ RSpec.describe Fns::H do
   end
 
   describe Fns::H::RenameKey do
-    subject { described_class.(:puntos, :points) }
+    subject { described_class.(:puntos, :points, Fns::ReturnSelf) }
 
     let(:input) do
       {a: 1, puntos: 2}

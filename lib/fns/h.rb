@@ -17,14 +17,16 @@ module Fns
 
     SymAttr = :attributes | :symbolize_keys.to_proc
 
-    RenameKey = -> old_key, new_key, hash do
-      hash[new_key] = hash.delete(old_key) if hash.key?(old_key)
+    RenameKey = -> old_key, new_key, block, hash do
+      value = hash.delete(old_key) if hash.key?(old_key)
+
+      hash[new_key] = block.call(value)
       hash
     end.curry
 
     RenameKeys = -> new_keys, hash do
       new_keys.reduce(hash) do |original_hash, (old_key, new_key)|
-        RenameKey.(old_key, new_key, original_hash)
+        RenameKey.(old_key, new_key, Fns::ReturnSelf, original_hash)
       end
     end.curry
 
