@@ -10,6 +10,7 @@
     "rails-ujs": "^5.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-phone-number-input": "^2.3.11",
     "react_ujs": "^2.5.0"
   },
   "devDependencies": {
