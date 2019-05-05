@@ -24,6 +24,9 @@ gem 'react-rails'
 # Countries Db
 gem 'countries'
 
+# JSON rendering
+gem 'blueprinter'
+
 # Dry Gems
 gem 'dry-auto_inject'
 gem 'dry-validation'
