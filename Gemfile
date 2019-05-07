@@ -57,11 +57,13 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'capybara', '>= 2.15'
+  gem "capybara-email"
   gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem "faker"
