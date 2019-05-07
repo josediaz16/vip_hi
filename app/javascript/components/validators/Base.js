@@ -6,7 +6,10 @@ const RequiredBlankString = Yup
     .string()
     .required("__blank__")
 
-const RequiredEmail = (message) => RequiredBlankString.email(message)
+const RequiredEmail = (message) => {
+  console.log(message)
+  return RequiredBlankString.email(message)
+}
 
 const ConfirmationString = (ref, message) => {
   return RequiredBlankString.oneOf([Yup.ref(ref), null], message)

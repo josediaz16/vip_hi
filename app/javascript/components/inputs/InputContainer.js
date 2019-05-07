@@ -15,26 +15,6 @@ const InputContainer = ({label, icon, hint, children}) => {
   );
 }
 
-//class InputContainer extends React.Component {
-//  render () {
-//    const {
-//      label,
-//      icon,
-//      hint,
-//      children
-//    } = this.props
-//
-//    return (
-//      <div className="control-block">
-//        { label && <Label label={label} icon={icon} /> }
-//        { hint && <Hint value={hint}/> }
-//
-//        {children}
-//      </div>
-//    );
-//  }
-//}
-
 InputContainer.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.string,

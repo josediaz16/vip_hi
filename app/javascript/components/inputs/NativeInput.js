@@ -1,22 +1,29 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React      from "react"
+import PropTypes  from "prop-types"
+import classNames from "classnames"
 
 import InputContainer from 'components/inputs/InputContainer'
+import ErrorMessage   from 'components/inputs/ErrorMessage'
 
 class NativeInput extends React.Component {
   render () {
     const {
       label,
       icon,
-      iconSource,
       hint,
-      otherProps: otherProps={label, icon, iconSource, hint},
+      children,
+      error,
+      otherProps: otherProps={label, icon, hint},
       ...inputProps
     } = this.props
 
+    const inputClass = classNames({"field-error": error})
+
     return(
       <InputContainer {...otherProps}>
-        <input type="text" {...inputProps}/>
+        { children || <input type="text" className={inputClass} {...inputProps}/> }
+        <ErrorMessage error={error}/>
+
       </InputContainer>
     )
   }
@@ -25,7 +32,7 @@ class NativeInput extends React.Component {
 NativeInput.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.string,
-  iconSource: PropTypes.string
+  hint: PropTypes.string
 };
 
 export default NativeInput
