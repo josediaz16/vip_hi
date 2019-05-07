@@ -2,3 +2,5 @@ es:
   components:
     actions:
       submit: 'Enviar'
+    alerts:
+      error: 'Tu formulario tiene errores, por favor no seas un idiota'

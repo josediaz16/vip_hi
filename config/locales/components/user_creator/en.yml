@@ -9,4 +9,9 @@ en:
         phone: 'Phone'
         password: 'Password'
         password_confirmation: 'Confirm password'
+      front_validations:
+        email:
+          format: "Invalid format"
+        password_confirmation: 'Passwords must match'
       actions: :components.actions
+      alerts: :components.alerts
