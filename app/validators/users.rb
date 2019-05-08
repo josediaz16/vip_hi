@@ -11,7 +11,7 @@ module Validators
       required(:password_confirmation, DTypes::String).filled
       required(:country_id, DTypes::Integer).filled
 
-      optional(:phone, DTypes::Phone).filled(:phone?)
+      optional(:phone, DTypes::Phone) { filled? > phone? }
       optional(:id,    DTypes::Integer).filled
       rule(password_confirmation: [:password, :password_confirmation]) do |pass, confirmation|
         pass.eql?(confirmation)
@@ -20,7 +20,7 @@ module Validators
 
     CreateCelebrity = Builder.(Base) do
       required(:known_as, DTypes::String).filled
-      optional(:name,     DTypes::String).filled
+      optional(:name,     DTypes::String).value(:str?)
     end.with(object_class: :user)
 
     CreateFan = Builder.(Base) do
