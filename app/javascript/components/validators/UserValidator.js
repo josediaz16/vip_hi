@@ -8,14 +8,14 @@ import {
 } from './Base'
 
 
-const UserSchema = (t) => {
+const UserSchema = ({front_validations: {email, password_confirmation}}) => {
   return ValidationSchema("user", {
-    email: RequiredEmail("wrong email bitch"),
+    email: RequiredEmail(email.format),
     name: Yup.string(),
     known_as: RequiredBlankString,
     phone: Yup.string(),
     password: RequiredBlankString,
-    password_confirmation: ConfirmationString("password", "Passwords wrong bitch")
+    password_confirmation: ConfirmationString("password", password_confirmation)
   })
 }
 

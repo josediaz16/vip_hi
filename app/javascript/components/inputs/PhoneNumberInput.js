@@ -15,6 +15,10 @@ class PhoneNumberInput extends React.Component {
     this.onChange = this.onChange.bind(this)
   }
 
+  componentDidMount() {
+    this.setState({country: this.findCountry()})
+  }
+
   findCountry() {
     return document.querySelector(`select[name='${this.props.name}__country']`).value
   }
@@ -33,7 +37,6 @@ class PhoneNumberInput extends React.Component {
     return (
       <React.Fragment>
         <PhoneInput
-          country="CO"
           value={this.state.phone}
           onChange={this.onChange}
           {...otherProps}
