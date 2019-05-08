@@ -5,6 +5,7 @@ import {
 } from 'components/inputs/index'
 
 import UserValidator from 'components/validators/UserValidator'
+import Alert         from 'components/Alert'
 
 import { makeRequest } from 'components/Utils'
 
@@ -26,6 +27,9 @@ class UserForm extends React.Component {
     return (
       <React.Fragment>
         <h2>Sign up</h2>
+        {
+          showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
+        }
         <form action={url} ref={formRef} onSubmit={onSubmit} noValidate>
           <NativeInput
             label={t.labels.email}
