@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users Sign up", type: :feature, js: true do
   before do
-    #clear_emails
+    clear_emails
     create(:country, name: 'Colombia', code_iso: 'CO')
     visit new_user_registration_path
   end
@@ -16,7 +16,9 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
 
-      click_button "Sign Up"
+      click_button "Enviar"
+
+      wait_for_ajax
 
       expect(User.count).to eq(1)
 
@@ -26,8 +28,8 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       expect(user.known_as).to  eq("Ken Addams")
       expect(page).to have_content("Buen trabajo, ahora confirma tu correo")
 
-      #open_email("pepito@mail.com")
-      #expect(current_email).to have_content("CONFIRM YOUR EMAIL")
+      open_email("pepito@mail.com")
+      expect(current_email).to have_content("You can confirm your account email through the link below")
       visit user_confirmation_path(confirmation_token: user.confirmation_token)
 
       expect(current_path).to eq(new_celebrity_path)
@@ -42,12 +44,14 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword2"
 
-      click_button "Sign Up"
+      click_button "Enviar"
+      wait_for_ajax
 
-      expect(current_path).to eq(user_registration_path)
-      expect(page).to have_content("Tu registro tiene errores, por favor no seas un idiota")
-      expect(page).to have_content("El email no es válido")
-      expect(page).to have_content("La contraseña no coincide")
+      expect(current_path).to eq(new_user_registration_path)
+
+      expect(page).to have_content("Tu formulario tiene errores, por favor no seas un idiota")
+      expect(page).to have_content("El formato no es válido")
+      expect(page).to have_content("Las contraseñas deben coincidir")
 
       expect(User.count).to eq(0)
     end
@@ -64,11 +68,12 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
 
-      click_button "Sign Up"
+      click_button "Enviar"
+      wait_for_ajax
 
-      expect(current_path).to eq(user_registration_path)
-      expect(page).to have_content("Tu registro tiene errores, por favor no seas un idiota")
-      expect(page).to have_content("Ya ha sido tomado")
+      expect(current_path).to eq(new_user_registration_path)
+      expect(page).to have_content("Tu formulario tiene errores, por favor no seas un idiota")
+      expect(page).to have_content("ya ha sido tomado")
 
       expect(User.count).to eq(1)
     end
