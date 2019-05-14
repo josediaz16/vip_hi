@@ -7,7 +7,8 @@ import {
 import UserValidator from 'components/validators/UserValidator'
 import Alert         from 'components/Alert'
 
-import { makeRequest } from 'components/Utils'
+import { onSubmit }  from 'components/SubmitHandlers'
+
 
 class UserForm extends React.Component {
   render() {
@@ -98,34 +99,12 @@ class UserCreator extends React.Component {
     }
 
     this.formRef = React.createRef()
-    this.EnhancedCreator = UserValidator(props.t, this.onSubmit.bind(this))
-  }
-
-  changeLocation({redirect_url}) {
-    window.location.assign(redirect_url)
-  }
-
-  handleError(formikBag, {responseJSON: {errors}}) {
-    const errorConfig = {
-      "user.email": "user.email"
-    }
-
-    Object.keys(errorConfig).forEach(key => {
-      const [objectClass, field] = key.split(".")
-      const error = errors.find(item => (item.object_class === objectClass) && (item.field === field))
-      error && formikBag.setFieldError(errorConfig[key], error.description)
-    })
-  }
-
-  onSubmit(payload, formikBag) {
-    const { formRef: {current: form} } = payload
-
-    const formData = new FormData(form)
-    const method = formikBag.props.method || "POST"
-
-    makeRequest(form.action, method, formData)
-      .then(this.changeLocation.bind(this))
-      .catch(this.handleError.bind(this, formikBag))
+    this.EnhancedCreator = UserValidator(
+      props.t,
+      onSubmit({
+        "user.email": "user.email"
+      })
+    )
   }
 
   render() {
