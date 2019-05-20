@@ -18,5 +18,11 @@ FactoryBot.define do
     trait :confirmed do
       confirmed_at { Time.now }
     end
+
+    factory(:user_admin) do
+      after(:create) do |user|
+        create(:user_role, :admin, user: user)
+      end
+    end
   end
 end
