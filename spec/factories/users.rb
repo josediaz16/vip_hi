@@ -24,5 +24,11 @@ FactoryBot.define do
         create(:user_role, :admin, user: user)
       end
     end
+
+    factory(:user_celebrity) do
+      after(:create) do |user|
+        create(:user_role, :celebrity, user: user)
+      end
+    end
   end
 end

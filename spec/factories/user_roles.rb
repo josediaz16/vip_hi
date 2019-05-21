@@ -3,7 +3,7 @@ FactoryBot.define do
     association :user, factory: :user
 
     trait(:celebrity) do
-      association :role, factory: :role
+      association :role, factory: :role, name: 'celebrity'
     end
 
     trait(:admin) do
