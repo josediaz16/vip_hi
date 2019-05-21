@@ -36,6 +36,9 @@ describe Admins::Create do
 
       expect(user.roles.count).to eq(1)
       expect(user.roles.pluck(:name)).to eq ["admin"]
+
+      expect(Admin.count).to eq(1)
+      expect(user.admin).to eq(Admin.last)
     end
   end
 

@@ -4,7 +4,6 @@ RSpec.feature "POST /admins/celebrities/" do
   let!(:colombia) { create(:country, name: 'Colombia', code_iso: 'CO') }
   let!(:mexico)   { create(:country, name: 'México', code_iso: 'MX') }
 
-  #let!(:admin_role) { create(:role, name: 'admin') }
   let(:admin) { create(:admin) }
 
   before do
