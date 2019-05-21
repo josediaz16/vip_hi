@@ -7,7 +7,6 @@ const RequiredBlankString = Yup
     .required("__blank__")
 
 const RequiredEmail = (message) => {
-  console.log(message)
   return RequiredBlankString.email(message)
 }
 

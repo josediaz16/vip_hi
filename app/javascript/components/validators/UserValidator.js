@@ -14,6 +14,7 @@ const UserSchema = ({front_validations: {email, password_confirmation}}) => {
     name: Yup.string(),
     known_as: RequiredBlankString,
     phone: Yup.string(),
+    photo: Yup.mixed(),
     password: RequiredBlankString,
     password_confirmation: ConfirmationString("password", password_confirmation)
   })

@@ -9,6 +9,7 @@ en:
         phone: 'Phone'
         password: 'Password'
         password_confirmation: 'Confirm password'
+        photo: 'Photo'
       front_validations:
         email:
           format: "Invalid format"

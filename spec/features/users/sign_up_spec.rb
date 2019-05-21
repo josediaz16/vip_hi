@@ -4,6 +4,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
   before do
     clear_emails
     create(:country, name: 'Colombia', code_iso: 'CO')
+    create(:role, name: 'celebrity')
     visit new_user_registration_path
   end
 
@@ -15,6 +16,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
+      attach_file "user[photo]",              file_fixture("profile_photo.jpg")
 
       click_button "Enviar"
 
@@ -26,6 +28,8 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       expect(user.email).to eq("pepito@mail.com")
       expect(user.name).to  eq("Pepito Perez")
       expect(user.known_as).to  eq("Ken Addams")
+      expect(user.roles.pluck(:name)).to eq ["celebrity"]
+      expect(user.photo.attached?).to be_truthy
       expect(page).to have_content("Buen trabajo, ahora confirma tu correo")
 
       open_email("pepito@mail.com")

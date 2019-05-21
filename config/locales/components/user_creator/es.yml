@@ -9,6 +9,7 @@ es:
         phone: 'Teléfono'
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
+        photo: 'Foto'
       front_validations:
         email:
           format: "El formato no es válido"

@@ -4,7 +4,7 @@ class Admins::CelebritiesController < ApplicationController
   end
 
   def create
-    result = Admins::Create.(celebrity_params)
+    result = Celebrities::Create.(celebrity_params)
 
     if result.success?
       flash[:success] = t("components.user_creator.alerts.create_resource", resource: t("resources.user"))
@@ -21,7 +21,7 @@ class Admins::CelebritiesController < ApplicationController
   def celebrity_params
     params
       .require(:user)
-      .permit(:name, :known_as, :password, :password_confirmation, :email, :country, :phone)
+      .permit(:name, :known_as, :password, :password_confirmation, :email, :country, :phone, :photo)
       .to_h.merge(confirmed_at: Time.now)
       .symbolize_keys
   end

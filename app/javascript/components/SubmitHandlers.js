@@ -11,6 +11,15 @@ const handleError = (errorConfig, formikBag, {responseJSON: {errors}}) => {
 
     error && formikBag.setFieldError(errorConfig[key], error.description)
   })
+
+  setTimeout(() => {
+    const {setStatus, isValid} = formikBag
+
+    if (!isValid) {
+      setStatus({showErrorAlert: true})
+      window.scrollTo(0, 0)
+    }
+  }, 100)
 }
 
 const onSubmit = (errorConfig) => {
@@ -24,7 +33,7 @@ const onSubmit = (errorConfig) => {
 
     makeRequest(form.action, method, formData)
       .then(changeLocation)
-      .catch(error => handleError.bind(errorConfig, formikBag, error))
+      .catch(error => handleError(errorConfig, formikBag, error) )
   }
 }
 

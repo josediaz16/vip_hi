@@ -29,4 +29,7 @@
     = form.password_field :password_confirmation
     = @presenter.content_error(:password_confirmation)
   %div
+    = form.label t("components.user_creator.labels.photo")
+    = form.file_field :photo
+  %div
     = form.submit t("components.user_creator.actions.submit")

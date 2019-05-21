@@ -8,6 +8,7 @@ RSpec.feature "POST /admins/celebrities/" do
 
   before do
     clear_emails
+    create(:role, name: 'celebrity')
     sign_in_user(admin.user)
   end
 
@@ -19,6 +20,8 @@ RSpec.feature "POST /admins/celebrities/" do
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
+
+      attach_file "user[photo]", file_fixture("profile_photo.jpg")
 
       select "Colombia", from: "user[country]"
 
@@ -32,6 +35,8 @@ RSpec.feature "POST /admins/celebrities/" do
       expect(user.known_as).to  eq("Ken Addams")
       expect(user.phone).to  eq("3245678900")
       expect(user.confirmed_at).not_to  be_blank
+      expect(user.photo.attached?).to be_truthy
+      expect(user.roles.pluck(:name)).to eq ["celebrity"]
       expect(page).to have_content("Se ha creado el usuario correctamente")
 
       expect(current_email).to be_nil

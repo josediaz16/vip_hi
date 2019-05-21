@@ -75,6 +75,13 @@ class UserForm extends React.Component {
             name="user[phone]"
             countryInputName="user[country]"
           />
+          <NativeInput
+            label={t.labels.password_confirmation}
+            type="file"
+            name="user[photo]"
+            value={user.photo}
+            onChange={handleChange}
+          />
 
           <button type="submit">{t.actions.submit}</button>
         </form>
@@ -95,7 +102,8 @@ class UserCreator extends React.Component {
       phone: '',
       password: '',
       password_confirmation: '',
-      country: 'CO'
+      country: 'CO',
+      photo: ''
     }
 
     this.formRef = React.createRef()
