@@ -32,6 +32,9 @@ gem 'dry-auto_inject'
 gem 'dry-validation'
 gem 'dry-transaction'
 
+# Elasticsearch
+gem 'searchkick'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
