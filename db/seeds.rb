@@ -21,3 +21,20 @@ ISO3166::Country.countries.each do |iso_country|
   end
 end
 puts "...finished creation of countries"
+
+puts "Creating roles..."
+Role.create!(name: 'celebrity')
+Role.create!(name: 'admin')
+Role.create!(name: 'fan')
+puts "...finished creation of roles"
+
+puts "Creating admin..."
+  puts Admins::Create.(
+    name: "The admin",
+    country: "CO",
+    email: "admin@viphi.com",
+    confirmed_at: Time.now,
+    password: "Adminvip_123",
+    password_confirmation: "Adminvip_123"
+  )
+puts "...finished creation of admin"

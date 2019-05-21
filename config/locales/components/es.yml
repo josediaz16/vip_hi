@@ -4,3 +4,4 @@ es:
       submit: 'Enviar'
     alerts:
       error: 'Tu formulario tiene errores, por favor no seas un idiota'
+      create_resource: 'Se ha creado el %{resource} correctamente'
