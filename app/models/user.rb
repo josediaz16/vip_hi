@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_one  :admin
   has_many :user_roles
   has_many :roles, through: :user_roles
+
+  has_one_attached :photo
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Users::Create do
+describe Celebrities::Create do
   let(:subject)  { described_class }
   let(:colombia) { create(:country) }
 
@@ -12,48 +12,34 @@ describe Users::Create do
       known_as: "therossatron",
       password: "mypassword",
       password_confirmation: "mypassword",
-      country: colombia.code_iso
+      country: colombia.code_iso,
+      photo: file_fixture("profile_photo.jpg").open
     }
   end
+
+  let!(:celebrity_role) { create(:role, name: "celebrity") }
 
   let(:response) { subject.(input) }
 
   context "All the fields are valid" do
-    context "Without photo" do
-      it "Should be success" do
+    it "Should be success" do
 
-        expect(response).to be_success
-        expect(User.count).to eq(1)
+      expect(response).to be_success
+      expect(User.count).to eq(1)
 
-        user = User.last
-        expect(response.success[:model]).to eq(user)
+      user = User.last
+      expect(response.success[:model]).to eq(user)
 
-        expect(user.email).to     eq input[:email]
-        expect(user.phone).to     eq input[:phone]
-        expect(user.name).to      eq input[:name]
-        expect(user.known_as).to  eq input[:known_as]
-        expect(user.country).to   eq colombia
-      end
-    end
+      expect(user.email).to     eq input[:email]
+      expect(user.phone).to     eq input[:phone]
+      expect(user.name).to      eq input[:name]
+      expect(user.known_as).to  eq input[:known_as]
+      expect(user.country).to   eq colombia
 
-    context "With photo" do
-      it "Should be success" do
-        photo = file_fixture("profile_photo.jpg").open
-        input.merge!(photo: photo)
+      expect(user.roles.count).to eq(1)
+      expect(user.roles.pluck(:name)).to eq ["celebrity"]
 
-        expect(response).to be_success
-        expect(User.count).to eq(1)
-
-        user = User.last
-        expect(response.success[:model]).to eq(user)
-
-        expect(user.email).to     eq input[:email]
-        expect(user.phone).to     eq input[:phone]
-        expect(user.name).to      eq input[:name]
-        expect(user.known_as).to  eq input[:known_as]
-        expect(user.country).to   eq colombia
-        expect(user.photo.attached?).to be_truthy
-      end
+      expect(user.photo.attached?).to be_truthy
     end
   end
 
@@ -70,24 +56,6 @@ describe Users::Create do
           code: "format",
           description: "debe ser un correo válido",
           value: "newuser.com",
-          extra: {}
-        }
-      ])
-    end
-  end
-
-  context "The known_as is missing" do
-    it "should be failure" do
-      input.merge!(known_as: "")
-      expect(response).to be_failure
-
-      expect(response.failure[:errors]).to match_array([
-        {
-          object_class: "user",
-          field: "known_as",
-          code: "blank",
-          description: "no puede estar vacío",
-          value: "",
           extra: {}
         }
       ])
