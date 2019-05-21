@@ -28,7 +28,7 @@ module AppConfig
 
     def included(base)
       base.include Dry::Transaction(**@options)
-      base.include InstanceMethods
+      base.prepend InstanceMethods
       base.extend  ClassMethods
     end
   end

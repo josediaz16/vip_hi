@@ -27,5 +27,7 @@ module Validators
       required(:name,       DTypes::String).filled
       optional(:known_as, DTypes::String).filled
     end.with(object_class: :user)
+
+    CreateAdmin = CreateFan.dup
   end
 end

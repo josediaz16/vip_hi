@@ -16,5 +16,12 @@ module Common
         transaction.failure &FailureHook
       end
     end
+
+    def self.plain_hooks
+      -> transaction do
+        transaction.success { |value| Dry::Monads::Success.new value }
+        transaction.failure { |value| Dry::Monads::Failure.new value }
+      end
+    end
   end
 end
