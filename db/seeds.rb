@@ -38,3 +38,61 @@ puts "Creating admin..."
     password_confirmation: "Adminvip_123"
   )
 puts "...finished creation of admin"
+
+puts "Creating Celebrities"
+  puts Celebrities::Create.(
+    name: "Juan Esteban Aristizabal",
+    country: "CO",
+    email: "juanes@viphi.com",
+    known_as: "Juanes",
+    confirmed_at: Time.now,
+    password: "default_pass_123",
+    password_confirmation: "default_pass_123",
+    biography: "cantante, compositor y músico colombiano de pop latino y rock en español que fusiona diversos ritmos musicales. También fue reconocido con varios Premios Grammy Latinos a lo largo de su carrera por exitosos álbumes como Mi sangre (2004)."
+  )
+
+  puts Celebrities::Create.(
+    name: "Shakira Isabel Mebarak",
+    country: "CO",
+    email: "shakira@viphi.com",
+    known_as: "Shakira",
+    confirmed_at: Time.now,
+    password: "default_pass_123",
+    password_confirmation: "default_pass_123",
+    biography: "cantautora, productora discográfica, bailarina, modelo, instrumentista, empresaria, actriz, embajadora de buena voluntad de la UNICEF, filántropa colombiana. Ha sido nombrada varias veces por Sony y Billboard con el sobrenombre de La Reina del Pop Latino."
+  )
+
+  puts Celebrities::Create.(
+    name: "Lina Tejeiro",
+    country: "CO",
+    email: "lina_tejeiro@viphi.com",
+    known_as: "Lina Tejeiro",
+    confirmed_at: Time.now,
+    password: "default_pass_123",
+    password_confirmation: "default_pass_123",
+    biography: "es una actriz colombiana, reconocida por actuar durante cinco años en la serie televisiva Padres e hijos en el papel de Sammy."
+  )
+
+  puts Celebrities::Create.(
+    name: "Alejandro fernandez",
+    country: "MX",
+    email: "alejandrofernandez@viphi.com",
+    known_as: "Alejandro Fernandez",
+    confirmed_at: Time.now,
+    password: "default_pass_123",
+    password_confirmation: "default_pass_123",
+    biography: "es un cantante mexicano de música ranchera, hijo del también cantante ranchero Vicente Fernández. En un principio se especializó en formas tradicionales de música regional mexicana1 como ranchera y mariachi. "
+  )
+
+  puts Celebrities::Create.(
+    name: "Lionel Messi",
+    country: "AR",
+    email: "leomessi@viphi.com",
+    known_as: "Leo messi",
+    confirmed_at: Time.now,
+    password: "default_pass_123",
+    password_confirmation: "default_pass_123",
+    biography: "es un futbolista argentino que juega como delantero o centrocampista. Ha desarrollado toda su carrera en el F. C. Barcelona de la Primera División de España y en la selección argentina, de la que es capitán"
+  )
+
+puts "...finished creation of celebrities"
