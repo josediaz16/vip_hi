@@ -5813,6 +5813,13 @@ react-modal@^3.8.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
+react-paginate@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-6.3.0.tgz#29cbb5d1645227f4e4f959b9d7f43cfae603f801"
+  integrity sha512-lT/ne7hZzctGDli4QzUAou0JjfZgxKmtl9/r30B5UVonICZIy1u0SrAkdlEZ5ubgzrOykBeCmxkTWi5IyPg4AQ==
+  dependencies:
+    prop-types "^15.6.1"
+
 react-phone-number-input@^2.3.11:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-2.3.11.tgz#103f6dc4578bdb39128a9ac8df4ae6952c193193"

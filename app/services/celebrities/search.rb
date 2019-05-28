@@ -4,13 +4,16 @@ module Celebrities
     match: :word_start,
     load: false,
     misspellings: {below: 5},
-    suggest: true
+    suggest: true,
+    per_page: 2
   }
 
   Search = -> query, options = Hash.new do
-    searchkick = Celebrity.search(query, DefaultOptions.merge(options))
+    searchkick = Celebrity.search(query, DefaultOptions.merge(options.symbolize_keys))
+
     {
       results: JsonResults.(searchkick),
+      pages: searchkick.total_pages,
       suggestions: FilterSuggestions.(searchkick.suggestions, query)
     }
   end

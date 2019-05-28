@@ -18,6 +18,6 @@ class CelebritiesController < ApplicationController
   end
 
   def search_celebrities
-    Celebrities::Search.(params[:query])
+    Celebrities::Search.(params[:query], params.permit(:page, :per_page).to_h)
   end
 end
