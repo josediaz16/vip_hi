@@ -11,9 +11,11 @@
     "prop-types": "^15.7.2",
     "rails-ujs": "^5.2.3",
     "react": "^16.8.6",
+    "react-autosuggest": "^9.4.3",
     "react-dom": "^16.8.6",
     "react-phone-number-input": "^2.3.11",
     "react_ujs": "^2.5.0",
+    "throttle-debounce": "^2.1.0",
     "yup": "^0.27.0"
   },
   "devDependencies": {

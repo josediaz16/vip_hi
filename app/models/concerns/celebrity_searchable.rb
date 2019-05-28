@@ -16,6 +16,7 @@ module CelebritySearchable
         known_as: user.known_as,
         biography: biography,
         country: user.country.name,
+        code_iso: user.country.code_iso,
         photo_url: Rails.application.routes.url_helpers.rails_blob_path(user.photo, only_path: true)
       }
     end
