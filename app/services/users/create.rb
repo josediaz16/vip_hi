@@ -11,7 +11,7 @@ module Users
     tee  :attach_photo
 
     def attach_photo(input)
-      Common::UploadUtils.upload_file input.dig(:original, :photo), input[:model].photo
+      Common::UploadUtils.upload_file input.dig(:original, :photo), input[:model].photo, content_type: "image/*"
     end
 
   end

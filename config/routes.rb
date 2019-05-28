@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :celebrities, only: [:new]
+  resources :celebrities, only: [:new, :index]
   namespace :admins do
     resources :celebrities, only: [:new, :create, :index]
   end

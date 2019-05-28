@@ -5,7 +5,7 @@ module Common
       if file.kind_of?(IO)
         uploadable.attach(io: file, filename: File.extname(file.path))
       elsif file.is_a?(Tempfile)
-        uploadable.attach(io: file, filename: File.extname(file.path), content_type: content_type)
+        uploadable.attach(io: file, filename: file.path, content_type: content_type)
       elsif file.present?
         uploadable.attach(file)
       end
