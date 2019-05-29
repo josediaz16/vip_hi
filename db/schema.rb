@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_202151) do
+ActiveRecord::Schema.define(version: 2019_05_29_231909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 2019_05_21_202151) do
     t.index ["name"], name: "index_countries_on_name", unique: true
   end
 
+  create_table "message_requests", force: :cascade do |t|
+    t.text "brief", default: "", null: false
+    t.string "to", default: "", null: false
+    t.string "from", default: "", null: false
+    t.string "email_to", default: "", null: false
+    t.bigint "celebrity_id"
+    t.index ["celebrity_id"], name: "index_message_requests_on_celebrity_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
@@ -105,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_05_21_202151) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admins", "users"
   add_foreign_key "celebrities", "users"
+  add_foreign_key "message_requests", "celebrities"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
   add_foreign_key "users", "countries"
