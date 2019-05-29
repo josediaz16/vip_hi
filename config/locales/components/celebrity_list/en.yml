@@ -1,0 +1,8 @@
+en:
+  components:
+    celebrity_list:
+      pagination: :components.pagination
+      labels:
+        did_you_mean: 'Did you mean'
+      placeholders:
+        search: 'Search by name or country'

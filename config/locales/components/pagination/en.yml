@@ -1,0 +1,6 @@
+en:
+  components:
+    pagination:
+      labels:
+        next: 'Next'
+        previous: 'Previous'

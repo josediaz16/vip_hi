@@ -1,0 +1,8 @@
+es:
+  components:
+    celebrity_list:
+      pagination: :components.pagination
+      labels:
+        did_you_mean: 'Quisiste decir'
+      placeholders:
+        search: 'Busca celebridad o país'

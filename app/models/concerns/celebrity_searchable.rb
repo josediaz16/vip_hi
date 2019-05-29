@@ -5,7 +5,8 @@ module CelebritySearchable
     searchkick(
       callbacks: false,
       word_start: [:name, :known_as, :country],
-      suggest: [:name, :known_as, :country]
+      suggest: [:name, :known_as, :country],
+      index_name: -> { "celebrities_#{Rails.env}" }
     )
 
     scope :search_import, -> { includes(user: :country) }
@@ -17,7 +18,7 @@ module CelebritySearchable
         biography: biography,
         country: user.country.name,
         code_iso: user.country.code_iso,
-        photo_url: Rails.application.routes.url_helpers.rails_blob_path(user.photo, only_path: true)
+        photo_url: Common::UploadUtils.get_attachment_url(user.photo)
       }
     end
   end

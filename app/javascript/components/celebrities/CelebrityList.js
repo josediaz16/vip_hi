@@ -66,10 +66,11 @@ class CelebrityList extends React.Component {
 
   render() {
     const { search, searchText } = this.state
-    const { search_url } = this.props
+    const { search_url, t } = this.props
 
     const inputProps = {
-      placeholder: "Search...",
+      id: "search_celebrity",
+      placeholder: t.placeholders.search,
       value: searchText,
       onChange: this.onChangeInput
     }
@@ -87,7 +88,7 @@ class CelebrityList extends React.Component {
 
         { search.suggestions.length > 0 &&
           <div className="suggestions">
-            <span>Did you mean? </span>
+            <span>{`${t.labels.did_you_mean}? `}</span>
             <a onClick={this.onSuggestionSelected.bind(this, search.suggestions[0])}>
               {search.suggestions[0]}
             </a>
@@ -98,7 +99,7 @@ class CelebrityList extends React.Component {
           {
             search.results.map((item, index) => {
               return (
-                <div key={index} style={{display: "inline-block"}}>
+                <div id={`celebrity_${item.id}`} key={index} style={{display: "inline-block"}}>
                   <img src={item.photo_url} style={{width: "200px", height: "200px"}}/>
                   <h4>{item.known_as}</h4>
                   <p>{item.biography}</p>
@@ -110,13 +111,14 @@ class CelebrityList extends React.Component {
         </div>
 
         <ReactPaginate
-          previousLabel={'Previous'}
-          nextLabel={'Next'}
+          previousLabel={t.pagination.labels.previous}
+          nextLabel={t.pagination.labels.next}
           breakLabel='...'
           pageCount={search.pages}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={this.handlePageClick}
+          containerClassName={'pagination'}
         />
 
       </div>
