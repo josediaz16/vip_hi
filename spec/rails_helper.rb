@@ -72,7 +72,8 @@ RSpec.configure do |config|
   Capybara.server = :puma, { Silent: true }
   Capybara.register_driver :selenium_chrome do |app|
     caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: {args: %w(headless disable-gpu no-sandbox)}
+      chromeOptions: {args: %w(headless disable-gpu no-sandbox)},
+      loggingPrefs:  {browser: 'ALL'}
     )
 
     Capybara::Selenium::Driver.new(nil, browser: :remote, url: "http://selenium:4444/wd/hub", desired_capabilities: caps).tap do |driver|

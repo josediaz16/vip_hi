@@ -10,9 +10,6 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
         photo: 'Foto'
-      front_validations:
-        email:
-          format: "El formato no es válido"
-        password_confirmation: 'Las contraseñas deben coincidir'
+      front_validations: :components.front_validations
       actions: :components.actions
       alerts: :components.alerts

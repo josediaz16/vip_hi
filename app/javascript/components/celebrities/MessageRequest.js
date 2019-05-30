@@ -19,6 +19,7 @@ class MessageRequestForm extends React.Component {
       errors:  {message_request: mrErrors={}},
       touched: {message_request: mrTouched={}},
       t,
+      celebrity_id,
       message_request_url,
       actionText,
       onSubmit,
@@ -63,6 +64,7 @@ class MessageRequestForm extends React.Component {
             onChange={handleChange}
             error={mrTouched.brief && mrErrors.brief}
           />
+          <input type="hidden" name="message_request[celebrity_id]" value={celebrity_id}/>
 
           <button type="submit">{t.actions.submit}</button>
         </form>
@@ -85,7 +87,7 @@ class MessageRequest extends React.Component {
 
     this.formRef = React.createRef()
     this.EnhancedForm = MRValidator(
-      props.t,
+      props.t.front_validations,
       onSubmit({
       })
     )

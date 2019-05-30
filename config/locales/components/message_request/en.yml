@@ -8,3 +8,4 @@ en:
         email_to: 'Send to email'
       alerts: :components.alerts
       actions: :components.actions
+      front_validations: :components.front_validations

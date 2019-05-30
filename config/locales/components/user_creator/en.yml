@@ -10,9 +10,6 @@ en:
         password: 'Password'
         password_confirmation: 'Confirm password'
         photo: 'Photo'
-      front_validations:
-        email:
-          format: "Invalid format"
-        password_confirmation: 'Passwords must match'
+      front_validations: :components.front_validations
       actions: :components.actions
       alerts: :components.alerts

@@ -75,7 +75,7 @@ class UserForm extends React.Component {
             countryInputName="user[country]"
           />
           <NativeInput
-            label={t.labels.password_confirmation}
+            label={t.labels.photo}
             type="file"
             name="user[photo]"
             value={user.photo}

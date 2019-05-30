@@ -6,11 +6,11 @@ import {
   BuildValidator
 } from './Base'
 
-const MRSchema = (t) => {
+const MRSchema = ({email: {format: emailFormat}}) => {
   return ValidationSchema("message_request", {
     from: RequiredBlankString,
     to: RequiredBlankString,
-    email_to: RequiredEmail("Dime a quien se lo envío pendejo"),
+    email_to: RequiredEmail(emailFormat),
     brief: RequiredBlankString,
     celebrity_id: Yup.number().required("__blank__")
   })
