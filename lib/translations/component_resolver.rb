@@ -6,7 +6,7 @@ module Translations
       case value
       when String, Symbol
         if value.to_s.match(/components\.\w+/).present?
-          hash[key] = I18n.t("#{root}.#{key}")
+          hash[key] = ComponentResolver.(value)
         else
           hash[key] = value
         end
