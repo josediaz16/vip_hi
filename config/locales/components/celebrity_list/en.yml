@@ -6,3 +6,5 @@ en:
         did_you_mean: 'Did you mean'
       placeholders:
         search: 'Search by name or country'
+      actions:
+        request_message: 'Request a message'

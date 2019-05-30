@@ -1,7 +1,11 @@
 class CelebritiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def new
+  end
+
+  def show
+    @presenter = Presenters::CelebritiesPresenter.new Celebrity.find(params[:id])
   end
 
   def index
@@ -14,10 +18,14 @@ class CelebritiesController < ApplicationController
   private
 
   def render_component
-    @initial_results = Celebrities::Search.("*")
+    @initial_results = Celebrities::Search.("*", &add_celebrity_path)
   end
 
   def search_celebrities
-    Celebrities::Search.(params[:query], params.permit(:page, :per_page).to_h)
+    Celebrities::Search.(params[:query], params.permit(:page, :per_page).to_h, &add_celebrity_path)
+  end
+
+  def add_celebrity_path
+    -> result { result.merge detail_path: celebrity_path(result["id"]) }
   end
 end

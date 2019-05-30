@@ -1,0 +1,4 @@
+en:
+  components:
+    celebrity_profile:
+      message_request: :components.message_request

@@ -6,3 +6,5 @@ es:
         did_you_mean: 'Quisiste decir'
       placeholders:
         search: 'Busca celebridad o país'
+      actions:
+        request_message: 'Pide un mensaje'

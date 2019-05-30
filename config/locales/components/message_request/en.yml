@@ -1,0 +1,10 @@
+en:
+  components:
+    message_request:
+      labels:
+        from: 'From'
+        to: 'To'
+        brief: 'Instructions'
+        email_to: 'Send to email'
+      alerts: :components.alerts
+      actions: :components.actions

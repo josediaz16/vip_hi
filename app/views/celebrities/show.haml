@@ -1,0 +1,6 @@
+%h1 Celebrity Profile
+
+= react_component("celebrities/CelebrityProfile",
+  { celebrity: @presenter.json_data,
+    t: component_translations("celebrity_profile", deep_resolve: true),
+    message_request_url: celebrity_message_requests_path(@presenter.id)})

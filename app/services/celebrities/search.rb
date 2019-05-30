@@ -8,20 +8,21 @@ module Celebrities
     per_page: 2
   }
 
-  Search = -> query, options = Hash.new do
+  Search = -> query, options = Hash.new, &block do
     searchkick = Celebrity.search(query, DefaultOptions.merge(options.symbolize_keys))
 
     {
-      results: JsonResults.(searchkick),
+      results: JsonResults.(searchkick, &block),
       pages: searchkick.total_pages,
       suggestions: FilterSuggestions.(searchkick.suggestions, query)
     }
   end
 
-  JsonResults = -> results do
+  JsonResults = -> results, &block do
     results
       .as_json
       .map { |result| result.except("_index", "_type", "_id") }
+      .map(&block)
   end
 
   FilterSuggestions = -> suggestions, query do
