@@ -6,6 +6,6 @@ module Validators
       required(:brief,        DTypes::String).value(size?: 20..700)
       required(:celebrity_id, DTypes::Integer).filled
       optional(:from,         DTypes::String).value(:str?)
-    end
+    end.with(object_class: :message_request)
   end
 end
