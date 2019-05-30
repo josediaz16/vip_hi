@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :celebrity do
+  factory :message_request do
     from     { Faker::Name.name }
     to       { Faker::Name.name }
     email_to { Faker::Internet.email }

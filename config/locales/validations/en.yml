@@ -18,6 +18,9 @@ en:
     included_in?:
       arg:
         default: "inclusion~must be one of: %{list}"
+    size?:
+      arg:
+        range: "size~must have between %{size_left} and %{size_right} chars"
 
     rules:
       user:

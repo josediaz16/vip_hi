@@ -19,6 +19,9 @@ es:
     included_in?:
       arg:
         default: "inclusion~debe ser alguna de estas opciones: %{list}"
+    size?:
+      arg:
+        range: "size~debe tener entre %{size_left} y %{size_right} caracteres"
 
     rules:
       user:
