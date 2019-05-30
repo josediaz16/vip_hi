@@ -9,7 +9,6 @@ import Alert         from 'components/Alert'
 
 import { onSubmit }  from 'components/SubmitHandlers'
 
-
 class UserForm extends React.Component {
   render() {
     const {

@@ -104,6 +104,7 @@ class CelebrityList extends React.Component {
                   <h4>{item.known_as}</h4>
                   <p>{item.biography}</p>
                   <span>{item.country}</span>
+                  <a href={item.detail_path}>{t.actions.request_message}</a>
                 </div>
               )
             })

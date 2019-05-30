@@ -7,7 +7,6 @@ import {
   BuildValidator
 } from './Base'
 
-
 const UserSchema = ({front_validations: {email, password_confirmation}}) => {
   return ValidationSchema("user", {
     email: RequiredEmail(email.format),
