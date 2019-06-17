@@ -29,13 +29,13 @@ class NativeInput extends React.Component {
     } = this.props
 
     const inputClass = classNames({"field-error": error})
+
     return(
       <InputContainer {...otherProps}>
         { children && strongChildren(children, {className: inputClass, ...inputProps}) }
 
         { !children && <input type="text" className={inputClass} {...inputProps}/> }
         <ErrorMessage error={error}/>
-
       </InputContainer>
     )
   }

@@ -1,0 +1,19 @@
+/*######################################################
+# INPUTS
+######################################################*/
+
+input,
+select,
+textarea {
+  transition: all 0.5s ease-out 0s;
+  border: 1px solid $primary-light-gray;
+  color: $primary-dark-gray;
+  font-size:  0.875rem;
+  border-radius: 22px;
+  padding: 9px 12px;
+  outline: none;
+
+  &:focus {
+    border: 1px solid $primary-normal-pink;
+  }
+}
