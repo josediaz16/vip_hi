@@ -1,0 +1,50 @@
+/*######################################################
+# ONBOARDING WRAPPER
+######################################################*/
+
+.onboarding-wrapper {
+  grid-template-columns: 2fr 3fr;
+  margin: 0 auto;
+  display: grid;
+  height: 100vh;
+
+  .form-container {
+    background: $primary-light-white;
+    justify-content: right;
+    display: grid;
+
+    .std-box {
+      margin-right: -80px;
+      margin-top: 50px; //Remove this
+      width: 400px;
+    }
+  }
+
+  .big-instructions-box {
+    background-image: asset-url('instructions_background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .box {
+    box-shadow: 0 6px 10px 0 rgba(183, 183, 183, 0.5);
+    transition: all 0.5s ease-out 0s;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: #fff;
+
+    h2 {
+      color: $primary-normal-pink;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+
+  .std-box {
+    @extend .box;
+    padding: 25px 37px;
+  }
+}
