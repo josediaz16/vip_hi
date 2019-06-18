@@ -1,17 +1,30 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.onboarding-wrapper
+  .form-container
+    %img.logo{src: asset_path("logo.png") }
+
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "std-box justify-self-right fix-height form-wrapper"}) do |f|
+      %h2 Log in
+
+      .inputs
+        .input-wrapper
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .input-wrapper
+          = f.label :password
+          = f.password_field :password, autocomplete: "current-password"
+        %a.primary-link#forgot_passwd{href: new_password_path(resource_name)}
+          I forgot my password
+
+      .bottom
+        = f.submit "Log in", class: "button-primary"
+
+        .span-link
+          %span Don't have an account?
+          %a.primary-link.underline-link{href: new_registration_path(resource_name)}
+            Sign up here
+
+  .big-instructions-box
+    %h1
+      Welcome
+      %strong Back!
+    %p Let's create perfect messages <br> from your favorite celebrities

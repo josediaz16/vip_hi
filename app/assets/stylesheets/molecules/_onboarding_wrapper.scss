@@ -11,16 +11,31 @@
   .form-container {
     background: $primary-light-white;
     padding: 20px 0 0 20px;
+    align-content: start;
     display: grid;
 
     img.logo {
       width: 125px;
+      margin-bottom: 5px;
     }
 
     .std-box {
       margin-right: -80px;
-      width: 400px;
+      width: 320px;
+
+      &.fix-height {
+        align-content: space-around;
+        min-height: 460px;
+        display: grid;
+      }
+
     }
+
+    #forgot_passwd {
+      text-align: right;
+      display: block;
+    }
+
   }
 
   .big-instructions-box {
@@ -29,7 +44,7 @@
     background-size: cover;
     z-index: -1;
 
-    padding: 285px 181px;
+    padding: 240px 0 0 181px;
 
     h1 {
       font-weight: bold;
