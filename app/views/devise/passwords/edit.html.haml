@@ -1,0 +1,27 @@
+.onboarding-wrapper
+  .form-container
+    %img.logo{src: asset_path("logo.png") }
+
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: "std-box justify-self-right fix-height form-wrapper"}) do |f|
+      .head
+        %h2 Change password
+        %p.instructions Please write and confirm your <br> new password to come back
+
+      .inputs
+        = f.hidden_field :reset_password_token
+
+        .input-wrapper
+          = f.label :password, "New password"
+          = f.password_field :password, autofocus: true, autocomplete: "new-password"
+
+        .input-wrapper
+          = f.label :password_confirmation, "Confirm new password"
+          = f.password_field :password_confirmation, autocomplete: "off"
+      .bottom
+        = f.submit "Change", class: "button-primary"
+
+  .big-instructions-box
+    %h1
+      A new
+      %strong one
+    %p This one easily to remember <br> and difficult to guess
