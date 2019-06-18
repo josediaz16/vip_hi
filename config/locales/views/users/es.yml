@@ -16,3 +16,16 @@ es:
             html: 'Hola <strong>de nuevo!</strong>'
           text:
             html: "Crea mensajes asombrosos <br> de tus celebridades favoritas"
+
+    passwords:
+      new:
+        title: 'Reestablecer contraseña'
+        instructions:
+          html: 'Por favor escribe tu email y te enviaremos<br> un correo para recuperar tu contraseña'
+        actions:
+          reset: 'Enviar'
+        big_box:
+          title:
+            html: 'No hay <strong>problema!</strong>'
+          text:
+            html: "Recuperaremos tu contraseña <br> con solo un click"

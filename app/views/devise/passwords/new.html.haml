@@ -4,18 +4,16 @@
 
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post, class: "std-box justify-self-right fix-height form-wrapper"}) do |f|
       .head
-        %h2 Reset password
-        %p.instructions Please write your email and we will send <br> you an email to recover your password
+        %h2= t("users.passwords.new.title")
+        %p.instructions= t("users.passwords.new.instructions.html")
 
       .inputs
         .input-wrapper
-          = f.label :email
+          = f.label t("users.sessions.new.labels.email")
           = f.email_field :email, autofocus: true, autocomplete: "email"
       .bottom
-        = f.submit "Reset", class: "button-primary"
+        = f.submit t("users.passwords.new.actions.reset"), class: "button-primary"
 
   .big-instructions-box
-    %h1
-      No
-      %strong worries!
-    %p We will recover your password <br> in just a click
+    %h1= t("users.passwords.new.big_box.title.html")
+    %p= t("users.passwords.new.big_box.text.html")
