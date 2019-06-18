@@ -1,0 +1,18 @@
+es:
+  users:
+    sessions:
+      new:
+        labels:
+          email: 'Email'
+          password: 'Contraseña'
+        links:
+          forgot_password: 'Olvidé mi contraseña'
+          sign_up_here: 'Crea una aquí'
+          dont_have_account: "No tienes cuenta?"
+        actions:
+          log_in: 'Inicia sesión'
+        instructions:
+          title:
+            html: 'Hola <strong>de nuevo!</strong>'
+          text:
+            html: "Crea mensajes asombrosos <br> de tus celebridades favoritas"

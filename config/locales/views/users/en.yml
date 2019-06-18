@@ -1,0 +1,18 @@
+en:
+  users:
+    sessions:
+      new:
+        labels:
+          email: 'Email'
+          password: 'Password'
+        links:
+          forgot_password: 'I forgot my password'
+          sign_up_here: 'Sign up here'
+          dont_have_account: "Don't have an account?"
+        actions:
+          log_in: 'Log in'
+        instructions:
+          title:
+            html: 'Welcome <strong>Back!</strong>'
+          text:
+            html: "Let's create perfect messages <br> from your favorite celebrities"
