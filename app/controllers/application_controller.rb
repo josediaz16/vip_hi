@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_language
+
+  def set_language
+    I18n.locale = params[:lang] || :es
+  end
 
   def after_sign_in_path_for(user)
     options = {
@@ -22,6 +27,9 @@ class ApplicationController < ActionController::Base
     else
       render json: result.failure, status: 422
     end
+  end
 
+  def default_url_options
+    {lang: I18n.locale}
   end
 end

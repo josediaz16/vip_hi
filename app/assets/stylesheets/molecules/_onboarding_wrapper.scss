@@ -1,0 +1,94 @@
+/*######################################################
+# ONBOARDING WRAPPER
+######################################################*/
+
+.onboarding-wrapper {
+  grid-template-columns: 2fr 3fr;
+  margin: 0 auto;
+  display: grid;
+  height: 100vh;
+
+  .form-container {
+    background: $primary-light-white;
+    padding: 20px 0 0 20px;
+    align-content: start;
+    display: grid;
+
+    img.logo {
+      margin-bottom: 5px;
+      cursor: pointer;
+      width: 125px;
+    }
+
+    .std-box {
+      margin-right: -80px;
+      width: 320px;
+
+      &.fix-height {
+        align-content: space-around;
+        min-height: 460px;
+        display: grid;
+      }
+    }
+
+    p.instructions {
+      text-align: center;
+      font-size: 12px;
+      color: #979797;
+    }
+
+    #forgot_passwd {
+      text-align: right;
+      display: block;
+    }
+
+  }
+
+  .big-instructions-box {
+    background-image: asset-url('instructions_background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+
+    padding: 240px 0 0 181px;
+
+    h1 {
+      font-weight: bold;
+      color: #fff;
+
+      strong {
+        color: $primary-normal-pink;
+      }
+    }
+
+    p {
+      line-height: 2.25rem;
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+// Move this to boxes atoms
+  .box {
+    box-shadow: 0 6px 10px 0 rgba(183, 183, 183, 0.5);
+    transition: all 0.5s ease-out 0s;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: #fff;
+
+    h2 {
+      color: $primary-normal-pink;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+
+  .std-box {
+    @extend .box;
+    padding: 25px 37px;
+  }
+}

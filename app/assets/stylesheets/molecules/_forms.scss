@@ -1,0 +1,47 @@
+/*######################################################
+# FORMS
+######################################################*/
+
+.input-wrapper {
+  align-items: center;
+  margin-bottom: 10px;
+  display: grid;
+  width: 100%;
+
+  label {
+    margin-bottom: 2px;
+  }
+
+  span.input-hint {
+    transition: all 0.5s ease-out 0s;
+    display: none;
+  }
+
+  span.field-error {
+    color: red;
+  }
+
+  input {
+    &.field-error {
+      border: 1px solid $message-error;
+    }
+
+    &:focus + span.input-hint {
+      display: block;
+    }
+
+    &:focus ~ span.field-error ~ span.input-hint {
+      display: none;
+    }
+  }
+
+}
+
+form.form-wrapper {
+  input[type="submit"],
+  button[type="submit"] {
+    margin: 20px auto 0;
+    display: block;
+    width: 85%;
+  }
+}

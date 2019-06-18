@@ -25,20 +25,12 @@ class UserForm extends React.Component {
     } = this.props
 
     return (
-      <React.Fragment>
-        <h2>Sign up</h2>
+      <div className="std-box">
+        <h2>Create account</h2>
         {
-          showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
+          showErrorAlert && <Alert alertClass="alert-error" message={t.alerts.error} onClose={onCloseAlert}/>
         }
-        <form action={url} ref={formRef} onSubmit={onSubmit} noValidate>
-          <NativeInput
-            label={t.labels.email}
-            type="email"
-            name="user[email]"
-            value={user.email}
-            onChange={handleChange}
-            error={userTouched.email && userErrors.email}
-          />
+        <form className="form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
           <NativeInput
             label={t.labels.name}
             name="user[name]"
@@ -51,6 +43,15 @@ class UserForm extends React.Component {
             value={user.known_as}
             onChange={handleChange}
             error={userTouched.known_as && userErrors.known_as}
+            hint="Tu nombre artistico"
+          />
+          <NativeInput
+            label={t.labels.email}
+            type="email"
+            name="user[email]"
+            value={user.email}
+            onChange={handleChange}
+            error={userTouched.email && userErrors.email}
           />
           <NativeInput
             label={t.labels.password}
@@ -82,9 +83,9 @@ class UserForm extends React.Component {
             onChange={handleChange}
           />
 
-          <button type="submit">{t.actions.submit}</button>
+          <button className="button-primary" type="submit">{t.actions.submit}</button>
         </form>
-      </React.Fragment>
+      </div>
     )
   }
 }

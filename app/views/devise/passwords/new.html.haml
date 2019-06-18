@@ -1,0 +1,22 @@
+.onboarding-wrapper
+  = render "devise/shared/error_messages"
+
+  .form-container
+    %a{href: root_path}
+      %img.logo{src: asset_path("logo.png") }
+
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post, class: "std-box justify-self-right fix-height form-wrapper"}) do |f|
+      .head
+        %h2= t("users.passwords.new.title")
+        %p.instructions= t("users.passwords.new.instructions.html")
+
+      .inputs
+        .input-wrapper
+          = f.label t("users.sessions.new.labels.email")
+          = render "atoms/stateful_input", name: "user[email]", autoFocus: true, autoComplete: "email"
+      .bottom
+        = f.submit t("users.passwords.new.actions.reset"), class: "button-primary"
+
+  .big-instructions-box
+    %h1= t("users.passwords.new.big_box.title.html")
+    %p= t("users.passwords.new.big_box.text.html")

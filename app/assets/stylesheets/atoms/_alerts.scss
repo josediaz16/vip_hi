@@ -1,0 +1,52 @@
+.alert-wrapper,
+div.alert-wrapper {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 3;
+  top: 5px;
+  left: 0;
+}
+
+div.alert {
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  border: none;
+
+  p,
+  button {
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+  }
+
+  button {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+
+  svg {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin-left: 10px;
+    height: 15px;
+    width: 15px;
+    fill: #fff;
+  }
+
+  &.alert-error,
+  &.alert-alert {
+    background: $message-error;
+  }
+
+  &.alert-success,
+  &.alert-notice {
+    background: $message-success;
+  }
+}

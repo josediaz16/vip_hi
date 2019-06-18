@@ -4,13 +4,13 @@ import PropTypes from "prop-types"
 import Label from 'components/inputs/Label'
 import Hint from 'components/inputs/Hint'
 
-const InputContainer = ({label, icon, hint, children}) => {
+const InputContainer = ({wrapperClass, label, icon, hint, children}) => {
+  const divClass = wrapperClass || "input-wrapper"
   return (
-    <div className="control-block">
+    <div className={divClass}>
       { label && <Label label={label} icon={icon} /> }
-      { hint && <Hint value={hint}/> }
-
       {children}
+      { hint && <Hint value={hint}/> }
     </div>
   );
 }
