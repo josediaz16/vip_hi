@@ -5,7 +5,5 @@
 
     = react_component("users/UserCreator", {t: component_translations("user_creator"), url: user_registration_path}, {class: "justify-self-right"})
   .big-instructions-box
-    %h1
-      Hello
-      %strong there!
-    %p We connect you <br> with you favorite celebrities
+    %h1= t("users.registrations.new.big_box.title.html")
+    %p= t("users.registrations.new.big_box.text.html")

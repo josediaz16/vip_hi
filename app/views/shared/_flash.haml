@@ -1,2 +1,4 @@
-- flash.each do |key, value|
-  = flash_box(key, value)
+- if flash.any?
+  - key, message = flash.first
+
+  = react_component("Alert", {message: message, alertClass: "alert-#{key}"}, {style: "position: fixed;"})

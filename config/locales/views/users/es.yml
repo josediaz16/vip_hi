@@ -17,6 +17,14 @@ es:
           text:
             html: "Crea mensajes asombrosos <br> de tus celebridades favoritas"
 
+    registrations:
+      new:
+        big_box:
+          title:
+            html: 'Hola, <strong>bienvenid@!</strong>'
+          text:
+            html: "Te conectamos con<br>tus celebridades favoritas"
+
     passwords:
       new:
         title: 'Reestablecer contraseña'

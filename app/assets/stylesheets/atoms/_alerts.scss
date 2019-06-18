@@ -40,11 +40,13 @@ div.alert {
     fill: #fff;
   }
 
-  &.alert-error {
+  &.alert-error,
+  &.alert-alert {
     background: $message-error;
   }
 
-  &.alert-success {
+  &.alert-success,
+  &.alert-notice {
     background: $message-success;
   }
 }

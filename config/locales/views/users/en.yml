@@ -17,6 +17,14 @@ en:
           text:
             html: "Let's create perfect messages <br> from your favorite celebrities"
 
+    registrations:
+      new:
+        big_box:
+          title:
+            html: 'Hello <strong>there!</strong>'
+          text:
+            html: "We connect you <br>with your favorite celebrities"
+
     passwords:
       new:
         title: 'Reset password'
