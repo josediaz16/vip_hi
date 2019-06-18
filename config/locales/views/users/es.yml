@@ -11,7 +11,7 @@ es:
           dont_have_account: "No tienes cuenta?"
         actions:
           log_in: 'Inicia sesión'
-        instructions:
+        big_box:
           title:
             html: 'Hola <strong>de nuevo!</strong>'
           text:

@@ -17,3 +17,21 @@ textarea {
     border: 1px solid $primary-normal-pink;
   }
 }
+
+div.stateful-input {
+  display: inline-block;
+  position: relative;
+
+  input {
+    width: -webkit-fill-available;
+  }
+
+  svg.icon {
+    background: #a5adba;
+    position: absolute;
+    cursor: pointer;
+    fill: #fff;
+    right: 5%;
+    top: 25%;
+  }
+}

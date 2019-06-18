@@ -8,10 +8,10 @@
       .inputs
         .input-wrapper
           = f.label t("users.sessions.new.labels.email")
-          = f.email_field :email, autofocus: true, autocomplete: "email"
+          = render "atoms/stateful_input", name: "user[email]", autoFocus: true, autoComplete: "email"
         .input-wrapper
           = f.label t("users.sessions.new.labels.password")
-          = f.password_field :password, autocomplete: "current-password"
+          = render "atoms/stateful_input", name: "user[password]", autoComplete: "current-password", type: "password"
         %a.primary-link#forgot_passwd{href: new_password_path(resource_name)}
           = t("users.sessions.new.links.forgot_password")
 

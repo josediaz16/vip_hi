@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import classNames from 'classnames'
+
 import Svg from '../../../assets/images/icons.svg'
 
 // This is necessary for testing purposes for now.
@@ -15,10 +17,12 @@ else {
 
 class Icon extends React.Component {
   render () {
-    const { icon } = this.props
+    const { icon, className, onClick } = this.props
+
+    const iconClass = classNames('icon', `icon-${icon}`, className)
 
     return (
-      <svg className={`icon icon-${icon}`}>
+      <svg className={iconClass} onClick={onClick}>
         <use xlinkHref={`${svgPath}#icon-${icon}`}/>
       </svg>
     );

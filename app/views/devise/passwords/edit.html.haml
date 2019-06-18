@@ -12,11 +12,11 @@
 
         .input-wrapper
           = f.label :password, t("users.passwords.edit.labels.new_password")
-          = f.password_field :password, autofocus: true, autocomplete: "new-password"
+          = render "atoms/stateful_input", name: "user[password]", autoComplete: "new-password", autoFocus: true, type: "password"
 
         .input-wrapper
           = f.label :password_confirmation, t("users.passwords.edit.labels.confirm_password")
-          = f.password_field :password_confirmation, autocomplete: "off"
+          = render "atoms/stateful_input", name: "user[password_confirmation]", autoComplete: "off", type: "password"
       .bottom
         = f.submit t("users.passwords.edit.actions.change"), class: "button-primary"
 

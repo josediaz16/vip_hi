@@ -10,7 +10,7 @@
       .inputs
         .input-wrapper
           = f.label t("users.sessions.new.labels.email")
-          = f.email_field :email, autofocus: true, autocomplete: "email"
+          = render "atoms/stateful_input", name: "user[email]", autoFocus: true, autoComplete: "email"
       .bottom
         = f.submit t("users.passwords.new.actions.reset"), class: "button-primary"
 
