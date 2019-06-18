@@ -29,3 +29,18 @@ es:
             html: 'No hay <strong>problema!</strong>'
           text:
             html: "Recuperaremos tu contraseña <br> con solo un click"
+
+      edit:
+        title: 'Cambiar contraseña'
+        instructions:
+          html: 'Por favor escribe y confirma tu <br> nueva contraseña para ingresar'
+        labels:
+          new_password: 'Nueva contraseña'
+          confirm_password: 'Confirma nueva contraseña'
+        actions:
+          change: 'Cambiar'
+        big_box:
+          title:
+            html: 'Una <strong>nueva</strong>'
+          text:
+            html: "Debe ser fácil de recordar <br> y difícil de adivinar"

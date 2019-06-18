@@ -4,24 +4,22 @@
 
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: "std-box justify-self-right fix-height form-wrapper"}) do |f|
       .head
-        %h2 Change password
-        %p.instructions Please write and confirm your <br> new password to come back
+        %h2= t("users.passwords.edit.title")
+        %p.instructions= t("users.passwords.edit.instructions.html")
 
       .inputs
         = f.hidden_field :reset_password_token
 
         .input-wrapper
-          = f.label :password, "New password"
+          = f.label :password, t("users.passwords.edit.labels.new_password")
           = f.password_field :password, autofocus: true, autocomplete: "new-password"
 
         .input-wrapper
-          = f.label :password_confirmation, "Confirm new password"
+          = f.label :password_confirmation, t("users.passwords.edit.labels.confirm_password")
           = f.password_field :password_confirmation, autocomplete: "off"
       .bottom
-        = f.submit "Change", class: "button-primary"
+        = f.submit t("users.passwords.edit.actions.change"), class: "button-primary"
 
   .big-instructions-box
-    %h1
-      A new
-      %strong one
-    %p This one easily to remember <br> and difficult to guess
+    %h1= t("users.passwords.edit.big_box.title.html")
+    %p= t("users.passwords.edit.big_box.text.html")

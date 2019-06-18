@@ -29,3 +29,18 @@ en:
             html: 'No <strong>worries!</strong>'
           text:
             html: "We will recover your password <br> in just a click"
+
+      edit:
+        title: 'Change password'
+        instructions:
+          html: 'Please write and confirm your <br> new password to come back'
+        labels:
+          new_password: 'New password'
+          confirm_password: 'Confirm new password'
+        actions:
+          change: 'Change'
+        big_box:
+          title:
+            html: 'A new <strong>one</strong>'
+          text:
+            html: "This one easily to remember<br> and difficult to guess"
