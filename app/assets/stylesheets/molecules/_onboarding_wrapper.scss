@@ -28,8 +28,14 @@
         min-height: 460px;
         display: grid;
       }
-
     }
+
+    p.instructions {
+      text-align: center;
+      font-size: 12px;
+      color: #979797;
+    }
+
 
     #forgot_passwd {
       text-align: right;
