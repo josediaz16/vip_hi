@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "POST /admins/celebrities/" do
+RSpec.feature "POST /admins/celebrities/", js: true do
   let!(:colombia) { create(:country, name: 'Colombia', code_iso: 'CO') }
   let!(:mexico)   { create(:country, name: 'México', code_iso: 'MX') }
 

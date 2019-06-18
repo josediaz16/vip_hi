@@ -5,7 +5,7 @@ module Support
 
       fill_in "user[email]", with: user.email
       fill_in "user[password]", with: user.password
-      click_on "Log in"
+      click_on "Inicia sesión"
     end
 
     def wait_for_ajax
