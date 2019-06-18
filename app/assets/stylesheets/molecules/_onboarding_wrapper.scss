@@ -15,8 +15,9 @@
     display: grid;
 
     img.logo {
-      width: 125px;
       margin-bottom: 5px;
+      cursor: pointer;
+      width: 125px;
     }
 
     .std-box {
