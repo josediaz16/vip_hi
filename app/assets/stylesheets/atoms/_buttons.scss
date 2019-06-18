@@ -19,6 +19,7 @@
 @mixin button-base-properties($color) {
   border: 1px solid $color;
   background-color: $color;
+  cursor: pointer;
 }
 
 button,

@@ -28,9 +28,9 @@ class UserForm extends React.Component {
       <div className="std-box">
         <h2>Create account</h2>
         {
-          showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
+          showErrorAlert && <Alert alertClass="alert-error" message={t.alerts.error} onClose={onCloseAlert}/>
         }
-        <form action={url} ref={formRef} onSubmit={onSubmit} noValidate>
+        <form className="form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
           <NativeInput
             label={t.labels.name}
             name="user[name]"

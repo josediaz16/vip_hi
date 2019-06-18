@@ -1,5 +1,6 @@
 import React from 'react'
-//import Icon from 'lib/icons'
+import Icon from 'components/inputs/Icon'
+
 import classNames from 'classnames'
 
 class Alert extends React.Component {
@@ -8,10 +9,13 @@ class Alert extends React.Component {
     const className = classNames("alert", alertClass, "fade in")
 
     return (
-      <div className={className} role="alert">
-        <button className="close" type="button" onClick={onClose}>
-        </button>
-        <p>{message}</p>
+      <div className="alert-wrapper">
+        <div className={className} role="alert">
+          <p>{message}</p>
+          <button className="close" type="button" onClick={onClose}>
+            <Icon icon="cancel"/>
+          </button>
+        </div>
       </div>
     )
   }
