@@ -10,12 +10,15 @@
 
   .form-container {
     background: $primary-light-white;
-    justify-content: right;
+    padding: 20px 0 0 20px;
     display: grid;
+
+    img.logo {
+      width: 125px;
+    }
 
     .std-box {
       margin-right: -80px;
-      margin-top: 50px; //Remove this
       width: 400px;
     }
   }

@@ -1,6 +1,8 @@
 .onboarding-wrapper
   .form-container
-    = react_component("users/UserCreator", {t: component_translations("user_creator"), url: user_registration_path})
+    %img.logo{src: asset_path("logo.png") }
+
+    = react_component("users/UserCreator", {t: component_translations("user_creator"), url: user_registration_path}, {class: "justify-self-right"})
   .big-instructions-box
     %h1
       Hello
