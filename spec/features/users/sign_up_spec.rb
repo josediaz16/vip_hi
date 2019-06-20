@@ -23,6 +23,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       wait_for_ajax
 
       expect(User.count).to eq(1)
+      expect(Celebrity.count).to eq(0)
 
       user = User.last
       expect(user.email).to eq("pepito@mail.com")
