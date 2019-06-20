@@ -13,6 +13,10 @@
     = form.select(:country, Country.order(:name).pluck(:name, :code_iso), include_blank: true)
     = @presenter.content_error(:country_id)
   %div
+    = form.label "Price"
+    = form.number_field :price, step: 0.5
+    = @presenter.content_error(:price)
+  %div
     = form.label t("components.user_creator.labels.phone")
     = form.phone_field :phone
     = @presenter.content_error(:phone)

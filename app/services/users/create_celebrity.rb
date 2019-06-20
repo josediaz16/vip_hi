@@ -16,7 +16,7 @@ module Users
     end
 
     def create_celebrity(input)
-      Celebrity.create(user_id: input[:model].id, biography: input.dig(:original, :biography).to_s)
+      Celebrities::Create.(user_id: input[:model].id, **input[:original].slice(:biography, :price))
     end
 
   end
