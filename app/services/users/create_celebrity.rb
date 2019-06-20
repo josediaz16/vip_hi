@@ -1,5 +1,5 @@
-module Celebrities
-  class Create
+module Users
+  class CreateCelebrity
     include AppConfig::Transaction.new container: Celebrities::Container
 
     step :create_user, with: "ops.create_user"

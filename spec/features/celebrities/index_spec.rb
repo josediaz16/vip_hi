@@ -8,7 +8,7 @@ RSpec.describe "GET /celebrities", js: true do
   let!(:argentina) { create(:country, name: 'Argentina', code_iso: 'AR') }
 
   let!(:juanes) do
-    Celebrities::Create.(
+    Users::CreateCelebrity.(
       name: "Juan Esteban Aristizabal",
       country: "CO",
       email: "juanes@viphi.com",
@@ -20,7 +20,7 @@ RSpec.describe "GET /celebrities", js: true do
     )
   end
   let!(:shakira) do
-    Celebrities::Create.(
+    Users::CreateCelebrity.(
       name: "Shakira Isabel Mebarak",
       country: "CO",
       email: "shakira@viphi.com",
@@ -32,7 +32,7 @@ RSpec.describe "GET /celebrities", js: true do
     )
   end
   let!(:lina_tejeiro) do
-    Celebrities::Create.(
+    Users::CreateCelebrity.(
       name: "Lina Tejeiro",
       country: "CO",
       email: "lina_tejeiro@viphi.com",
@@ -44,7 +44,7 @@ RSpec.describe "GET /celebrities", js: true do
     )
   end
   let!(:alejandro_fernandez) do
-    Celebrities::Create.(
+    Users::CreateCelebrity.(
       name: "Alejandro fernandez",
       country: "MX",
       email: "alejandrofernandez@viphi.com",
@@ -56,7 +56,7 @@ RSpec.describe "GET /celebrities", js: true do
     )
   end
   let!(:leo_messi) do
-    Celebrities::Create.(
+    Users::CreateCelebrity.(
       name: "Lionel Messi",
       country: "AR",
       email: "leomessi@viphi.com",

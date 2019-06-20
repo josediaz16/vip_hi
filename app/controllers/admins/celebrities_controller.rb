@@ -4,7 +4,7 @@ class Admins::CelebritiesController < ApplicationController
   end
 
   def create
-    result = Celebrities::Create.(celebrity_params)
+    result = Users::CreateCelebrity.(celebrity_params)
 
     if result.success?
       flash[:success] = t("components.user_creator.alerts.create_resource", resource: t("resources.user"))

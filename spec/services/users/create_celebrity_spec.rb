@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Celebrities::Create do
+describe Users::CreateCelebrity do
   let(:subject)  { described_class }
   let(:colombia) { create(:country) }
 
