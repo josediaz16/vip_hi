@@ -16,6 +16,7 @@ RSpec.feature "POST /admins/celebrities/", js: true do
     scenario "Should create a celebrity" do
       fill_in "user[email]",                  with: "pepito@mail.com"
       fill_in "user[name]",                   with: "Pepito Perez"
+      fill_in "user[price]",                  with: 3.5
       fill_in "user[known_as]",               with: "Ken Addams"
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
@@ -27,7 +28,9 @@ RSpec.feature "POST /admins/celebrities/", js: true do
 
       click_button "Enviar"
 
+
       expect(User.count).to eq(2)
+      expect(Celebrity.count).to eq(1)
 
       user = User.last
       expect(user.email).to eq("pepito@mail.com")

@@ -14,6 +14,7 @@ class CelebrityProfile extends React.Component {
       <div>
         <h2>{celebrity.user.known_as}</h2>
         <img src={celebrity.user.photo} style={{width: "200px", height: "200px"}}/>
+        <h3 style={{color: "blue", fontWeight: "bold"}}>{celebrity.price} USD</h3>
         <p>{celebrity.biography}</p>
 
         <MessageRequest

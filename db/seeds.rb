@@ -40,7 +40,7 @@ puts "Creating admin..."
 puts "...finished creation of admin"
 
 puts "Creating Celebrities"
-  puts Celebrities::Create.(
+  puts Users::CreateCelebrity.(
     name: "Juan Esteban Aristizabal",
     country: "CO",
     email: "juanes@viphi.com",
@@ -49,10 +49,11 @@ puts "Creating Celebrities"
     password: "default_pass_123",
     password_confirmation: "default_pass_123",
     biography: "cantante, compositor y músico colombiano de pop latino y rock en español que fusiona diversos ritmos musicales. También fue reconocido con varios Premios Grammy Latinos a lo largo de su carrera por exitosos álbumes como Mi sangre (2004).",
-    photo: open("https://www.eldiestro.es/wp-content/uploads/2019/03/Juanes.jpg")
+    photo: open("https://www.eldiestro.es/wp-content/uploads/2019/03/Juanes.jpg"),
+    price: 10
   )
 
-  puts Celebrities::Create.(
+  puts Users::CreateCelebrity.(
     name: "Shakira Isabel Mebarak",
     country: "CO",
     email: "shakira@viphi.com",
@@ -61,10 +62,11 @@ puts "Creating Celebrities"
     password: "default_pass_123",
     password_confirmation: "default_pass_123",
     biography: "cantautora, productora discográfica, bailarina, modelo, instrumentista, empresaria, actriz, embajadora de buena voluntad de la UNICEF, filántropa colombiana. Ha sido nombrada varias veces por Sony y Billboard con el sobrenombre de La Reina del Pop Latino.",
-    photo: open("https://www.diariogol.com/uploads/s1/54/41/56/4/shakira-el-dorado_15_970x597.jpeg")
+    photo: open("https://www.diariogol.com/uploads/s1/54/41/56/4/shakira-el-dorado_15_970x597.jpeg"),
+    price: 15
   )
 
-  puts Celebrities::Create.(
+  puts Users::CreateCelebrity.(
     name: "Lina Tejeiro",
     country: "CO",
     email: "lina_tejeiro@viphi.com",
@@ -73,10 +75,11 @@ puts "Creating Celebrities"
     password: "default_pass_123",
     password_confirmation: "default_pass_123",
     biography: "es una actriz colombiana, reconocida por actuar durante cinco años en la serie televisiva Padres e hijos en el papel de Sammy.",
-    photo: open("https://files.rcnradio.com/public/styles/image_834x569/public/2018-09/linatejeiro6_1_0.jpg?itok=HaoihlUT")
+    photo: open("https://files.rcnradio.com/public/styles/image_834x569/public/2018-09/linatejeiro6_1_0.jpg?itok=HaoihlUT"),
+    price: 5
   )
 
-  puts Celebrities::Create.(
+  puts Users::CreateCelebrity.(
     name: "Alejandro fernandez",
     country: "MX",
     email: "alejandrofernandez@viphi.com",
@@ -85,10 +88,11 @@ puts "Creating Celebrities"
     password: "default_pass_123",
     password_confirmation: "default_pass_123",
     biography: "es un cantante mexicano de música ranchera, hijo del también cantante ranchero Vicente Fernández. En un principio se especializó en formas tradicionales de música regional mexicana1 como ranchera y mariachi. ",
-    photo: open("https://mx.hola.com/imagenes/musica/2018081523584/alejandro-fernandez-disculpas-incidente-avion/0-102-67/alejandro-avion2-z.jpg")
+    photo: open("https://mx.hola.com/imagenes/musica/2018081523584/alejandro-fernandez-disculpas-incidente-avion/0-102-67/alejandro-avion2-z.jpg"),
+    price: 8
   )
 
-  puts Celebrities::Create.(
+  puts Users::CreateCelebrity.(
     name: "Lionel Messi",
     country: "AR",
     email: "leomessi@viphi.com",
@@ -97,7 +101,8 @@ puts "Creating Celebrities"
     password: "default_pass_123",
     password_confirmation: "default_pass_123",
     biography: "es un futbolista argentino que juega como delantero o centrocampista. Ha desarrollado toda su carrera en el F. C. Barcelona de la Primera División de España y en la selección argentina, de la que es capitán",
-    photo: open("http://as01.epimg.net/tikitakas/imagenes/2019/03/19/portada/1553032122_246043_1553032954_noticia_normal.jpg")
+    photo: open("http://as01.epimg.net/tikitakas/imagenes/2019/03/19/portada/1553032122_246043_1553032954_noticia_normal.jpg"),
+    price: 25
   )
 
 puts "...finished creation of celebrities"
