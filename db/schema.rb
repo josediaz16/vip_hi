@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_002305) do
+ActiveRecord::Schema.define(version: 2019_06_21_160839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,18 @@ ActiveRecord::Schema.define(version: 2019_06_19_002305) do
     t.index ["celebrity_id"], name: "index_message_requests_on_celebrity_id"
   end
 
+  create_table "mr_transitions", force: :cascade do |t|
+    t.string "to_state", null: false
+    t.json "metadata", default: {}
+    t.integer "sort_key", null: false
+    t.integer "message_request_id", null: false
+    t.boolean "most_recent", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_request_id", "most_recent"], name: "index_mr_transitions_parent_most_recent", unique: true, where: "most_recent"
+    t.index ["message_request_id", "sort_key"], name: "index_mr_transitions_parent_sort", unique: true
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
@@ -116,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_002305) do
   add_foreign_key "admins", "users"
   add_foreign_key "celebrities", "users"
   add_foreign_key "message_requests", "celebrities"
+  add_foreign_key "mr_transitions", "message_requests"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
   add_foreign_key "users", "countries"
