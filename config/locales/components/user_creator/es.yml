@@ -3,13 +3,18 @@ es:
     user_creator:
       labels:
         name: 'Nombre'
-        known_as: 'Conocido como'
+        known_as: 'Nombre artistico'
         email: 'Email'
         country: 'País'
         phone: 'Teléfono'
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
         photo: 'Foto'
+      hints:
+        password: 'La contraseña debe tener al menos 6 caracteres'
+      instructions:
+        already_have_account: 'Ya tienes una cuenta? '
+        sign_in_here: 'Inicia sesión aquí'
       front_validations: :components.front_validations
       actions: :components.actions
       alerts: :components.alerts

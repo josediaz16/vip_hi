@@ -19,31 +19,32 @@ class UserForm extends React.Component {
       touched: {user: userTouched={}},
       t,
       url,
+      signInUrl,
       actionText,
       onSubmit,
       onCloseAlert
     } = this.props
 
     return (
-      <div className="std-box">
+      <form className="std-box form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
         <h2>Create account</h2>
         {
           showErrorAlert && <Alert alertClass="alert-error" message={t.alerts.error} onClose={onCloseAlert}/>
         }
-        <form className="form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
-          <NativeInput
-            label={t.labels.name}
-            name="user[name]"
-            value={user.name}
-            onChange={handleChange}
-          />
+        <div className="inputs">
           <NativeInput
             label={t.labels.known_as}
             name="user[known_as]"
             value={user.known_as}
             onChange={handleChange}
             error={userTouched.known_as && userErrors.known_as}
-            hint="Tu nombre artistico"
+            hint="Shakira"
+          />
+          <PhoneNumberInput
+            label={t.labels.phone}
+            country={user.country}
+            name="user[phone]"
+            countryInputName="user[country]"
           />
           <NativeInput
             label={t.labels.email}
@@ -59,6 +60,7 @@ class UserForm extends React.Component {
             name="user[password]"
             value={user.password}
             onChange={handleChange}
+            hint={t.hints.password}
             error={userTouched.password && userErrors.password}
           />
           <NativeInput
@@ -69,23 +71,17 @@ class UserForm extends React.Component {
             onChange={handleChange}
             error={userTouched.password_confirmation && userErrors.password_confirmation}
           />
-          <PhoneNumberInput
-            country={user.country}
-            placeholder={"Enter phone number"}
-            name="user[phone]"
-            countryInputName="user[country]"
-          />
-          <NativeInput
-            label={t.labels.photo}
-            type="file"
-            name="user[photo]"
-            value={user.photo}
-            onChange={handleChange}
-          />
+        </div>
 
+        <div className="bottom">
           <button className="button-primary" type="submit">{t.actions.submit}</button>
-        </form>
-      </div>
+          <div className="span-link">
+            <span>{t.instructions.already_have_account}</span>
+            <a className="primary-link underline-link" href={signInUrl}>{t.instructions.sign_in_here}</a>
+          </div>
+        </div>
+
+      </form>
     )
   }
 }

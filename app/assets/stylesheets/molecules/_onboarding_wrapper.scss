@@ -10,14 +10,13 @@
 
   .form-container {
     background: $primary-light-white;
-    padding: 20px 0 0 20px;
+    padding: 10px 0 0 10px;
     align-content: start;
     display: grid;
 
     img.logo {
-      margin-bottom: 5px;
       cursor: pointer;
-      width: 125px;
+      width: 100px;
     }
 
     .std-box {
