@@ -16,6 +16,7 @@ module CelebritySearchable
         name: user.name,
         known_as: user.known_as,
         biography: biography,
+        price: price,
         country: user.country.name,
         code_iso: user.country.code_iso,
         photo_url: Common::UploadUtils.get_attachment_url(user.photo)
