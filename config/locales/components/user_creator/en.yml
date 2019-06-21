@@ -10,6 +10,11 @@ en:
         password: 'Password'
         password_confirmation: 'Confirm password'
         photo: 'Photo'
+      hints:
+        password: 'Your password must consist of at least 6 characters'
+      instructions:
+        already_have_account: 'Already have an account? '
+        sign_in_here: 'Log in here'
       front_validations: :components.front_validations
       actions: :components.actions
       alerts: :components.alerts

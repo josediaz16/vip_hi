@@ -1,5 +1,6 @@
-import React from 'react'
-import PhoneInput from 'react-phone-number-input'
+import React          from 'react'
+import PhoneInput     from 'react-phone-number-input'
+import NativeInput    from 'components/inputs/NativeInput'
 
 import 'react-phone-number-input/style.css'
 
@@ -31,18 +32,23 @@ class PhoneNumberInput extends React.Component {
   render() {
     const {
       countryInputName,
+      label,
+      error,
+      hint,
+      icon,
+      inputContainerProps: inputContainerProps={label, icon, hint},
       ...otherProps
     } = this.props
 
     return (
-      <React.Fragment>
+      <NativeInput {...inputContainerProps}>
         <PhoneInput
           value={this.state.phone}
           onChange={this.onChange}
           {...otherProps}
         />
         <input type="hidden" value={this.state.country} name={countryInputName}/>
-      </React.Fragment>
+      </NativeInput>
     )
   }
 }

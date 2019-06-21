@@ -11,12 +11,12 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
   context "The input is valid" do
     scenario "It should create the user and redirect to confirmation path" do
       fill_in "user[email]",                  with: "pepito@mail.com"
-      fill_in "user[name]",                   with: "Pepito Perez"
+      #fill_in "user[name]",                   with: "Pepito Perez"
       fill_in "user[known_as]",               with: "Ken Addams"
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
-      attach_file "user[photo]",              file_fixture("profile_photo.jpg")
+      #attach_file "user[photo]",              file_fixture("profile_photo.jpg")
 
       click_button "Enviar"
 
@@ -27,10 +27,10 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
 
       user = User.last
       expect(user.email).to eq("pepito@mail.com")
-      expect(user.name).to  eq("Pepito Perez")
+      #expect(user.name).to  eq("Pepito Perez")
       expect(user.known_as).to  eq("Ken Addams")
       expect(user.roles.pluck(:name)).to eq ["celebrity"]
-      expect(user.photo.attached?).to be_truthy
+      #expect(user.photo.attached?).to be_truthy
       expect(page).to have_content("Buen trabajo, ahora confirma tu correo")
 
       open_email("pepito@mail.com")
@@ -44,7 +44,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
   context "The input is not valid" do
     scenario "It should not create the user and show the errors" do
       fill_in "user[email]",                  with: "pepito@mail"
-      fill_in "user[name]",                   with: "Pepito Perez"
+      #fill_in "user[name]",                   with: "Pepito Perez"
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword2"
@@ -67,7 +67,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       create(:user, email: "pepito@mail.com")
 
       fill_in "user[email]",                  with: "pepito@mail.com"
-      fill_in "user[name]",                   with: "Pepito Perez"
+      #fill_in "user[name]",                   with: "Pepito Perez"
       fill_in "user[known_as]",               with: "Ken Addams"
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"

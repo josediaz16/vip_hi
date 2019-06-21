@@ -1,0 +1,23 @@
+.react-phone-number-input {
+  border: 1px solid $primary-light-gray;
+  border-radius: 22px;
+  font-size: 0.875rem;
+  padding: 9px 12px;
+  font-family: 'Noto Sans', sans-serif;
+
+  .react-phone-number-input__icon {
+    font-size: 0rem;
+    border: none;
+    height: auto;
+    width: 25px;
+  }
+
+  .react-phone-number-input__icon-image {
+    border-radius: 2px;
+  }
+
+  .react-phone-number-input__input {
+    height: auto;
+    border: none;
+  }
+}
