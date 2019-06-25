@@ -2,7 +2,7 @@ class MessageRequest < ApplicationRecord
   include Statesman::Adapters::ActiveRecordQueries
 
   belongs_to :celebrity
-  has_many   :mr_transitions, autosave: false
+  has_many   :mr_transitions, autosave: false, class_name: "MRTransition"
 
   delegate :can_transition_to?, :transition_to!, :transition_to, :last_transition, :current_state, :in_state?, to: :state_machine
 
