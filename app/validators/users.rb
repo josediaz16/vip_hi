@@ -25,7 +25,7 @@ module Validators
     end.with(object_class: :user)
 
     CreateFan = Builder.(Base) do
-      required(:name,       DTypes::String).filled
+      required(:name,     DTypes::String).filled
       optional(:known_as, DTypes::String).filled
     end.with(object_class: :user)
 

@@ -7,18 +7,36 @@ import {
   BuildValidator
 } from './Base'
 
-const UserSchema = ({front_validations: {email, password_confirmation}}) => {
-  return ValidationSchema("user", {
+const GeneralUser = ({front_validations: {email, password_confirmation}}) => {
+  return {
     email: RequiredEmail(email.format),
-    name: Yup.string(),
-    known_as: RequiredBlankString,
     phone: Yup.string(),
     photo: Yup.mixed(),
     password: RequiredBlankString,
     password_confirmation: ConfirmationString("password", password_confirmation)
+  }
+}
+
+const CelebritySchema = (t) => {
+  return ValidationSchema("user", {
+    name: Yup.string(),
+    known_as: RequiredBlankString,
+    ...GeneralUser(t)
   })
 }
 
-const UserValidator = BuildValidator("user", UserSchema)
+const FanSchema = (t) => {
+  return ValidationSchema("user", {
+    name: RequiredBlankString,
+    known_as: Yup.string(),
+    ...GeneralUser(t)
+  })
+}
 
-export default UserValidator
+const CelebrityValidator = BuildValidator("user", CelebritySchema)
+const FanValidator       = BuildValidator("user", FanSchema)
+
+export {
+  CelebrityValidator,
+  FanValidator
+}
