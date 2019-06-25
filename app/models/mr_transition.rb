@@ -1,6 +1,4 @@
 class MRTransition < ApplicationRecord
-  include Statesman::Adapters::ActiveRecordTransition
-
   belongs_to :message_request, inverse_of: :mr_transitions
 
   after_destroy :update_most_recent, if: :most_recent?

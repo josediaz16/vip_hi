@@ -106,3 +106,12 @@ puts "Creating Celebrities"
   )
 
 puts "...finished creation of celebrities"
+
+puts "Creating message requests"
+  puts  MessageRequests::Create.(
+    email_to: 'pepito@mail.com',
+    to: 'Pepito perez',
+    celebrity_id: Celebrity.last.id,
+    brief: "Tell the guy happy birthday"
+  )
+puts "...finished creation of MRs"
