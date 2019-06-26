@@ -29,7 +29,7 @@ const handleError = (errorConfig, formikBag, payload, errorHandler, apiResponse)
   }, 100)
 }
 
-const onSubmit = (errorConfig, {errorHandler}={}) => {
+const onSubmit = (errorConfig, {errorHandler, successHandler}={}) => {
   return (payload, formikBag) => {
     const {
       formRef: {current: form}
@@ -39,7 +39,7 @@ const onSubmit = (errorConfig, {errorHandler}={}) => {
     const method = formikBag.props.method || "POST"
 
     makeRequest(form.action, method, formData)
-      .then(changeLocation)
+      .then(successHandler || changeLocation)
       .catch(errors => handleError(errorConfig, formikBag, payload, errorHandler, errors) )
   }
 }

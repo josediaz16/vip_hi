@@ -80,6 +80,11 @@ const handle401 = ({apiResponse, payload}) => {
   }
 }
 
+const handleSuccess = ({redirect_url}) => {
+  sessionStorage.removeItem('messageRequest')
+  window.location.assign(redirect_url)
+}
+
 class MessageRequest extends React.Component {
   constructor(props) {
     super()
@@ -103,7 +108,8 @@ class MessageRequest extends React.Component {
     this.EnhancedForm = MRValidator(
       props.t.front_validations,
       onSubmit({}, {
-        errorHandler: handle401
+        errorHandler: handle401,
+        successHandler: handleSuccess
       })
     )
   }
