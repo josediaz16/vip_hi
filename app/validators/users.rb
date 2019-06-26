@@ -14,6 +14,7 @@ module Validators
       optional(:phone, DTypes::Phone) { filled? > phone? }
       optional(:id,    DTypes::Integer).filled
       optional(:photo, DTypes::Any).filled
+      optional(:origin, DTypes::String).filled
       rule(password_confirmation: [:password, :password_confirmation]) do |pass, confirmation|
         pass.eql?(confirmation)
       end

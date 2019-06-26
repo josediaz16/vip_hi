@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def user_params
     params
       .require(:user)
-      .permit(:email, :name, :known_as, :password, :password_confirmation, :phone, :country, :photo, :role)
+      .permit(:email, :name, :known_as, :password, :password_confirmation, :phone, :country, :photo, :role, :origin)
       .to_h
       .symbolize_keys
   end

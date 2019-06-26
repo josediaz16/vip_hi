@@ -19,11 +19,12 @@
           = t("users.sessions.new.links.forgot_password")
 
       .bottom
+        %input{type: "hidden", name: "origin", value: params[:origin]}
         = f.submit t("users.sessions.new.actions.log_in"), class: "button-primary"
 
         .span-link
           %span= t("users.sessions.new.links.dont_have_account")
-          %a.primary-link.underline-link{href: new_registration_path(resource_name)}
+          %a.primary-link.underline-link{href: new_registration_path(resource_name, origin: params[:origin], role: params[:role])}
             = t("users.sessions.new.links.sign_up_here")
 
   .big-instructions-box

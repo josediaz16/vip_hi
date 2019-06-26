@@ -4,7 +4,10 @@ const changeLocation = ({redirect_url}) => {
   window.location.assign(redirect_url)
 }
 
-const handleError = (errorConfig, formikBag, {responseJSON: {errors}}) => {
+const handleError = (errorConfig, formikBag, payload, errorHandler, apiResponse) => {
+  const {responseJSON: {errors}} = apiResponse
+
+  // Set Errors on FormikBag
   Object.keys(errorConfig).forEach(key => {
     const [objectClass, field] = key.split(".")
     const error = errors.find(item => (item.object_class === objectClass) && (item.field === field))
@@ -12,6 +15,10 @@ const handleError = (errorConfig, formikBag, {responseJSON: {errors}}) => {
     error && formikBag.setFieldError(errorConfig[key], error.description)
   })
 
+  // Call special error handler if provided
+  errorHandler && errorHandler({apiResponse, formikBag, payload})
+
+  // Scroll up and show alert
   setTimeout(() => {
     const {setStatus, isValid} = formikBag
 
@@ -22,7 +29,7 @@ const handleError = (errorConfig, formikBag, {responseJSON: {errors}}) => {
   }, 100)
 }
 
-const onSubmit = (errorConfig) => {
+const onSubmit = (errorConfig, {errorHandler}={}) => {
   return (payload, formikBag) => {
     const {
       formRef: {current: form}
@@ -33,7 +40,7 @@ const onSubmit = (errorConfig) => {
 
     makeRequest(form.action, method, formData)
       .then(changeLocation)
-      .catch(error => handleError(errorConfig, formikBag, error) )
+      .catch(errors => handleError(errorConfig, formikBag, payload, errorHandler, errors) )
   }
 }
 

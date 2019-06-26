@@ -105,6 +105,7 @@ puts "Creating Celebrities"
     price: 25
   )
 
+Celebrity.reindex
 puts "...finished creation of celebrities"
 
 puts "Creating fans"

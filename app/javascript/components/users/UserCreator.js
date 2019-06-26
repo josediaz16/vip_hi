@@ -25,6 +25,7 @@ class UserForm extends React.Component {
       url,
       signInUrl,
       role,
+      origin,
       actionText,
       onSubmit,
       onCloseAlert
@@ -90,7 +91,8 @@ class UserForm extends React.Component {
             error={userTouched.password_confirmation && userErrors.password_confirmation}
           />
 
-          <input type="hidden" name="user[role]" value={role || "celebrity"}/>
+          <input type="hidden" name="user[role]"   value={role || "celebrity"}/>
+          <input type="hidden" name="user[origin]" value={origin || ""}/>
         </div>
 
         <div className="bottom">
