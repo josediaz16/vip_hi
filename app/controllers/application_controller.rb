@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:lang] || :es
   end
 
+  # TODO: Move this logic to service
   def after_sign_in_path_for(user)
     if params[:origin].present?
       params[:origin]
