@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_160839) do
+ActiveRecord::Schema.define(version: 2019_06_26_154812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,13 +65,22 @@ ActiveRecord::Schema.define(version: 2019_06_21_160839) do
     t.index ["name"], name: "index_countries_on_name", unique: true
   end
 
+  create_table "fans", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_fans_on_user_id"
+  end
+
   create_table "message_requests", force: :cascade do |t|
     t.text "brief", default: "", null: false
     t.string "to", default: "", null: false
     t.string "from", default: "", null: false
     t.string "email_to", default: "", null: false
     t.bigint "celebrity_id"
+    t.bigint "fan_id", null: false
     t.index ["celebrity_id"], name: "index_message_requests_on_celebrity_id"
+    t.index ["fan_id"], name: "index_message_requests_on_fan_id"
   end
 
   create_table "mr_transitions", force: :cascade do |t|
@@ -118,6 +127,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_160839) do
     t.string "name", default: "", null: false
     t.bigint "country_id", null: false
     t.string "known_as", default: "", null: false
+    t.string "origin", default: "", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -127,7 +137,9 @@ ActiveRecord::Schema.define(version: 2019_06_21_160839) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admins", "users"
   add_foreign_key "celebrities", "users"
+  add_foreign_key "fans", "users"
   add_foreign_key "message_requests", "celebrities"
+  add_foreign_key "message_requests", "fans"
   add_foreign_key "mr_transitions", "message_requests"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

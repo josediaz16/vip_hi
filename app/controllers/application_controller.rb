@@ -6,13 +6,18 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:lang] || :es
   end
 
+  # TODO: Move this logic to service
   def after_sign_in_path_for(user)
-    options = {
-      [:admin] => new_admins_celebrity_path
-    }
-    roles = user.roles.names_ordered.map(&:to_sym)
-
-    options[roles]
+    if params[:origin].present?
+      params[:origin]
+    else
+      options = {
+        [:admin] => new_admins_celebrity_path,
+        [:fan]   => celebrities_path
+      }
+      roles = user.roles.names_ordered.map(&:to_sym)
+      options[roles]
+    end
   end
 
   def json_service(service, input, &block)

@@ -4,6 +4,7 @@ describe MessageRequests::Create do
   let(:subject)  { described_class }
 
   let(:celebrity) { create(:celebrity) }
+  let(:fan)       { create(:fan) }
 
   let(:input) do
     {
@@ -11,7 +12,8 @@ describe MessageRequests::Create do
       to: "Juanito",
       from: "Pepito",
       brief: "Quiero que le digan a juanito que es un imbecil!",
-      celebrity_id: celebrity.id
+      celebrity_id: celebrity.id,
+      fan_id: fan.id
     }
   end
 

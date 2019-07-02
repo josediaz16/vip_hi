@@ -73,22 +73,43 @@ class MessageRequestForm extends React.Component {
   }
 }
 
+const handle401 = ({apiResponse, payload}) => {
+  if (apiResponse.status === 401) {
+    sessionStorage.setItem('messageRequest', JSON.stringify(payload.message_request))
+    window.location.assign(`/users/sign_in?role=fan&origin=${window.location.pathname}`)
+  }
+}
+
+const handleSuccess = ({redirect_url}) => {
+  sessionStorage.removeItem('messageRequest')
+  window.location.assign(redirect_url)
+}
+
 class MessageRequest extends React.Component {
   constructor(props) {
     super()
 
-    this.initialState = {
-      brief: '',
-      email_to: '',
-      to: '',
-      from: '',
-      celebrity_id: props.celebrity_id,
+    const previousMR = sessionStorage.getItem('messageRequest')
+
+    if (previousMR) {
+      this.initialState = JSON.parse(previousMR)
+    }
+    else {
+      this.initialState = {
+        brief: '',
+        email_to: '',
+        to: '',
+        from: '',
+        celebrity_id: props.celebrity_id,
+      }
     }
 
     this.formRef = React.createRef()
     this.EnhancedForm = MRValidator(
       props.t.front_validations,
-      onSubmit({
+      onSubmit({}, {
+        errorHandler: handle401,
+        successHandler: handleSuccess
       })
     )
   }

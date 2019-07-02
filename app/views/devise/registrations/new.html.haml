@@ -7,6 +7,8 @@
       { t: component_translations("user_creator"),
         url: user_registration_path,
         signInUrl: new_user_session_path,
+        origin: params[:origin].presence,
+        role: params[:role].presence,
       }, {class: "justify-self-right"})
   .big-instructions-box
     %h1= t("users.registrations.new.big_box.title.html")

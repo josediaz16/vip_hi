@@ -14,6 +14,7 @@ module Validators
       optional(:phone, DTypes::Phone) { filled? > phone? }
       optional(:id,    DTypes::Integer).filled
       optional(:photo, DTypes::Any).filled
+      optional(:origin, DTypes::String).value(:str?)
       rule(password_confirmation: [:password, :password_confirmation]) do |pass, confirmation|
         pass.eql?(confirmation)
       end
@@ -25,7 +26,7 @@ module Validators
     end.with(object_class: :user)
 
     CreateFan = Builder.(Base) do
-      required(:name,       DTypes::String).filled
+      required(:name,     DTypes::String).filled
       optional(:known_as, DTypes::String).filled
     end.with(object_class: :user)
 

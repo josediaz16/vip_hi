@@ -105,13 +105,26 @@ puts "Creating Celebrities"
     price: 25
   )
 
+Celebrity.reindex
 puts "...finished creation of celebrities"
+
+puts "Creating fans"
+  puts Users::CreateFan.(
+    name: "Juanito Alimaña",
+    country: "CO",
+    email: "juanitoalimana@viphi.com",
+    confirmed_at: Time.now,
+    password: "default_pass_123",
+    password_confirmation: "default_pass_123",
+  )
+puts "...finished creation of fans"
 
 puts "Creating message requests"
   puts  MessageRequests::Create.(
     email_to: 'pepito@mail.com',
     to: 'Pepito perez',
     celebrity_id: Celebrity.last.id,
+    fan_id: Fan.last.id,
     brief: "Tell the guy happy birthday"
   )
 puts "...finished creation of MRs"

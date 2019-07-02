@@ -11,7 +11,9 @@ const MRSchema = ({email: {format: emailFormat}}) => {
     from: RequiredBlankString,
     to: RequiredBlankString,
     email_to: RequiredEmail(emailFormat),
-    brief: RequiredBlankString,
+    brief: RequiredBlankString
+      .min(20, "Debe tener minimo 20 caracteres")
+      .max(700, "Debe tener máximo 700 caracteres"),
     celebrity_id: Yup.number().required("__blank__")
   })
 }

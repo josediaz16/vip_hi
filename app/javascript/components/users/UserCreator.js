@@ -4,7 +4,11 @@ import {
   PhoneNumberInput,
 } from 'components/inputs/index'
 
-import UserValidator from 'components/validators/UserValidator'
+import {
+  CelebrityValidator,
+  FanValidator
+} from 'components/validators/UserValidator'
+
 import Alert         from 'components/Alert'
 
 import { onSubmit }  from 'components/SubmitHandlers'
@@ -20,10 +24,14 @@ class UserForm extends React.Component {
       t,
       url,
       signInUrl,
+      role,
+      origin,
       actionText,
       onSubmit,
       onCloseAlert
     } = this.props
+
+    const isFan = role === "fan"
 
     return (
       <form className="std-box form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
@@ -32,14 +40,25 @@ class UserForm extends React.Component {
           showErrorAlert && <Alert alertClass="alert-error" message={t.alerts.error} onClose={onCloseAlert}/>
         }
         <div className="inputs">
-          <NativeInput
-            label={t.labels.known_as}
-            name="user[known_as]"
-            value={user.known_as}
-            onChange={handleChange}
-            error={userTouched.known_as && userErrors.known_as}
-            hint="Shakira"
-          />
+          { !isFan &&
+            <NativeInput
+              label={t.labels.known_as}
+              name="user[known_as]"
+              value={user.known_as}
+              onChange={handleChange}
+              error={userTouched.known_as && userErrors.known_as}
+              hint="Shakira"
+            />
+          }
+          { isFan &&
+            <NativeInput
+              label={t.labels.name}
+              name="user[name]"
+              value={user.name}
+              onChange={handleChange}
+              error={userTouched.name && userErrors.name }
+            />
+          }
           <PhoneNumberInput
             label={t.labels.phone}
             country={user.country}
@@ -71,6 +90,9 @@ class UserForm extends React.Component {
             onChange={handleChange}
             error={userTouched.password_confirmation && userErrors.password_confirmation}
           />
+
+          <input type="hidden" name="user[role]"   value={role || "celebrity"}/>
+          <input type="hidden" name="user[origin]" value={origin || ""}/>
         </div>
 
         <div className="bottom">
@@ -103,7 +125,9 @@ class UserCreator extends React.Component {
     }
 
     this.formRef = React.createRef()
-    this.EnhancedCreator = UserValidator(
+
+    const Validator = props.role == "fan" ? FanValidator : CelebrityValidator
+    this.EnhancedCreator = Validator(
       props.t,
       onSubmit({
         "user.email": "user.email"

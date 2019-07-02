@@ -9,7 +9,8 @@ describe Validators::MessageRequests::Create do
       to: "Juanito",
       from: "Pepito",
       brief: "Quiero que le digan a juanito que es un imbecil!",
-      celebrity_id: 1
+      celebrity_id: 1,
+      fan_id: 1
     }
   end
 

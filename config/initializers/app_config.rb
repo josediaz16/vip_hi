@@ -5,6 +5,8 @@ module AppConfig
     extend Dry::Container::Mixin
     register "get_content_from_record", -> model { model.content }
     register "validator",               -> input { Dry::Monads::Success.new input }
+
+    register "role_name", "celebrity"
   end
 
   Import = Dry::AutoInject Container
