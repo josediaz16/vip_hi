@@ -1,4 +1,8 @@
+require 'dry/monads/maybe'
+
 class MessageRequestsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def create
     json_service(MessageRequests::Create, message_request_params) do |result, blueprint|
       blueprint.merge redirect_url: celebrities_path
@@ -11,7 +15,10 @@ class MessageRequestsController < ApplicationController
       .require(:message_request)
       .permit(:email_to, :celebrity_id, :from, :to, :brief)
       .to_h
-      .merge(fan_id: current_user.fan.id)
       .symbolize_keys
+      .tap do |message_request|
+        Dry::Monads.Maybe(current_user)
+          .bind { puts "hi"; message_request.merge!(fan_id: current_user.fan.id) }
+      end
   end
 end

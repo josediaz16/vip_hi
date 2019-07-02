@@ -53,54 +53,56 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
       end
     end
 
-    context "The user is not logged in" do
-      scenario "Should be redirected to sign in and then returned to form" do
-        visit celebrity_path(celebrity)
-        fill_form
-
-        expect(current_path).to eq(new_user_session_path)
-        fill_in_sign_in_form(fan.user)
-        expect(current_path).to eq(celebrity_path(celebrity))
-
-        click_on "Enviar"
-        wait_for_ajax
-        good_expectations
-      end
-    end
-
-    context "The user is not registered" do
-      scenario "Should be redirected to sign in and then returned to form" do
-        create(:country, name: 'Colombia', code_iso: 'CO')
-        create(:role, name: 'fan')
-
-        visit celebrity_path(celebrity)
-        fill_form
-
-        expect(current_path).to eq(new_user_session_path)
-        click_on 'Crea una aquí'
-
-        fill_in "user[email]",                  with: "pepito@mail.com"
-        fill_in "user[name]",                   with: "Ken Addams"
-        fill_in "user[phone]",                  with: "3245678900"
-        fill_in "user[password]",               with: "mypassword"
-        fill_in "user[password_confirmation]",  with: "mypassword"
-
-        click_button "Enviar"
-        wait_for_ajax
-
-        user = User.last
-
-        open_email("pepito@mail.com")
-        expect(current_email).to have_content("You can confirm your account email through the link below")
-        visit user_confirmation_path(confirmation_token: user.confirmation_token)
-
-        expect(current_path).to eq(celebrity_path(celebrity))
-
-        click_on "Enviar"
-        wait_for_ajax
-        good_expectations
-      end
-    end
+## Uncomment this code if fan_id is required for message_requests
+#
+#    context "The user is not logged in" do
+#      scenario "Should be redirected to sign in and then returned to form" do
+#        visit celebrity_path(celebrity)
+#        fill_form
+#
+#        expect(current_path).to eq(new_user_session_path)
+#        fill_in_sign_in_form(fan.user)
+#        expect(current_path).to eq(celebrity_path(celebrity))
+#
+#        click_on "Enviar"
+#        wait_for_ajax
+#        good_expectations
+#      end
+#    end
+#
+#    context "The user is not registered" do
+#      scenario "Should be redirected to sign in and then returned to form" do
+#        create(:country, name: 'Colombia', code_iso: 'CO')
+#        create(:role, name: 'fan')
+#
+#        visit celebrity_path(celebrity)
+#        fill_form
+#
+#        expect(current_path).to eq(new_user_session_path)
+#        click_on 'Crea una aquí'
+#
+#        fill_in "user[email]",                  with: "pepito@mail.com"
+#        fill_in "user[name]",                   with: "Ken Addams"
+#        fill_in "user[phone]",                  with: "3245678900"
+#        fill_in "user[password]",               with: "mypassword"
+#        fill_in "user[password_confirmation]",  with: "mypassword"
+#
+#        click_button "Enviar"
+#        wait_for_ajax
+#
+#        user = User.last
+#
+#        open_email("pepito@mail.com")
+#        expect(current_email).to have_content("You can confirm your account email through the link below")
+#        visit user_confirmation_path(confirmation_token: user.confirmation_token)
+#
+#        expect(current_path).to eq(celebrity_path(celebrity))
+#
+#        click_on "Enviar"
+#        wait_for_ajax
+#        good_expectations
+#      end
+#    end
   end
 
   context "The input is not valid" do
