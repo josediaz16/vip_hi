@@ -8,6 +8,7 @@ describe Validators::MessageRequests::Create do
       email_to: "new@user.com",
       to: "Juanito",
       from: "Pepito",
+      recipient_type: "someone_else",
       brief: "Quiero que le digan a juanito que es un imbecil!",
       celebrity_id: 1,
       fan_id: 1
@@ -18,6 +19,13 @@ describe Validators::MessageRequests::Create do
 
   context "All the fields are valid" do
     it "should be success" do
+      expect(response).to be_success
+    end
+  end
+
+  context "When recipient_type is me" do
+    it "should be success" do
+      input.merge(recipient_type: "me", from: nil)
       expect(response).to be_success
     end
   end
@@ -68,6 +76,16 @@ describe Validators::MessageRequests::Create do
       expect(response).to be_failure
       expect(response.messages).to eq({
         brief: ["size~debe tener entre 20 y 700 caracteres"]
+      })
+    end
+  end
+
+  context "No from supplied" do
+    it "should be failure" do
+      input.delete(:from)
+      expect(response).to be_failure
+      expect(response.messages).to eq({
+        from: ["blank~no puede estar vacío"]
       })
     end
   end

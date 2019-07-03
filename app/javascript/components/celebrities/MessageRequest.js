@@ -3,6 +3,7 @@ import React from 'react'
 import {
   NativeInput,
   TextArea,
+  RadioGroupInput,
 } from 'components/inputs/index'
 
 import MRValidator   from 'components/validators/MRValidator'
@@ -33,6 +34,16 @@ class MessageRequestForm extends React.Component {
           showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
         }
         <form action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
+          <RadioGroupInput
+            label="Este video es para:"
+            name="message_request[recipient_type]"
+            options={[
+              {label: 'Mi', value: 'me'},
+              {label: 'Alguien más', value: 'someone_else'},
+            ]}
+            currentValue={message_request.recipient_type}
+            onChange={handleChange}
+          />
           <NativeInput
             label={t.labels.from}
             name="message_request[from]"
@@ -100,6 +111,7 @@ class MessageRequest extends React.Component {
         email_to: '',
         to: '',
         from: '',
+        recipient_type: 'someone_else',
         celebrity_id: props.celebrity_id,
       }
     }

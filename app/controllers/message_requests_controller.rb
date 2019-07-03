@@ -13,12 +13,12 @@ class MessageRequestsController < ApplicationController
   def message_request_params
     params
       .require(:message_request)
-      .permit(:email_to, :celebrity_id, :from, :to, :brief)
+      .permit(:email_to, :celebrity_id, :from, :to, :brief, :recipient_type)
       .to_h
       .symbolize_keys
       .tap do |message_request|
         Dry::Monads.Maybe(current_user)
-          .bind { puts "hi"; message_request.merge!(fan_id: current_user.fan.id) }
+          .bind { message_request.merge!(fan_id: current_user.fan.id) }
       end
   end
 end

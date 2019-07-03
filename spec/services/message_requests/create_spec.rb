@@ -11,6 +11,7 @@ describe MessageRequests::Create do
       email_to: "new@user.com",
       to: "Juanito",
       from: "Pepito",
+      recipient_type: "someone_else",
       brief: "Quiero que le digan a juanito que es un imbecil!",
       celebrity_id: celebrity.id,
       fan_id: fan.id
