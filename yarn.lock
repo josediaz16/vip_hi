@@ -2325,6 +2325,11 @@ detect-node@^2.0.4:
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
 
+detect-passive-events@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/detect-passive-events/-/detect-passive-events-1.0.4.tgz#6ed477e6e5bceb79079735dcd357789d37f9a91a"
+  integrity sha1-btR35uW863kHlzXc01d4nTf5qRo=
+
 diffie-hellman@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/diffie-hellman/-/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
@@ -5748,6 +5753,14 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-alice-carousel@^1.15.1:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/react-alice-carousel/-/react-alice-carousel-1.15.1.tgz#6a07e879e54e3ba5b112d54ac12040f4f2f6fc6c"
+  integrity sha512-os5jXppPVn88Z9a32mbpdxy93R1Q4sFIfG8IdyARuQmbbHrza0a1wxCC2qcnJrE7Fi4oH7BwhYy119mdUeJrig==
+  dependencies:
+    prop-types "^15.5.10"
+    react-swipeable "4.3.0"
+
 react-autosuggest@^9.4.3:
   version "9.4.3"
   resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.4.3.tgz#eb46852422a48144ab9f39fb5470319222f26c7c"
@@ -5846,6 +5859,14 @@ react-responsive-ui@^0.14.123:
     react-lifecycles-compat "^3.0.2"
     react-modal "^3.8.1"
     scroll-into-view-if-needed "^2.2.16"
+
+react-swipeable@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-4.3.0.tgz#818c0818ac565f5b169348f442153f343abff8bc"
+  integrity sha512-L21VMbcDvG+AOVF4ZIbQ8sICGIgiKB/plGKWBMw6dkxt5neS7x74ZlTbJ39U8slz798MZBv/uIoE9Vzgp3PODQ==
+  dependencies:
+    detect-passive-events "^1.0.4"
+    prop-types "^15.5.8"
 
 react-themeable@^1.1.0:
   version "1.1.0"
