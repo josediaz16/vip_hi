@@ -1,7 +1,8 @@
 div.top-section {
-  //background: asset-url('background_search.png');
-  background: #a3002a;
+  background: asset-url('background_search.png');
+  background-repeat: no-repeat;
   padding: 160px 210px 60px;
+  background-size: cover;
 
   .search-box-instructions {
     font-family: 'Noto Sans', sans-serif;
@@ -57,9 +58,8 @@ div.top-section {
       }
 
       .react-autosuggest__suggestion {
-        font-family: 'Fira Sans', sans-serif;
         border-bottom: 1px solid #f9f9f9;
-        font-size: 1.375rem;
+        font-size: 1.175rem;
         padding: 6px 16px;
 
         &:last-child {
@@ -80,4 +80,102 @@ div.top-section {
       }
     }
   }
+}
+
+div.results-wrapper {
+  background: $primary-light-white;
+  padding: 0 210px;
+
+  .result-section {
+    padding: 40px 0;
+
+    h3.section-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1.375rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #353535;
+    }
+  }
+}
+
+div.celebrity-card {
+  box-shadow: 0 4px 5px 0 rgba(211, 210, 210, 0.5);
+  border-radius: 8px;
+  width: 220px;
+
+  div.profile-image {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 135px;
+    padding: 20px 0;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 93%;
+      left: -5px;
+      width: 150%;
+      height: 100%;
+      background: #fff;
+      transform: rotate(3deg);
+    }
+  }
+
+  span.price-tag {
+    background: $primary-normal-pink;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 3px 11px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+  }
+
+  div.profile-info {
+    padding: 0 12px 20px;
+
+    h5.country-name {
+      color: $primary-normal-pink;
+      font-size: 0.75rem;
+    }
+
+    h3.celebrity-name {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    h4.screen-name {
+      font-size: 1rem;
+      color: #979797;
+    }
+
+    h3, h4, h5 {
+      margin: 0
+    }
+
+    p.bio {
+      font-size: 0.875rem;
+      line-height: 1.29;
+      overflow: hidden;
+      margin: 8px 0 0;
+      color: #353535;
+      display: block;
+
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+    }
+  }
+
 }
