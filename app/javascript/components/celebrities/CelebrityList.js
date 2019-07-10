@@ -24,7 +24,6 @@ class CelebrityList extends React.Component {
 
   // Begin AutoComplete Handlers
   onSuggestionsFetch = ({value}) => {
-    console.log("hoa socio")
     getRequest(this.props.search_url, {query: value, page: this.state.pageNumber})
       .then(this.handleSuccess)
   }

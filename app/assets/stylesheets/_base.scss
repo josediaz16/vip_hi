@@ -62,3 +62,16 @@ ul {
 strong {
   font-weight: 700;
 }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #a5adba;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #a5adba;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #a5adba;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #a5adba;
+}
