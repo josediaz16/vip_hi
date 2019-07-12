@@ -3,7 +3,8 @@ class HomeController < ApplicationController
 
   def index
     @results = {
-      most_recent: Celebrities::Search.("*", order: {created_at: :desc}, per_page: 6, page: 0, &add_celebrity_path)
+      most_recent: Celebrities::Search.("*", order: {created_at: :desc}, per_page: 8, page: 0, &add_celebrity_path),
+      favorites: Celebrities::Search.("*", per_page: 8, page: 0, &add_celebrity_path)
     }
   end
 

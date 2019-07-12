@@ -54,7 +54,7 @@ class HomePage extends React.Component {
 
   render() {
     const { search, searchText } = this.state
-    const { search_url, t, most_recent } = this.props
+    const { search_url, t, most_recent, favorites } = this.props
 
     const inputProps = {
       id: "search_celebrity",
@@ -86,11 +86,13 @@ class HomePage extends React.Component {
         <div className="results-wrapper">
           <div className="result-section">
             <h3 className="section-title">Últimas celebridades agregadas</h3>
+            <span className="result-count">Mostrando <strong>4</strong> de {most_recent.length}</span>
             <CelebrityCarousel items={most_recent}/>
           </div>
           <div className="result-section">
             <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
-            <CelebrityCarousel items={most_recent}/>
+            <span className="result-count">Mostrando <strong>4</strong> de {favorites.length}</span>
+            <CelebrityCarousel items={favorites}/>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import CarouselSlider from './CarouselSlider'
 
-const CelebrityCard = ({name, known_as, country, biography, price, photo_url}) => {
+const CelebrityCard = ({name, known_as, country, biography, price, photo_url, detail_path}) => {
   return (
-    <div className="celebrity-card">
+    <div className="celebrity-card" onClick={() => window.location.assign(detail_path) }>
       <div className="profile-image" style={{backgroundImage: `url(${photo_url})`}}>
         <span className="price-tag">
           350.000 Cop

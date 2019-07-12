@@ -116,9 +116,19 @@ div.results-wrapper {
     h3.section-title {
       font-family: 'Noto Sans', sans-serif;
       font-size: 1.375rem;
-      margin-bottom: 20px;
       font-weight: bold;
       color: #353535;
+
+      strong {
+        color: $primary-normal-pink;
+      }
+    }
+
+    span.result-count {
+      font-size: 0.875rem;
+      margin-bottom: 10px;
+      color: #353535;
+      float: right;
 
       strong {
         color: $primary-normal-pink;
@@ -131,6 +141,7 @@ div.celebrity-card {
   box-shadow: 0 4px 5px 0 rgba(211, 210, 210, 0.5);
   margin-bottom: 20px;
   border-radius: 8px;
+  cursor: pointer;
   width: 220px;
 
   div.profile-image {
