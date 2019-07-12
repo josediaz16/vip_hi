@@ -36,11 +36,21 @@ class HomePage extends React.Component {
 
   onSuggestionSelected = (value) => {
     this.setState({searchText: value}, () => {
-      this.onSuggestionsFetch({value})
+      //this.onSuggestionsFetch({value})
     })
   }
 
+  onItemSuggestionSelected = (event, {suggestionValue}) => {
+    window.location.assign(`celebrities?search=${suggestionValue}`)
+  }
+
   onChangeInput = (event, { newValue }) => this.setState({searchText: newValue})
+
+  onKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      window.location.assign(`celebrities?search=${this.state.searchText}`)
+    }
+  }
 
   getSuggestionValue = (suggestion) => {
     return suggestion.known_as
@@ -60,7 +70,8 @@ class HomePage extends React.Component {
       id: "search_celebrity",
       placeholder: t.placeholders.search,
       value: searchText,
-      onChange: this.onChangeInput
+      onChange: this.onChangeInput,
+      onKeyDown: this.onKeyDown,
     }
 
     return (
@@ -79,6 +90,7 @@ class HomePage extends React.Component {
               onSuggestionsClearRequested={this.onSuggestionsClear}
               renderSuggestion={this.renderSuggestion}
               getSuggestionValue={this.getSuggestionValue}
+              onSuggestionSelected={this.onItemSuggestionSelected}
             />
           </div>
         </div>

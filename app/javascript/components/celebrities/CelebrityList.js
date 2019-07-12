@@ -7,19 +7,25 @@ import { debounce }  from 'throttle-debounce'
 // Util Functions
 import { getRequest, isPresent } from 'components/Utils'
 
+const getUrlParams = () => {
+  return new URLSearchParams(window.location.search)
+}
+
 class CelebrityList extends React.Component {
   constructor(props) {
     super(props)
 
+    const searchText = getUrlParams().get("search")
+
     this.state = {
       search: props.initial_results,
-      searchText: '',
+      searchText: searchText || '',
       pageNumber: 1
     }
   }
 
   componentWillMount() {
-    this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
+    //this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
   }
 
   // Begin AutoComplete Handlers
@@ -110,16 +116,19 @@ class CelebrityList extends React.Component {
           }
         </div>
 
-        <ReactPaginate
-          previousLabel={t.pagination.labels.previous}
-          nextLabel={t.pagination.labels.next}
-          breakLabel='...'
-          pageCount={search.pages}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={this.handlePageClick}
-          containerClassName={'pagination'}
-        />
+        { search.pages > 1 &&
+
+          <ReactPaginate
+            previousLabel={t.pagination.labels.previous}
+            nextLabel={t.pagination.labels.next}
+            breakLabel='...'
+            pageCount={search.pages}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={this.handlePageClick}
+            containerClassName={'pagination'}
+          />
+        }
 
       </div>
     )

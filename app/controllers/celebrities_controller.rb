@@ -18,7 +18,7 @@ class CelebritiesController < ApplicationController
   private
 
   def render_component
-    @initial_results = Celebrities::Search.("*", &add_celebrity_path)
+    @initial_results = Celebrities::Search.(params[:search] || "*", &add_celebrity_path)
   end
 
   def search_celebrities

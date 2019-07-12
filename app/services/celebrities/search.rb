@@ -5,7 +5,7 @@ module Celebrities
     load: false,
     misspellings: {below: 5},
     suggest: true,
-    per_page: 2
+    per_page: 8
   }
 
   Search = -> query, options = Hash.new, &block do
