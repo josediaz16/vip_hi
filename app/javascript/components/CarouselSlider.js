@@ -8,15 +8,12 @@ const handleOnDragStart = e => e.preventDefault()
 const defaultProps = {
   dotsDisabled: true,
   infinite: false,
-  stagePadding: {
-    paddingRight: 100
-  },
   responsive: {
     0: {
       items: 1
     },
     1024: {
-      items: 2
+      items: 4
     }
   }
 }

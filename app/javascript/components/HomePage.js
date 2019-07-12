@@ -2,6 +2,8 @@ import React         from 'react'
 import ReactPaginate from 'react-paginate'
 import AutoSuggest   from 'react-autosuggest'
 
+import CelebrityCarousel from 'components/CelebrityCarousel'
+
 import { debounce }  from 'throttle-debounce'
 
 import { getRequest, isPresent } from 'components/Utils'
@@ -51,7 +53,7 @@ class HomePage extends React.Component {
 
   render() {
     const { search, searchText } = this.state
-    const { search_url, t } = this.props
+    const { search_url, t, most_recent } = this.props
 
     const inputProps = {
       id: "search_celebrity",
@@ -82,7 +84,14 @@ class HomePage extends React.Component {
         <div className="results-wrapper">
           <div className="result-section">
             <h3 className="section-title">Últimas celebridades agregadas</h3>
-
+            <CelebrityCarousel items={most_recent}/>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+/*
             <div className="list">
 
               <div className="celebrity-card">
@@ -102,11 +111,6 @@ class HomePage extends React.Component {
               </div>
 
             </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
+*/
 
 export default HomePage

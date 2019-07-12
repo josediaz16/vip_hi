@@ -1,4 +1,5 @@
 = react_component("HomePage",
   { initial_results: {results: []},
+    most_recent: @results[:most_recent][:results],
     search_url: celebrities_path,
     t: component_translations("celebrity_list")})

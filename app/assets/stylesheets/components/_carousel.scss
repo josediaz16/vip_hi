@@ -1,0 +1,54 @@
+li.alice-carousel__stage-item {
+  &.__cloned {
+    visibility: visible;
+  }
+}
+
+div.alice-carousel__next-btn,
+div.alice-carousel__prev-btn {
+  position: absolute;
+  width: auto;
+  top: 35%;
+}
+
+div.alice-carousel__next-btn {
+  right: -80px;
+  @media (max-width: $breakpoint-large) {
+    right: -10px;
+  }
+}
+
+div.alice-carousel__prev-btn {
+  left: -80px;
+  @media (max-width: $breakpoint-large) {
+    left: -4px;
+  }
+}
+
+div.alice-carousel__next-btn-wrapper,
+div.alice-carousel__prev-btn-wrapper {
+  p {
+    box-shadow: 0 4px 5px 0 rgba(211, 210, 210, 0.5);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFF;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+
+    &.__inactive{
+      visibility: hidden;
+    }
+  }
+  span {
+    display: none;
+  }
+}
+
+div.alice-carousel__next-btn-wrapper p {
+  background-image: asset-url('chevron_right.svg')
+}
+
+div.alice-carousel__prev-btn-wrapper p {
+  background-image: asset-url('chevron_left.png')
+}
