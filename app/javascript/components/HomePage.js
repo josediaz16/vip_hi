@@ -1,6 +1,7 @@
 import React         from 'react'
 import ReactPaginate from 'react-paginate'
 import AutoSuggest   from 'react-autosuggest'
+import Icon          from 'components/inputs/Icon'
 
 import CelebrityCarousel from 'components/CelebrityCarousel'
 
@@ -63,6 +64,7 @@ class HomePage extends React.Component {
     }
 
     return (
+      <React.Fragment>
       <div className="search-page">
         <div className="top-section">
           <div className="search-box-instructions">
@@ -86,31 +88,29 @@ class HomePage extends React.Component {
             <h3 className="section-title">Últimas celebridades agregadas</h3>
             <CelebrityCarousel items={most_recent}/>
           </div>
+          <div className="result-section">
+            <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
+            <CelebrityCarousel items={most_recent}/>
+          </div>
         </div>
       </div>
+      <footer>
+        <h4>No olvides seguirnos en nuestras redes sociales</h4>
+        <div className="social-networks">
+          <a href="">
+            <Icon icon="facebook-square"/>
+          </a>
+          <a href="">
+            <Icon icon="instagram"/>
+          </a>
+          <a href="">
+            <Icon icon="instagram"/>
+          </a>
+        </div>
+      </footer>
+      </React.Fragment>
     )
   }
 }
-/*
-            <div className="list">
-
-              <div className="celebrity-card">
-                <div className="profile-image" style={{backgroundImage: "url('http://placekitten.com/g/300/300')"}}>
-                  <span className="price-tag">
-                    350.000 Cop
-                  </span>
-                </div>
-                <div className="profile-info">
-                  <h5 className="country-name">Colombia</h5>
-                  <h3 className="celebrity-name">Radamel Falcao</h3>
-                  <h4 className="screen-name">@falcao9</h4>
-                  <p className="bio">
-                    Radamel es un futbolista colombiano, jugador del Mónaco, sus inicios en el aaaaaaaaaaaaaaaaaaaa
-                  </p>
-                </div>
-              </div>
-
-            </div>
-*/
 
 export default HomePage
