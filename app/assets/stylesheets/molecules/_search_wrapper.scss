@@ -26,6 +26,18 @@ div.top-section {
   .search-box-component {
     padding: 0 120px;
 
+    div.suggestions {
+      border: 1px solid $primary-light-gray;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      padding: 10px 20px;
+      background: #fff;
+
+      a {
+        color: $primary-normal-pink;
+      }
+    }
+
     .react-autosuggest__input {
       background-image: asset-url('search.svg');
       background-position: 20px center;
@@ -40,6 +52,13 @@ div.top-section {
 
       &:focus {
         background-image: asset-url('search_pink.svg');
+      }
+
+      &.with-suggestion {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 0px;
+        border-bottom: 0;
       }
     }
 
@@ -223,6 +242,11 @@ div.celebrity-card {
 
 }
 
+div.results-grid {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+}
+
 footer {
   text-align: center;
   background: #000;
@@ -245,3 +269,42 @@ footer {
     margin-left: 15px;
   }
 }
+
+ul.pagination {
+  justify-content: center;
+  display: flex;
+
+  li {
+    border: 1px solid #ccc;
+    padding: 3px 12px;
+    cursor: pointer;
+
+    &.selected, &:hover {
+      background: $primary-normal-pink;
+      color: #fff;
+    }
+
+    &.disabled {
+      color: #ccc;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    a {
+      outline: none;
+    }
+  }
+
+  li + li {
+    border-left: none;
+  }
+}
+

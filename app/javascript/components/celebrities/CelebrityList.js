@@ -3,6 +3,10 @@ import React from 'react'
 import ReactPaginate from 'react-paginate'
 import AutoSuggest   from 'react-autosuggest'
 import { debounce }  from 'throttle-debounce'
+import classNames    from 'classnames'
+
+import CelebrityCard  from 'components/celebrities/CelebrityCard'
+import Footer         from 'components/footer'
 
 // Util Functions
 import { getRequest, isPresent } from 'components/Utils'
@@ -57,10 +61,7 @@ class CelebrityList extends React.Component {
 
   renderSuggestion = (suggestion) => {
     return (
-      <div className="autocomplete-result">
-        <span>{`${suggestion.country} - `}</span>
-        <strong>{suggestion.known_as}</strong>
-      </div>
+     <span>{suggestion.known_as}</span>
     )
   }
   // End AutoComplete Handlers
@@ -77,60 +78,71 @@ class CelebrityList extends React.Component {
       id: "search_celebrity",
       placeholder: t.placeholders.search,
       value: searchText,
-      onChange: this.onChangeInput
+      onChange: this.onChangeInput,
+      className: classNames("react-autosuggest__input", {"with-suggestion": search.suggestions.length > 0})
     }
 
     return (
-      <div>
-        <AutoSuggest
-          suggestions={search.results}
-          inputProps={inputProps}
-          onSuggestionsFetchRequested={this.onSuggestionsFetch}
-          onSuggestionsClearRequested={this.onSuggestionsClear}
-          renderSuggestion={this.renderSuggestion}
-          getSuggestionValue={this.getSuggestionValue}
-        />
+      <React.Fragment>
+        <div className="search-page">
+          <div className="top-section">
+            <div className="search-box-instructions">
+              <h1>!Hola!</h1>
+              <p>que tal si buscas tu celebridad favorita para..... </p>
+            </div>
+            <div className="search-box-component">
+              <AutoSuggest
+                suggestions={search.results}
+                inputProps={inputProps}
+                onSuggestionsFetchRequested={this.onSuggestionsFetch}
+                onSuggestionsClearRequested={this.onSuggestionsClear}
+                renderSuggestion={this.renderSuggestion}
+                getSuggestionValue={this.getSuggestionValue}
+              />
 
-        { search.suggestions.length > 0 &&
-          <div className="suggestions">
-            <span>{`${t.labels.did_you_mean}? `}</span>
-            <a onClick={this.onSuggestionSelected.bind(this, search.suggestions[0])}>
-              {search.suggestions[0]}
-            </a>
-          </div>
-        }
+              { search.suggestions.length > 0 && search.results.length === 0 &&
+                <div className="suggestions">
+                  <span>
+                    {`${t.labels.did_you_mean} `}
 
-        <div className="results">
-          {
-            search.results.map((item, index) => {
-              return (
-                <div id={`celebrity_${item.id}`} key={index} style={{display: "inline-block"}}>
-                  <img src={item.photo_url} style={{width: "200px", height: "200px"}}/>
-                  <h4>{item.known_as}</h4>
-                  <p>{item.biography}</p>
-                  <span>{item.country}</span>
-                  <a href={item.detail_path}>{t.actions.request_message}</a>
+                    <a onClick={this.onSuggestionSelected.bind(this, search.suggestions[0])}>
+                      {search.suggestions[0]}
+                    </a>
+                    ?
+                  </span>
                 </div>
-              )
-            })
-          }
+              }
+            </div>
+
+          </div>
+          <div className="results-wrapper">
+            <div className="result-section">
+              <h3 className="section-title">Resultados de tu busqueda</h3>
+              <div className="results-grid">
+                {
+                  search.results.map((item, index) => {
+                    return <CelebrityCard key={index} {...item}/>
+                  })
+                }
+              </div>
+            </div>
+            { search.pages > 1 &&
+
+              <ReactPaginate
+                previousLabel={t.pagination.labels.previous}
+                nextLabel={t.pagination.labels.next}
+                breakLabel='...'
+                pageCount={search.pages}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={this.handlePageClick}
+                containerClassName={'pagination'}
+              />
+            }
+          </div>
         </div>
-
-        { search.pages > 1 &&
-
-          <ReactPaginate
-            previousLabel={t.pagination.labels.previous}
-            nextLabel={t.pagination.labels.next}
-            breakLabel='...'
-            pageCount={search.pages}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={this.handlePageClick}
-            containerClassName={'pagination'}
-          />
-        }
-
-      </div>
+        <Footer />
+      </React.Fragment>
     )
   }
 }

@@ -1,7 +1,7 @@
 import React         from 'react'
 import ReactPaginate from 'react-paginate'
 import AutoSuggest   from 'react-autosuggest'
-import Icon          from 'components/inputs/Icon'
+import Footer        from 'components/footer'
 
 import CelebrityCarousel from 'components/CelebrityCarousel'
 
@@ -76,52 +76,40 @@ class HomePage extends React.Component {
 
     return (
       <React.Fragment>
-      <div className="search-page">
-        <div className="top-section">
-          <div className="search-box-instructions">
-            <h1>!Hola!</h1>
-            <p>que tal si buscas tu celebridad favorita para..... </p>
+        <div className="search-page">
+          <div className="top-section">
+            <div className="search-box-instructions">
+              <h1>!Hola!</h1>
+              <p>que tal si buscas tu celebridad favorita para..... </p>
+            </div>
+            <div className="search-box-component">
+              <AutoSuggest
+                suggestions={search.results}
+                inputProps={inputProps}
+                onSuggestionsFetchRequested={this.onSuggestionsFetch}
+                onSuggestionsClearRequested={this.onSuggestionsClear}
+                renderSuggestion={this.renderSuggestion}
+                getSuggestionValue={this.getSuggestionValue}
+                onSuggestionSelected={this.onItemSuggestionSelected}
+              />
+            </div>
           </div>
-          <div className="search-box-component">
-            <AutoSuggest
-              suggestions={search.results}
-              inputProps={inputProps}
-              onSuggestionsFetchRequested={this.onSuggestionsFetch}
-              onSuggestionsClearRequested={this.onSuggestionsClear}
-              renderSuggestion={this.renderSuggestion}
-              getSuggestionValue={this.getSuggestionValue}
-              onSuggestionSelected={this.onItemSuggestionSelected}
-            />
+
+          <div className="results-wrapper">
+            <div className="result-section">
+              <h3 className="section-title">Últimas celebridades agregadas</h3>
+              <span className="result-count">Mostrando <strong>4</strong> de {most_recent.length}</span>
+              <CelebrityCarousel items={most_recent}/>
+            </div>
+            <div className="result-section">
+              <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
+              <span className="result-count">Mostrando <strong>4</strong> de {favorites.length}</span>
+              <CelebrityCarousel items={favorites}/>
+            </div>
           </div>
         </div>
 
-        <div className="results-wrapper">
-          <div className="result-section">
-            <h3 className="section-title">Últimas celebridades agregadas</h3>
-            <span className="result-count">Mostrando <strong>4</strong> de {most_recent.length}</span>
-            <CelebrityCarousel items={most_recent}/>
-          </div>
-          <div className="result-section">
-            <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
-            <span className="result-count">Mostrando <strong>4</strong> de {favorites.length}</span>
-            <CelebrityCarousel items={favorites}/>
-          </div>
-        </div>
-      </div>
-      <footer>
-        <h4>No olvides seguirnos en nuestras redes sociales</h4>
-        <div className="social-networks">
-          <a href="">
-            <Icon icon="facebook-square"/>
-          </a>
-          <a href="">
-            <Icon icon="instagram"/>
-          </a>
-          <a href="">
-            <Icon icon="instagram"/>
-          </a>
-        </div>
-      </footer>
+        <Footer />
       </React.Fragment>
     )
   }
