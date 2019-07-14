@@ -35,6 +35,8 @@ div.top-section {
 
       a {
         color: $primary-normal-pink;
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
 
@@ -103,6 +105,27 @@ div.top-section {
 
 div.results-wrapper {
   background: $primary-light-white;
+
+  .no-results {
+    box-shadow: 0 4px 5px 0 rgba(211, 210, 210, 0.5);
+    background: asset-url('no_results.png');
+    background-size: contain;
+    border-radius: 10px;
+    margin: 20px auto 0;
+    height: 370px;
+    width: 500px;
+
+    align-items: flex-end;
+    justify-content: center;
+    display: flex;
+
+    h4 {
+      margin-bottom: 20px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #444;
+    }
+  }
 
   .result-section {
     padding: 40px 210px 20px;

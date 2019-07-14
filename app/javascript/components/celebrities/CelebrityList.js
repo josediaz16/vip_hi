@@ -117,14 +117,24 @@ class CelebrityList extends React.Component {
           </div>
           <div className="results-wrapper">
             <div className="result-section">
-              <h3 className="section-title">Resultados de tu busqueda</h3>
-              <div className="results-grid">
-                {
-                  search.results.map((item, index) => {
-                    return <CelebrityCard key={index} {...item}/>
-                  })
-                }
-              </div>
+              { search.results.length > 0 &&
+                <React.Fragment>
+                  <h3 className="section-title">Resultados de tu busqueda</h3>
+                  <div className="results-grid">
+                    {
+                      search.results.map((item, index) => {
+                        return <CelebrityCard key={index} {...item}/>
+                      })
+                    }
+                  </div>
+                </React.Fragment>
+              }
+
+              { search.results.length === 0 &&
+                <div className="no-results">
+                  <h4>Oops, no encontramos resultados para tu busqueda!</h4>
+                </div>
+              }
             </div>
             { search.pages > 1 &&
 
