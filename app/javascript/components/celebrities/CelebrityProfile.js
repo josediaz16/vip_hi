@@ -11,11 +11,20 @@ class CelebrityProfile extends React.Component {
     } = this.props
 
     return (
-      <div>
-        <h2>{celebrity.user.known_as}</h2>
-        <img src={celebrity.user.photo} style={{width: "200px", height: "200px"}}/>
-        <h3 style={{color: "blue", fontWeight: "bold"}}>{celebrity.price} USD</h3>
-        <p>{celebrity.biography}</p>
+      <div className="celebrity-profile">
+        <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
+          <h1>{celebrity.user.known_as}</h1>
+          <h4>@falcao</h4>
+        </div>
+        <div className="main-container">
+          <div className="celebrity-info">
+            <h3>País de origen</h3>
+            <p>{celebrity.user.country.name}</p>
+
+            <h3>Bio</h3>
+            <p>{celebrity.biography}</p>
+          </div>
+        </div>
 
         <MessageRequest
           celebrity_id={celebrity.id}

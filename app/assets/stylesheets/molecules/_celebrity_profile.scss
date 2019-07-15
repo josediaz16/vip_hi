@@ -1,0 +1,61 @@
+div.celebrity-profile {
+  div.celebrity-header {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 0 210px 20px;
+    height: 400px;
+    z-index: -2;
+
+    justify-content: flex-end;
+    flex-direction: column;
+    display: flex;
+
+    h1 {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    h4 {
+      font-size: 1.875rem;
+      color: #fff;
+    }
+
+    h1, h4 {
+      line-height: 1;
+    }
+
+    &:after {
+      position: absolute;
+      background: #382e2e;
+      opacity: 0.5;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      content: "";
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+div.main-container {
+  background: $primary-light-white;
+  padding: 0 210px;
+}
+
+div.celebrity-info {
+  padding: 30px 0 50px;
+
+  h3 {
+    color: $primary-normal-pink;
+    font-size: 1.56rem;
+    font-weight: bold;
+  }
+
+  p {
+    color: $primary-dark-gray;
+    font-size: 1.125rem;
+  }
+}
