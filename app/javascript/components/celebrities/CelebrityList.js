@@ -72,7 +72,7 @@ class CelebrityList extends React.Component {
 
   render() {
     const { search, searchText } = this.state
-    const { search_url, t } = this.props
+    const { search_url, t, logoPath } = this.props
 
     const inputProps = {
       id: "search_celebrity",
@@ -84,6 +84,21 @@ class CelebrityList extends React.Component {
 
     return (
       <React.Fragment>
+        <div className="navbar-wrapper">
+          <a className="logo" href="">
+            <img src={logoPath} alt="" />
+          </a>
+
+          <ul>
+            <li>
+              <a href="">Sign up</a>
+            </li>
+            <li>
+              <a className="active" href="">Login</a>
+            </li>
+          </ul>
+        </div>
+
         <div className="search-page">
           <div className="top-section">
             <div className="search-box-instructions">

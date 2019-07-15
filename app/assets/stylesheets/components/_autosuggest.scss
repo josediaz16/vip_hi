@@ -1,0 +1,53 @@
+.react-autosuggest__input {
+  background-image: asset-url('search.svg');
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+
+  padding: 12px 0 12px 55px;
+  box-sizing: border-box;
+  font-size: 1.125rem;
+  border-radius: 25px;
+  width: 100%;
+
+  &:focus {
+    background-image: asset-url('search_pink.svg');
+  }
+}
+
+.react-autosuggest__container {
+  position: relative;
+
+  .react-autosuggest__suggestions-list {
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+    position: absolute;
+    background: #fff;
+    margin: 1px 0 0;
+    border: none;
+    width: 94%;
+    left: 20px;
+  }
+
+  .react-autosuggest__suggestion {
+    border-bottom: 1px solid #f9f9f9;
+    font-size: 1.175rem;
+    padding: 6px 16px;
+
+    &:last-child {
+      border-bottom-right-radius: 9px;
+      border-bottom-left-radius: 9px;
+      border-bottom: none;
+    }
+  }
+
+  .react-autosuggest__suggestion--highlighted {
+    background: #ececec;
+    font-weight: 500;
+  }
+
+  .react-autosuggest__suggestion--first {
+    border-top-right-radius: 9px;
+    border-top-left-radius: 9px;
+  }
+}
