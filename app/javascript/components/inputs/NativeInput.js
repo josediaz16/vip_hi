@@ -7,8 +7,12 @@ import ErrorMessage   from 'components/inputs/ErrorMessage'
 
 const strongChildren = (children, props) => {
   const newChildren = React.Children.map(children, (child, index) => {
+    const className = classNames(child.props.className, props.className)
+
     return React.cloneElement(child, {
+      ...child.props,
       ...props,
+      className
     })
   })
 

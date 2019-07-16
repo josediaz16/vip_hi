@@ -2,7 +2,7 @@ import React from 'react'
 
 const RadioGroup = ({options, name, currentValue, onChange}) => {
   return (
-    <div class="radio-group">
+    <div className="radio-group">
       {
         options.map(({label, value}, index) => {
           const isChecked = currentValue === value

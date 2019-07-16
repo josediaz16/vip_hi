@@ -35,3 +35,11 @@ div.stateful-input {
     top: 25%;
   }
 }
+
+input#whatsapp {
+  background-image: asset-url('whatsapp.svg');
+  background-position: left 4px;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding: 4px 30px;
+}

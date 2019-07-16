@@ -4,6 +4,7 @@ import TextAreaAutoSize from 'react-textarea-autosize'
 import {
   NativeInput,
   RadioGroupInput,
+  Icon,
 } from 'components/inputs/index'
 
 import MRValidator   from 'components/validators/MRValidator'
@@ -85,12 +86,14 @@ class MessageRequestForm extends React.Component {
               </NativeInput>
 
               <NativeInput error={mrTouched.email_to && mrErrors.email_to}>
-                <label>
-                  El video llegará por <strong> whatsapp </strong> por favor escribe el numero de teléfono
+                <label className="with-middle-icon">
+                  El video llegará por <Icon icon="social-whatsapp"/> <strong> whatsapp </strong> por favor escribe el numero de teléfono
                 </label>
 
                 <input
-                  type="text"
+                  id="whatsapp"
+                  type="phone"
+                  placeholder="318 4856 317"
                   value={message_request.email_to}
                   name="message_request[email_to]"
                   onChange={handleChange}
