@@ -1,13 +1,22 @@
 div.top-section {
   background: asset-url('background_search.png');
   background-repeat: no-repeat;
-  padding: 160px 210px 60px;
   background-size: cover;
+  padding: 200px 0;
+
+  @media(min-width: $breakpoint-xmedium) {
+    padding: 160px 210px 60px;
+  }
 
   .search-box-instructions {
     font-family: 'Noto Sans', sans-serif;
-    margin-bottom: 50px;
+    text-align: center;
     color: #fff;
+
+    @media(min-width: $breakpoint-xmedium) {
+      margin-bottom: 50px;
+      text-align: left;
+    }
 
     h1 {
       font-weight: bold;
@@ -16,15 +25,26 @@ div.top-section {
     }
 
     p {
-      font-size: 1.75rem;
-      padding-left: 20px;
+      font-size: 1.2rem;
       font-weight: bold;
       margin: 0;
+
+      @media(min-width: $breakpoint-xmedium) {
+        font-size: 1.75rem;
+        padding-left: 20px;
+      }
     }
   }
 
   .search-box-component {
-    padding: 0 120px;
+    padding: 20px 10px;
+    margin-bottom: 30px;
+    position: relative;
+
+    @media(min-width: $breakpoint-xmedium) {
+      padding: 0 120px;
+      margin-bottom: 0;
+    }
 
     div.suggestions {
       border: 1px solid $primary-light-gray;
@@ -48,6 +68,20 @@ div.top-section {
         border-bottom: 0;
       }
     }
+
+    .search {
+      border-radius: 10px;
+      position: absolute;
+      top: 31px;
+      right: 31px;
+      fill: #a5adba;
+      padding: 5px;
+    }
+
+    .react-autosuggest__container--open + .search {
+      background: $primary-normal-pink;
+      fill: #fff;
+    }
   }
 }
 
@@ -55,9 +89,13 @@ div.results-wrapper {
   background: $primary-light-white;
 
   .result-section {
-    padding: 40px 210px 20px;
+    padding: 40px 20px;
     position: relative;
     overflow: hidden;
+
+    @media(min-width: $breakpoint-xmedium) {
+      padding: 40px 210px 20px;
+    }
 
     &:nth-child(even) {
       background: #f0f0f0;
@@ -107,6 +145,23 @@ div.results-wrapper {
 }
 
 div.results-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
   display: grid;
+
+  @media(min-width: $breakpoint-large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  div.celebrity-card {
+    @media(max-width: $breakpoint-xmedium) {
+      width: 160px;
+
+      div.profile-info {
+        p.bio {
+          display: none;
+        }
+      }
+    }
+  }
 }

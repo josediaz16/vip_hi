@@ -31,3 +31,8 @@ input[type="submit"], {
   @extend .button-base;
   @include button-base-properties($primary-normal-pink);
 }
+
+button.centered {
+  margin: 0 auto;
+  display: block;
+}

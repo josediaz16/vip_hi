@@ -1,9 +1,13 @@
 .navbar-wrapper {
-  padding: 10px 150px 10px 60px;
+  padding: 10px;
   position: absolute;
   right: 0;
   left: 0;
   top: 0;
+
+  @media(min-width: $breakpoint-xmedium) {
+    padding: 10px 150px 10px 60px;
+  }
 
   &.red-wrapper {
     transition: all 0.5s ease-out 0s;
@@ -42,7 +46,11 @@
     margin: 0;
 
     li + li {
-      margin-left: 40px;
+      margin-left: 10px;
+
+      @media(min-width: $breakpoint-xmedium) {
+        margin-left: 40px;
+      }
     }
 
     a {

@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate'
 import AutoSuggest   from 'react-autosuggest'
 import Footer        from 'components/footer'
 import NavBar        from 'components/NavBar'
+import Icon          from 'components/inputs/Icon'
 
 import CelebrityCarousel from 'components/CelebrityCarousel'
 
@@ -47,9 +48,13 @@ class HomePage extends React.Component {
 
   onChangeInput = (event, { newValue }) => this.setState({searchText: newValue})
 
+  redirectToSearchPath = () => {
+    window.location.assign(`celebrities?search=${this.state.searchText}`)
+  }
+
   onKeyDown = (event) => {
     if (event.key === 'Enter') {
-      window.location.assign(`celebrities?search=${this.state.searchText}`)
+      this.redirectToSearchPath()
     }
   }
 
@@ -93,6 +98,11 @@ class HomePage extends React.Component {
                 renderSuggestion={this.renderSuggestion}
                 getSuggestionValue={this.getSuggestionValue}
                 onSuggestionSelected={this.onItemSuggestionSelected}
+              />
+              <Icon
+                icon="enter-1"
+                className="search show-on-mobile-only"
+                onClick={this.redirectToSearchPath}
               />
             </div>
           </div>

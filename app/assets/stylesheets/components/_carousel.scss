@@ -7,8 +7,13 @@ li.alice-carousel__stage-item {
 div.alice-carousel__next-btn,
 div.alice-carousel__prev-btn {
   position: absolute;
+  display: none;
   width: auto;
   top: 35%;
+
+  @media (min-width: $breakpoint-xmedium) {
+    display: block;
+  }
 }
 
 div.alice-carousel__next-btn {
