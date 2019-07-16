@@ -1,6 +1,7 @@
 import React from 'react'
 
 import MessageRequest from 'components/celebrities/MessageRequest'
+import Footer         from 'components/footer'
 
 class CelebrityProfile extends React.Component {
   render() {
@@ -11,27 +12,31 @@ class CelebrityProfile extends React.Component {
     } = this.props
 
     return (
-      <div className="celebrity-profile">
-        <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
-          <h1>{celebrity.user.known_as}</h1>
-          <h4>@falcao</h4>
-        </div>
-        <div className="main-container">
-          <div className="celebrity-info">
-            <h3>País de origen</h3>
-            <p>{celebrity.user.country.name}</p>
+      <React.Fragment>
+        <div className="celebrity-profile">
+          <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
+            <h1>{celebrity.user.known_as}</h1>
+            <h4>@falcao</h4>
+          </div>
+          <div className="main-container">
+            <div className="celebrity-info">
+              <h3>País de origen</h3>
+              <p>{celebrity.user.country.name}</p>
 
-            <h3>Bio</h3>
-            <p>{celebrity.biography}</p>
+              <h3>Bio</h3>
+              <p>{celebrity.biography}</p>
+            </div>
+            <div className="request-form">
+              <MessageRequest
+                celebrity={celebrity}
+                message_request_url={message_request_url}
+                t={t.message_request}
+              />
+            </div>
           </div>
         </div>
-
-        <MessageRequest
-          celebrity_id={celebrity.id}
-          message_request_url={message_request_url}
-          t={t.message_request}
-        />
-      </div>
+        <Footer />
+      </React.Fragment>
     )
   }
 }

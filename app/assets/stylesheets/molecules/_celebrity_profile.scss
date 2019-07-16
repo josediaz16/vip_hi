@@ -42,11 +42,10 @@ div.celebrity-profile {
 
 div.main-container {
   background: $primary-light-white;
-  padding: 0 210px;
 }
 
 div.celebrity-info {
-  padding: 30px 0 50px;
+  padding: 30px 210px 50px;
 
   h3 {
     color: $primary-normal-pink;
@@ -57,5 +56,35 @@ div.celebrity-info {
   p {
     color: $primary-dark-gray;
     font-size: 1.125rem;
+  }
+}
+
+div.request-form {
+  background: #f0f0f0;
+  padding: 40px 320px;
+  position: relative;
+  z-index: 1;
+
+  h3 {
+    color: $primary-normal-pink;
+    margin-bottom: 20px;
+    font-size: 1.56rem;
+    font-weight: bold;
+  }
+
+  form {
+    border-radius: 8px;
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 108%;
+      height: 108%;
+      background: #e3e3e3;
+      position: absolute;
+      top: 2%;
+      left: -4%;
+      z-index: -1;
+    }
   }
 }

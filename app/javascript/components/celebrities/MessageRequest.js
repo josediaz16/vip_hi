@@ -1,14 +1,14 @@
 import React from 'react'
+import TextAreaAutoSize from 'react-textarea-autosize'
 
 import {
   NativeInput,
-  TextArea,
   RadioGroupInput,
 } from 'components/inputs/index'
 
 import MRValidator   from 'components/validators/MRValidator'
 import Alert         from 'components/Alert'
-  
+
 import { onSubmit }  from 'components/SubmitHandlers'
 
 class MessageRequestForm extends React.Component {
@@ -20,7 +20,7 @@ class MessageRequestForm extends React.Component {
       errors:  {message_request: mrErrors={}},
       touched: {message_request: mrTouched={}},
       t,
-      celebrity_id,
+      celebrity,
       message_request_url,
       actionText,
       onSubmit,
@@ -29,55 +29,79 @@ class MessageRequestForm extends React.Component {
 
     return (
       <React.Fragment>
-        <h2>Message Request</h2>
         {
           showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
         }
-        <form action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
-          <RadioGroupInput
-            label="Este video es para:"
-            name="message_request[recipient_type]"
-            options={[
-              {label: 'Mi', value: 'me'},
-              {label: 'Alguien más', value: 'someone_else'},
-            ]}
-            currentValue={message_request.recipient_type}
-            onChange={handleChange}
-          />
-          <NativeInput
-            label={t.labels.from}
-            name="message_request[from]"
-            value={message_request.from}
-            onChange={handleChange}
-            error={mrTouched.from && mrErrors.from}
-          />
+        <form className="std-box darken-form" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
+          <h3>{`Pide un saludo a ${celebrity.user.known_as}`}</h3>
 
-          <NativeInput
-            label={t.labels.to}
-            name="message_request[to]"
-            value={message_request.to}
-            onChange={handleChange}
-            error={mrTouched.to && mrErrors.to}
-          />
+          <div className="grid-block">
+            <div className="span-sm-12 span-md-10">
+              <RadioGroupInput
+                label="Este video es para:"
+                name="message_request[recipient_type]"
+                options={[
+                  {label: 'Mi', value: 'me'},
+                  {label: 'Alguien más', value: 'someone_else'},
+                ]}
+                currentValue={message_request.recipient_type}
+                onChange={handleChange}
+              />
 
-          <NativeInput
-            label={t.labels.email_to}
-            name="message_request[email_to]"
-            value={message_request.email_to}
-            onChange={handleChange}
-            error={mrTouched.email_to && mrErrors.email_to}
-          />
+              <div className="grid-block grid-gap-40">
+                <div className="span-sm-12 span-md-5">
+                  <NativeInput
+                    placeholder="Nombre de quien lo envía"
+                    name="message_request[from]"
+                    value={message_request.from}
+                    onChange={handleChange}
+                    error={mrTouched.from && mrErrors.from}
+                  />
+                </div>
 
-          <TextArea
-            label={t.labels.brief}
-            name="message_request[brief]"
-            value={message_request.brief}
-            onChange={handleChange}
-            error={mrTouched.brief && mrErrors.brief}
-          />
-          <input type="hidden" name="message_request[celebrity_id]" value={celebrity_id}/>
+                <div className="span-sm-12 span-md-5">
+                  <NativeInput
+                    placeholder="Nombre de quien lo recibe"
+                    name="message_request[to]"
+                    value={message_request.to}
+                    onChange={handleChange}
+                    error={mrTouched.to && mrErrors.to}
+                  />
+                </div>
+              </div>
 
-          <button type="submit">{t.actions.submit}</button>
+              <NativeInput
+                label={`Mis instruccciones para ${celebrity.user.known_as} son:`}
+              >
+                <TextAreaAutoSize
+                  placeholder="Pepito va a cumplir 25 años muy pronto. Por favor deseale un feliz cumpleaños de mi parte! Enviale saludos de Maria y Jose"
+                  name="message_request[brief]"
+                  value={message_request.brief}
+                  onChange={handleChange}
+                  error={mrTouched.brief && mrErrors.brief}
+                  minRows={1}
+                  maxRows={4}
+                />
+              </NativeInput>
+
+              <NativeInput error={mrTouched.email_to && mrErrors.email_to}>
+                <label>
+                  El video llegará por <strong> whatsapp </strong> por favor escribe el numero de teléfono
+                </label>
+
+                <input
+                  type="text"
+                  value={message_request.email_to}
+                  name="message_request[email_to]"
+                  onChange={handleChange}
+                />
+              </NativeInput>
+
+              <input type="hidden" name="message_request[celebrity_id]" value={celebrity.id}/>
+            </div>
+          </div>
+
+          <button className="button-primary" type="submit">Comprar saludo $350.000</button>
         </form>
       </React.Fragment>
     )
@@ -112,7 +136,7 @@ class MessageRequest extends React.Component {
         to: '',
         from: '',
         recipient_type: 'someone_else',
-        celebrity_id: props.celebrity_id,
+        celebrity_id: props.celebrity.id,
       }
     }
 
