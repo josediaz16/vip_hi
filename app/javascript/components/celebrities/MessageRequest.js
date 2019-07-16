@@ -34,16 +34,16 @@ class MessageRequestForm extends React.Component {
           showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
         }
         <form className="std-box darken-form" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
-          <h3>{`Pide un saludo a ${celebrity.user.known_as}`}</h3>
+          <h3>{`${t.titles.request_message} ${celebrity.user.known_as}`}</h3>
 
           <div className="grid-block">
             <div className="span-sm-12 span-md-10">
               <RadioGroupInput
-                label="Este video es para:"
+                label={t.labels.recipient_type}
                 name="message_request[recipient_type]"
                 options={[
-                  {label: 'Mi', value: 'me'},
-                  {label: 'Alguien más', value: 'someone_else'},
+                  {label: t.labels.recipient_types.me, value: 'me'},
+                  {label: t.labels.recipient_types.someone_else, value: 'someone_else'},
                 ]}
                 currentValue={message_request.recipient_type}
                 onChange={handleChange}
@@ -52,7 +52,7 @@ class MessageRequestForm extends React.Component {
               <div className="grid-block grid-gap-40">
                 <div className="span-sm-12 span-md-5">
                   <NativeInput
-                    placeholder="Nombre de quien lo envía"
+                    placeholder={t.placeholders.from}
                     name="message_request[from]"
                     value={message_request.from}
                     onChange={handleChange}
@@ -62,7 +62,7 @@ class MessageRequestForm extends React.Component {
 
                 <div className="span-sm-12 span-md-5">
                   <NativeInput
-                    placeholder="Nombre de quien lo recibe"
+                    placeholder={t.placeholders.to}
                     name="message_request[to]"
                     value={message_request.to}
                     onChange={handleChange}
@@ -72,10 +72,10 @@ class MessageRequestForm extends React.Component {
               </div>
 
               <NativeInput
-                label={`Mis instruccciones para ${celebrity.user.known_as} son:`}
+                label={t.labels.brief.replace("$name", celebrity.user.known_as)}
               >
                 <TextAreaAutoSize
-                  placeholder="Pepito va a cumplir 25 años muy pronto. Por favor deseale un feliz cumpleaños de mi parte! Enviale saludos de Maria y Jose"
+                  placeholder={t.placeholders.brief}
                   name="message_request[brief]"
                   value={message_request.brief}
                   onChange={handleChange}
@@ -87,7 +87,7 @@ class MessageRequestForm extends React.Component {
 
               <NativeInput error={mrTouched.email_to && mrErrors.email_to}>
                 <label className="with-middle-icon">
-                  El video llegará por <Icon icon="social-whatsapp"/> <strong> whatsapp </strong> por favor escribe el numero de teléfono
+                  {t.labels.whatsapp.start} <Icon icon="social-whatsapp"/> <strong> whatsapp </strong> {t.labels.whatsapp.end}
                 </label>
 
                 <input
@@ -104,7 +104,7 @@ class MessageRequestForm extends React.Component {
             </div>
           </div>
 
-          <button className="button-primary" type="submit">Comprar saludo $350.000</button>
+          <button className="button-primary" type="submit">{t.actions.buy} $350.000</button>
         </form>
       </React.Fragment>
     )

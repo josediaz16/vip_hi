@@ -20,10 +20,10 @@ class CelebrityProfile extends React.Component {
           </div>
           <div className="main-container">
             <div className="celebrity-info">
-              <h3>País de origen</h3>
+              <h3>{t.titles.country}</h3>
               <p>{celebrity.user.country.name}</p>
 
-              <h3>Bio</h3>
+              <h3>{t.titles.bio}</h3>
               <p>{celebrity.biography}</p>
             </div>
             <div className="request-form">

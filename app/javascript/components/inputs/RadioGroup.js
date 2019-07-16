@@ -8,9 +8,8 @@ const RadioGroup = ({options, name, currentValue, onChange}) => {
           const isChecked = currentValue === value
 
           return (
-            <div className="radioOption">
+            <div className="radioOption" key={index}>
               <input
-                key={index}
                 type="radio"
                 value={value}
                 name={name}
