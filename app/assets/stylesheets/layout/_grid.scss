@@ -190,37 +190,12 @@
 }
 
 .grid-gap-40 {
-  grid-column-gap: 40px;
+  //grid-column-gap: 40px;
 
-  //@media (min-width: $breakpoint-medium) {
-  //  grid-column-gap: 40px;
-  //}
+  @media (min-width: $breakpoint-medium) {
+    grid-column-gap: 40px;
+  }
 }
-
-//@media (min-width: $breakpoint-medium) {
-//  .grid-gap-50-medium {
-//    grid-column-gap: 50px;
-//  }
-//
-//  .grid-gap-60-medium {
-//    grid-column-gap: 60px;
-//  }
-//
-//  .grid-division-right {
-//    position: relative;
-//
-//    &:before {
-//      content: "";
-//      background-color: #d8d8d8;
-//      position: absolute;
-//      border-radius: 8px;
-//      height: 100%;
-//      width: 4px;
-//      right: 0px;
-//    }
-//  }
-//
-//}
 
 .align-items-center {
   align-items: center;

@@ -4,6 +4,14 @@ div.top-section {
   background-size: cover;
   padding: 200px 0;
 
+  &.stretch {
+    padding: 70px 0 30px;
+
+    p {
+      display: none;
+    }
+  }
+
   @media(min-width: $breakpoint-xmedium) {
     padding: 160px 210px 60px;
   }

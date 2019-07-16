@@ -87,7 +87,7 @@ class CelebrityList extends React.Component {
       <React.Fragment>
         <NavBar />
         <div className="search-page">
-          <div className="top-section">
+          <div className="top-section stretch">
             <div className="search-box-instructions">
               <h1>!Hola!</h1>
               <p>que tal si buscas tu celebridad favorita para..... </p>
