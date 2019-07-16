@@ -2,6 +2,7 @@ import React         from 'react'
 import ReactPaginate from 'react-paginate'
 import AutoSuggest   from 'react-autosuggest'
 import Footer        from 'components/footer'
+import NavBar        from 'components/NavBar'
 
 import CelebrityCarousel from 'components/CelebrityCarousel'
 
@@ -76,6 +77,7 @@ class HomePage extends React.Component {
 
     return (
       <React.Fragment>
+        <NavBar/>
         <div className="search-page">
           <div className="top-section">
             <div className="search-box-instructions">

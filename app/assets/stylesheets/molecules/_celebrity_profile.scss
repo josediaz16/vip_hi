@@ -79,12 +79,24 @@ div.request-form {
     &:after {
       content: "";
       width: 108%;
-      height: 108%;
+      height: 100%;
       background: #e3e3e3;
       position: absolute;
-      top: 2%;
+      top: 20px;
       left: -4%;
       z-index: -1;
+    }
+
+    &:before {
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background: #e3e3e3;
+      position: absolute;
+      height: 90px;
+      width: 108%;
+      content: "";
+      z-index: -1;
+      top: -70px;
+      left: -4%;
     }
   }
 

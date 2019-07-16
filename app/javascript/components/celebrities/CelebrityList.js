@@ -7,6 +7,7 @@ import classNames    from 'classnames'
 
 import CelebrityCard  from 'components/celebrities/CelebrityCard'
 import Footer         from 'components/footer'
+import NavBar         from 'components/NavBar'
 
 // Util Functions
 import { getRequest, isPresent } from 'components/Utils'
@@ -84,21 +85,7 @@ class CelebrityList extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="navbar-wrapper">
-          <a className="logo" href="">
-            <img src={logoPath} alt="" />
-          </a>
-
-          <ul>
-            <li>
-              <a href="">Sign up</a>
-            </li>
-            <li>
-              <a className="active" href="">Login</a>
-            </li>
-          </ul>
-        </div>
-
+        <NavBar />
         <div className="search-page">
           <div className="top-section">
             <div className="search-box-instructions">
