@@ -2,6 +2,9 @@ import React from 'react'
 
 import MessageRequest from 'components/celebrities/MessageRequest'
 import Footer         from 'components/footer'
+import NavBar         from 'components/NavBar'
+
+import Logo from '../../../assets/images/logo_dark.png'
 
 class CelebrityProfile extends React.Component {
   render() {
@@ -13,6 +16,7 @@ class CelebrityProfile extends React.Component {
 
     return (
       <React.Fragment>
+        <NavBar logoPath={Logo} className="red-wrapper"/>
         <div className="celebrity-profile">
           <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
             <h1>{celebrity.user.known_as}</h1>

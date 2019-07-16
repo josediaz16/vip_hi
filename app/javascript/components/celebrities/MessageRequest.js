@@ -28,6 +28,8 @@ class MessageRequestForm extends React.Component {
       onCloseAlert
     } = this.props
 
+    const briefPlaceholder = message_request.recipient_type === "me" ? t.placeholders.brief_myself : t.placeholders.brief
+
     return (
       <React.Fragment>
         {
@@ -49,37 +51,53 @@ class MessageRequestForm extends React.Component {
                 onChange={handleChange}
               />
 
-              <div className="grid-block grid-gap-40">
-                <div className="span-sm-12 span-md-5">
-                  <NativeInput
-                    placeholder={t.placeholders.from}
-                    name="message_request[from]"
-                    value={message_request.from}
-                    onChange={handleChange}
-                    error={mrTouched.from && mrErrors.from}
-                  />
-                </div>
+              { message_request.recipient_type === "someone_else" &&
+                <div className="grid-block grid-gap-40">
+                  <div className="span-sm-12 span-md-5">
+                    <NativeInput
+                      placeholder={t.placeholders.from}
+                      name="message_request[from]"
+                      value={message_request.from}
+                      onChange={handleChange}
+                      error={mrTouched.from && mrErrors.from}
+                    />
+                  </div>
 
-                <div className="span-sm-12 span-md-5">
-                  <NativeInput
-                    placeholder={t.placeholders.to}
-                    name="message_request[to]"
-                    value={message_request.to}
-                    onChange={handleChange}
-                    error={mrTouched.to && mrErrors.to}
-                  />
+                  <div className="span-sm-12 span-md-5">
+                    <NativeInput
+                      placeholder={t.placeholders.to}
+                      name="message_request[to]"
+                      value={message_request.to}
+                      onChange={handleChange}
+                      error={mrTouched.to && mrErrors.to}
+                    />
+                  </div>
                 </div>
-              </div>
+              }
+
+              { message_request.recipient_type === "me" &&
+                <div className="grid-block grid-gap-40">
+                  <div className="span-sm-12 span-md-10">
+                    <NativeInput
+                      placeholder={t.placeholders.to_myself}
+                      name="message_request[to]"
+                      value={message_request.to}
+                      onChange={handleChange}
+                      error={mrTouched.to && mrErrors.to}
+                    />
+                  </div>
+                </div>
+              }
 
               <NativeInput
                 label={t.labels.brief.replace("$name", celebrity.user.known_as)}
+                error={mrTouched.brief && mrErrors.brief}
               >
                 <TextAreaAutoSize
-                  placeholder={t.placeholders.brief}
+                  placeholder={briefPlaceholder}
                   name="message_request[brief]"
                   value={message_request.brief}
                   onChange={handleChange}
-                  error={mrTouched.brief && mrErrors.brief}
                   minRows={1}
                   maxRows={4}
                 />

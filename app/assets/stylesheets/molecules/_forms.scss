@@ -18,7 +18,7 @@
   }
 
   span.field-error {
-    color: red;
+    color: #e20808;
   }
 
   input {
@@ -63,13 +63,16 @@ form.darken-form {
     border-bottom: 1px solid #f0f0f0;
     border-radius: 0;
     padding: 4px 0;
-    margin-bottom: 20px;
     font-size: 0.875rem;
 
     &.field-error {
       border: none;
-      border-bottom: 1px solid red;
+      border-bottom: 1px solid #e20808;
     }
+  }
+
+  span.field-error {
+    font-size: 0.875rem;
   }
 
   textarea {
@@ -77,6 +80,8 @@ form.darken-form {
   }
 
   .input-wrapper {
+    margin-bottom: 20px;
+
     label {
       margin-bottom: 8px;
     }

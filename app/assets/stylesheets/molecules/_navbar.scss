@@ -1,9 +1,19 @@
 .navbar-wrapper {
-  padding: 10px 150px 0 60px;
+  padding: 10px 150px 10px 60px;
   position: absolute;
   right: 0;
   left: 0;
   top: 0;
+
+  &.red-wrapper {
+    transition: all 0.5s ease-out 0s;
+    background: transparent;
+
+    &:hover {
+      background: #eb144c;
+      opacity: 0.53;
+    }
+  }
 
   justify-content: space-between;
   align-items: center;
@@ -25,7 +35,6 @@
     img {
       width: 200px;
     }
-
   }
 
   ul {

@@ -5,7 +5,7 @@ en:
         brief: 'My instructions for $name are:'
         recipient_type: 'The video is for:'
         recipient_types:
-          me: 'Me'
+          me: 'Myself'
           someone_else: 'Someone else'
         whatsapp:
           start: 'The video will be sent to'
@@ -13,7 +13,9 @@ en:
       placeholders:
         from: 'Who sends it'
         to: 'Who recieves it'
-        brief: 'Mike is goint to be 25 very soon. Please wish him a happy birthday for me! Say hi from his friends Mary and Luke'
+        to_myself: 'Your name is'
+        brief: 'Mike is going to be 25 very soon. Please wish him a happy birthday for me! Say hi from his friends Mary and Luke'
+        brief_myself: "You are the best singer ever, I wanna have a message from you to watch it at tough times"
       titles:
         request_message: 'Request a message from'
       actions:
