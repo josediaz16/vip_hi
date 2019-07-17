@@ -8,7 +8,7 @@ describe MessageRequests::Create do
 
   let(:input) do
     {
-      phone_to: "new@user.com",
+      phone_to: "321 345 6543",
       to: "Juanito",
       from: "Pepito",
       recipient_type: "someone_else",
@@ -42,7 +42,7 @@ describe MessageRequests::Create do
           object_class: "message_request",
           field: "phone_to",
           code: "format",
-          description: "debe ser un correo válido",
+          description: "debe ser un número válido",
           value: "newuser.com",
           extra: {}
         }

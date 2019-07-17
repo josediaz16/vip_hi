@@ -6,7 +6,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
 
   let(:input) do
     {
-      phone_to: "new@user.com",
+      phone_to: "321 345 6543",
       to: "Juanito",
       from: "Pepito",
       brief: "Quiero que le digan a juanito que es un imbecil!",
