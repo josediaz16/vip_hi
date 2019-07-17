@@ -122,7 +122,7 @@ class MessageRequestForm extends React.Component {
             </div>
           </div>
 
-          <button className="button-primary" type="submit">{t.actions.buy} $350.000</button>
+          <button className="button-primary" type="submit">{t.actions.buy} ${parseInt(celebrity.price)}</button>
         </form>
       </React.Fragment>
     )

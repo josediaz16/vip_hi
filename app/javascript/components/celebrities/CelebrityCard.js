@@ -5,7 +5,7 @@ const CelebrityCard = ({name, known_as, country, biography, price, photo_url, de
     <div className="celebrity-card" onClick={() => window.location.assign(detail_path) }>
       <div className="profile-image" style={{backgroundImage: `url(${photo_url})`}}>
         <span className="price-tag">
-          350.000 Cop
+          {price} Cop
         </span>
       </div>
       <div className="profile-info">
