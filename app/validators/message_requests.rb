@@ -3,7 +3,7 @@ module Validators
     ValidRecipientTypes = %w(me someone_else)
 
     Create = Dry::Validation.Params(Validators::Base) do
-      required(:email_to,       DTypes::String).filled(:email?)
+      required(:phone_to,       DTypes::String).filled(:email?)
       required(:to,             DTypes::String).filled
       required(:brief,          DTypes::String).value(size?: 20..700)
       required(:celebrity_id,   DTypes::Integer).filled

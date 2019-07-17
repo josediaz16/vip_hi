@@ -10,7 +10,7 @@ const MRSchema = ({email: {format: emailFormat}}) => {
   return ValidationSchema("message_request", {
     from: RequiredBlankString,
     to: RequiredBlankString,
-    email_to: RequiredEmail(emailFormat),
+    phone_to: RequiredEmail(emailFormat),
     recipient_type: Yup.string().oneOf(['someone_else', 'me']),
     brief: RequiredBlankString
       .min(20, "Debe tener minimo 20 caracteres")

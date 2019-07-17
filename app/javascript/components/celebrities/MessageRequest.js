@@ -103,7 +103,7 @@ class MessageRequestForm extends React.Component {
                 />
               </NativeInput>
 
-              <NativeInput error={mrTouched.email_to && mrErrors.email_to}>
+              <NativeInput error={mrTouched.phone_to && mrErrors.phone_to}>
                 <label className="with-middle-icon">
                   {t.labels.whatsapp.start} <Icon icon="social-whatsapp"/> <strong> whatsapp </strong> {t.labels.whatsapp.end}
                 </label>
@@ -112,8 +112,8 @@ class MessageRequestForm extends React.Component {
                   id="whatsapp"
                   type="phone"
                   placeholder="318 4856 317"
-                  value={message_request.email_to}
-                  name="message_request[email_to]"
+                  value={message_request.phone_to}
+                  name="message_request[phone_to]"
                   onChange={handleChange}
                 />
               </NativeInput>
@@ -153,7 +153,7 @@ class MessageRequest extends React.Component {
     else {
       this.initialState = {
         brief: '',
-        email_to: '',
+        phone_to: '',
         to: '',
         from: '',
         recipient_type: 'someone_else',

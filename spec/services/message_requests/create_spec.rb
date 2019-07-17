@@ -8,7 +8,7 @@ describe MessageRequests::Create do
 
   let(:input) do
     {
-      email_to: "new@user.com",
+      phone_to: "new@user.com",
       to: "Juanito",
       from: "Pepito",
       recipient_type: "someone_else",
@@ -31,16 +31,16 @@ describe MessageRequests::Create do
     end
   end
 
-  context "The email_to is invalid" do
+  context "The phone_to is invalid" do
     it "should be failure" do
-      input.merge!(email_to: "newuser.com")
+      input.merge!(phone_to: "newuser.com")
 
       expect(response).to be_failure
 
       expect(response.failure[:errors]).to match_array([
         {
           object_class: "message_request",
-          field: "email_to",
+          field: "phone_to",
           code: "format",
           description: "debe ser un correo válido",
           value: "newuser.com",

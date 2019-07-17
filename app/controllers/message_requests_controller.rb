@@ -13,7 +13,7 @@ class MessageRequestsController < ApplicationController
   def message_request_params
     params
       .require(:message_request)
-      .permit(:email_to, :celebrity_id, :from, :to, :brief, :recipient_type)
+      .permit(:phone_to, :celebrity_id, :from, :to, :brief, :recipient_type)
       .to_h
       .symbolize_keys
       .tap do |message_request|
