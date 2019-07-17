@@ -22,7 +22,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
     fill_in "message_request[to]",       with: input[:to]
     fill_in "message_request[brief]",    with: input[:brief]
 
-    click_on "Enviar"
+    click_on "Comprar saludo $350.000"
     wait_for_ajax
   end
 
@@ -113,7 +113,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
       fill_in "message_request[from]",     with: input[:from]
       fill_in "message_request[to]",       with: input[:to]
 
-      click_button "Enviar"
+      click_button "Comprar saludo $350.000"
       wait_for_ajax
 
       expect(current_path).to eq celebrity_path(celebrity)

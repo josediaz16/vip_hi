@@ -80,16 +80,17 @@ RSpec.describe "GET /celebrities", js: true do
 
     expect(page).to have_content("Juanes")
     expect(page).to have_content("Shakira")
+    expect(page).to have_content("Lina Tejeiro")
+    expect(page).to have_content("Alejandro Fernandez")
 
-    expect(page).not_to have_content("Lina Tejeiro")
+    expect(page).not_to have_content("Leo messi")
 
     within(".pagination") do
       find(:css, "li.next a").click
       wait_for_ajax
     end
 
-    expect(page).to have_content("Lina Tejeiro")
-    expect(page).to have_content("Alejandro Fernandez")
+    expect(page).to have_content("Leo messi")
 
     fill_in "search_celebrity", with: "colom"
     wait_for_ajax
@@ -97,15 +98,15 @@ RSpec.describe "GET /celebrities", js: true do
     within(".react-autosuggest__container") do
       expect(page).to have_content("Juanes")
       expect(page).to have_content("Shakira")
+      expect(page).to have_content("Lina")
       expect(page).not_to have_content("Alejandro")
-      expect(page).not_to have_content("Lina")
       expect(page).not_to have_content("Messi")
     end
 
-    fill_in "search_celebrity", with: "shakora"
+    fill_in "search_celebrity", with: "shakorra"
     wait_for_ajax
 
-    expect(page).to have_content("Quisiste decir? shakira")
+    expect(page).to have_content("Quisiste decir shakira?")
 
     fill_in "search_celebrity", with: "messi"
     wait_for_ajax
