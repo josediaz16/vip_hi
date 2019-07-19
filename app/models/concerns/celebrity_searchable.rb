@@ -19,7 +19,8 @@ module CelebritySearchable
         price: price,
         country: user.country.name,
         code_iso: user.country.code_iso,
-        photo_url: Common::UploadUtils.get_attachment_url(user.photo)
+        photo_url: Common::UploadUtils.get_attachment_url(user.photo),
+        created_at: created_at
       }
     end
   end

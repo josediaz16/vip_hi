@@ -1,0 +1,118 @@
+div.celebrity-profile {
+  div.celebrity-header {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 20px;
+    height: 400px;
+    z-index: -2;
+
+    @media(min-width: $breakpoint-xmedium) {
+      padding: 0 210px 20px;
+    }
+
+    justify-content: flex-end;
+    flex-direction: column;
+    display: flex;
+
+    h1 {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    h4 {
+      font-size: 1.875rem;
+      color: #fff;
+    }
+
+    h1, h4 {
+      line-height: 1;
+    }
+
+    &:after {
+      position: absolute;
+      background: #382e2e;
+      opacity: 0.5;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      content: "";
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+div.main-container {
+  background: $primary-light-white;
+}
+
+div.celebrity-info {
+  padding: 20px;
+
+  @media(min-width: $breakpoint-xmedium) {
+    padding: 30px 210px 50px;
+  }
+
+  h3 {
+    color: $primary-normal-pink;
+    font-size: 1.56rem;
+    font-weight: bold;
+  }
+
+  p {
+    color: $primary-dark-gray;
+    font-size: 1rem;
+  }
+}
+
+div.request-form {
+  background: #f0f0f0;
+  position: relative;
+  padding: 40px 20px;
+  z-index: 1;
+
+  @media(min-width: $breakpoint-xmedium) {
+    padding: 40px 320px;
+  }
+
+  h3 {
+    color: $primary-normal-pink;
+    margin-bottom: 20px;
+    font-size: 1.56rem;
+    font-weight: bold;
+  }
+
+  form {
+    border-radius: 8px;
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 108%;
+      height: 100%;
+      background: #e3e3e3;
+      position: absolute;
+      top: 20px;
+      left: -4%;
+      z-index: -1;
+    }
+
+    &:before {
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background: #e3e3e3;
+      position: absolute;
+      height: 90px;
+      width: 108%;
+      content: "";
+      z-index: -1;
+      top: -70px;
+      left: -4%;
+    }
+  }
+
+  input#whatsapp {
+    width: 50%;
+  }
+}

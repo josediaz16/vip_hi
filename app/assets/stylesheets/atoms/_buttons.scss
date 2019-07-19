@@ -6,14 +6,18 @@
   transition: all 0.5s ease-out 0s;
   font-family: 'Lato', sans-serif;
   border-radius: 30px;
-  font-size: 1.25rem;
-  padding: 10px 30px;
+  padding: 10px 20px;
   text-align: center;
-  padding: 10px 50px;
   font-weight: 700;
   display: inline-block;
+  font-size: 1rem;
   outline: none;
   color: #fff;
+
+  @media(min-width: $breakpoint-xmedium) {
+    font-size: 1.25rem;
+    padding: 10px 50px;
+  }
 }
 
 @mixin button-base-properties($color) {
@@ -30,4 +34,9 @@ input[type="submit"], {
 .button-primary {
   @extend .button-base;
   @include button-base-properties($primary-normal-pink);
+}
+
+button.centered {
+  margin: 0 auto;
+  display: block;
 }

@@ -2,10 +2,23 @@ es:
   components:
     message_request:
       labels:
-        from: 'De'
-        to: 'Para'
-        brief: 'Instrucciones'
-        email_to: 'Enviar al email'
+        brief: 'Mis instrucciones para $name son:'
+        recipient_type: 'Este video es para:'
+        recipient_types:
+          me: 'Mi'
+          someone_else: 'Alguien más'
+        whatsapp:
+          start: 'El video llegará por'
+          end: 'por favor escribe el numero de teléfono'
+      placeholders:
+        from: 'Nombre de quien lo envía'
+        to: 'Nombre de quien lo recibe'
+        to_myself: 'Tu nombre es'
+        brief: 'Juan va a cumplir 25 años muy pronto. Por favor deseale un feliz cumpleaños de mi parte! Enviale saludos de sus amigos Maria y Jose'
+        brief_myself: "Me encanta lo que haces! Quiero tener un mensaje tuyo para animarme en días dificiles"
+      titles:
+        request_message: 'Pide un saludo a'
       alerts: :components.alerts
-      actions: :components.actions
+      actions:
+        buy: 'Comprar saludo'
       front_validations: :components.front_validations

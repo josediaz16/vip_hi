@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_223806) do
+ActiveRecord::Schema.define(version: 2019_07_17_175035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_223806) do
     t.text "brief", default: "", null: false
     t.string "to", default: "", null: false
     t.string "from", default: "", null: false
-    t.string "email_to", default: "", null: false
+    t.string "phone_to", default: "", null: false
     t.bigint "celebrity_id"
     t.bigint "fan_id"
     t.string "recipient_type", default: "", null: false

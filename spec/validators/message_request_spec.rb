@@ -5,7 +5,7 @@ describe Validators::MessageRequests::Create do
 
   let(:input) do
     {
-      email_to: "new@user.com",
+      phone_to: "321 345 6543",
       to: "Juanito",
       from: "Pepito",
       recipient_type: "someone_else",
@@ -32,10 +32,10 @@ describe Validators::MessageRequests::Create do
 
   context "The email is invalid" do
     it "should be failure" do
-      input.merge!(email_to: "newuser.com")
+      input.merge!(phone_to: "newuser.com")
       expect(response).to be_failure
       expect(response.messages).to eq({
-        email_to: ["format~debe ser un correo válido"]
+        phone_to: ["format~debe ser un número válido"]
       })
     end
   end

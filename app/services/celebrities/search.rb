@@ -5,7 +5,7 @@ module Celebrities
     load: false,
     misspellings: {below: 5},
     suggest: true,
-    per_page: 2
+    per_page: 4
   }
 
   Search = -> query, options = Hash.new, &block do
@@ -26,6 +26,8 @@ module Celebrities
   end
 
   FilterSuggestions = -> suggestions, query do
-    suggestions.reject { |suggestion| query.match(suggestion).present? || suggestion.match(query).present? }
+    suggestions.reject do |suggestion|
+      query.match(Regexp.new(suggestion, Regexp::IGNORECASE)).present? || suggestion.match(Regexp.new(query, Regexp::IGNORECASE)).present?
+    end
   end
 end

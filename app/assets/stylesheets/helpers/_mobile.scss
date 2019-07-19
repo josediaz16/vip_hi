@@ -1,0 +1,15 @@
+/*###########################################################################
+# Show on Responsive utility clases
+#############################################################################*/
+
+.show-on-mobile-only {
+  @media(min-width: $breakpoint-medium) {
+    display: none !important;
+  }
+}
+
+.hide-on-mobile {
+  @media(max-width: $breakpoint-medium) {
+    display: none !important;
+  }
+}

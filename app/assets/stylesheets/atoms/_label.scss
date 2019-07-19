@@ -6,3 +6,9 @@ label {
   color: $primary-normal-pink;
   font-weight: 400;
 }
+
+label.with-middle-icon {
+  svg {
+    vertical-align: middle;
+  }
+}

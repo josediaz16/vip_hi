@@ -2,10 +2,23 @@ en:
   components:
     message_request:
       labels:
-        from: 'From'
-        to: 'To'
-        brief: 'Instructions'
-        email_to: 'Send to email'
+        brief: 'My instructions for $name are:'
+        recipient_type: 'The video is for:'
+        recipient_types:
+          me: 'Myself'
+          someone_else: 'Someone else'
+        whatsapp:
+          start: 'The video will be sent to'
+          end: 'please type the phone number'
+      placeholders:
+        from: 'Who sends it'
+        to: 'Who recieves it'
+        to_myself: 'Your name is'
+        brief: 'Mike is going to be 25 very soon. Please wish him a happy birthday for me! Say hi from his friends Mary and Luke'
+        brief_myself: "You are the best singer ever, I wanna have a message from you to watch it at tough times"
+      titles:
+        request_message: 'Request a message from'
+      actions:
+        buy: 'Book for'
       alerts: :components.alerts
-      actions: :components.actions
       front_validations: :components.front_validations
