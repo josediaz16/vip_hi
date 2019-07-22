@@ -71,6 +71,10 @@ class CelebrityList extends React.Component {
     this.setState({pageNumber: data.selected + 1}, this.onSuggestionsClear)
   }
 
+  onKeyDown = (event) => {
+    event.target.blur()
+  }
+
   render() {
     const { search, searchText } = this.state
     const { search_url, t, logoPath } = this.props
@@ -80,6 +84,7 @@ class CelebrityList extends React.Component {
       placeholder: t.placeholders.search,
       value: searchText,
       onChange: this.onChangeInput,
+      onKeyDown: this.onKeyDown,
       className: classNames("react-autosuggest__input", {"with-suggestion": search.suggestions.length > 0})
     }
 
