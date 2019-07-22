@@ -72,7 +72,9 @@ class CelebrityList extends React.Component {
   }
 
   onKeyDown = (event) => {
-    event.target.blur()
+    if (event.key === 'Enter') {
+      event.target.blur()
+    }
   }
 
   render() {
