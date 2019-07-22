@@ -20,6 +20,9 @@ class HomePage extends React.Component {
       searchText: '',
     }
   }
+  componentWillMount() {
+    this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
+  }
 
   // Begin AutoComplete Handlers
   onSuggestionsFetch = ({value}) => {

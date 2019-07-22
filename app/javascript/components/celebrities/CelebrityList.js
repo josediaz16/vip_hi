@@ -30,7 +30,7 @@ class CelebrityList extends React.Component {
   }
 
   componentWillMount() {
-    //this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
+    this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
   }
 
   // Begin AutoComplete Handlers

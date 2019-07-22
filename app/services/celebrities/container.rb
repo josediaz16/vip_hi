@@ -1,7 +1,7 @@
 module Celebrities
   class Container < Common::Container
     ParseInput = -> input do
-      {attributes: input.except(:biography, :price), original: input}
+      {attributes: input.except(:biography, :price, :handle), original: input}
     end
 
     namespace("ops") do
@@ -19,7 +19,7 @@ module Celebrities
       end)
 
       register("create_celebrity", -> input do
-        Celebrities::Create.(user_id: input[:model].id, **input[:original].slice(:biography, :price))
+        Celebrities::Create.(user_id: input[:model].id, **input[:original].slice(:biography, :price, :handle))
       end)
     end
   end

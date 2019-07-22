@@ -7,13 +7,13 @@ const Footer = ({t}) => {
       <h4>No olvides seguirnos en nuestras redes sociales</h4>
       <div className="social-networks">
         <a href="">
-          <Icon icon="facebook-square"/>
+          <Icon icon="facebook"/>
         </a>
         <a href="">
           <Icon icon="instagram"/>
         </a>
         <a href="">
-          <Icon icon="instagram"/>
+          <Icon icon="twitter"/>
         </a>
       </div>
     </footer>
