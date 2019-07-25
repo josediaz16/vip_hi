@@ -1,5 +1,7 @@
 import React from 'react'
+
 import TextAreaAutoSize from 'react-textarea-autosize'
+import {Currency} from 'components/format'
 
 import {
   NativeInput,
@@ -122,7 +124,9 @@ class MessageRequestForm extends React.Component {
             </div>
           </div>
 
-          <button className="button-primary" type="submit">{t.actions.buy} ${parseInt(celebrity.price)}</button>
+          <button className="button-primary" type="submit">
+            {t.actions.buy} { Currency(celebrity.price) }
+          </button>
         </form>
       </React.Fragment>
     )

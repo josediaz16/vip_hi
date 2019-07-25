@@ -16,6 +16,7 @@ module CelebritySearchable
         name: user.name,
         known_as: user.known_as,
         biography: biography,
+        handle: handle,
         price: price,
         country: user.country.name,
         code_iso: user.country.code_iso,

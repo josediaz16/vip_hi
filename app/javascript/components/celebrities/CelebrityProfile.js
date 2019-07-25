@@ -20,7 +20,7 @@ class CelebrityProfile extends React.Component {
         <div className="celebrity-profile">
           <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
             <h1>{celebrity.user.known_as}</h1>
-            <h4>@falcao</h4>
+            <h4>{celebrity.handle}</h4>
           </div>
           <div className="main-container">
             <div className="celebrity-info">
