@@ -1,0 +1,11 @@
+en:
+  components:
+    alerts:
+      titles:
+        error: 'Error'
+        alert: 'Error'
+        success: 'Success'
+        notice: 'Success'
+      messages:
+        error: 'Your submission has errors, please do not be an idiot'
+        create_resource: 'The %{resource} has been successfully created'

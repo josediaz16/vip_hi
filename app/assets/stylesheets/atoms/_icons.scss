@@ -6,3 +6,11 @@ svg.icon {
     border-radius: 50%;
   }
 }
+
+svg.icon-exclamation {
+  fill: $message-error;
+}
+
+svg.icon-checkmark {
+  fill: $message-success;
+}

@@ -37,7 +37,7 @@ class UserForm extends React.Component {
       <form className="form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
         <h2>Create account</h2>
         {
-          showErrorAlert && <Alert alertClass="alert-error" message={t.alerts.error} onClose={onCloseAlert}/>
+          showErrorAlert && <Alert type="error" t={t.alerts} onClose={onCloseAlert}/>
         }
         <div className="inputs">
           { !isFan &&

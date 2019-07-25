@@ -1,0 +1,11 @@
+es:
+  components:
+    alerts:
+      titles:
+        error: 'Error'
+        alert: 'Error'
+        success: 'Bien hecho'
+        notice: 'Bien hecho'
+      messages:
+        error: 'Tu formulario tiene errores, por favor no seas un idiota'
+        create_resource: 'Se ha creado el %{resource} correctamente'

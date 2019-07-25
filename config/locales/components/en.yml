@@ -2,8 +2,6 @@ en:
   components:
     actions:
       submit: 'Submit'
-    alerts:
-      error: 'Your submission has errors, please do not be an idiot'
     front_validations:
       email:
         format: "Invalid format"
