@@ -9,7 +9,7 @@
         signInUrl: new_user_session_path,
         origin: params[:origin].presence,
         role: params[:role].presence,
-      })
+      }, class: "std-box")
   .big-instructions-box
     %h1= t("users.registrations.new.big_box.title.html")
     %p= t("users.registrations.new.big_box.text.html")

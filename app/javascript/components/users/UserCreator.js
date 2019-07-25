@@ -34,7 +34,7 @@ class UserForm extends React.Component {
     const isFan = role === "fan"
 
     return (
-      <form className="std-box form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
+      <form className="form-wrapper" action={url} ref={formRef} onSubmit={onSubmit} noValidate>
         <h2>Create account</h2>
         {
           showErrorAlert && <Alert alertClass="alert-error" message={t.alerts.error} onClose={onCloseAlert}/>

@@ -1,3 +1,5 @@
+= render "shared/navbar", logo: asset_path("logo_dark.png"), class: "red-wrapper"
+
 = react_component("celebrities/CelebrityProfile",
   { celebrity: @presenter.json_data,
     t: component_translations("celebrity_profile", deep_resolve: true),

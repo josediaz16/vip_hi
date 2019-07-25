@@ -7,7 +7,6 @@ import classNames    from 'classnames'
 
 import CelebrityCard  from 'components/celebrities/CelebrityCard'
 import Footer         from 'components/footer'
-import NavBar         from 'components/NavBar'
 
 // Util Functions
 import { getRequest, isPresent } from 'components/Utils'
@@ -92,7 +91,6 @@ class CelebrityList extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar />
         <div className="search-page">
           <div className="top-section stretch">
             <div className="search-box-instructions">

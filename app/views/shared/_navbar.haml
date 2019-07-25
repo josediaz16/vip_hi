@@ -1,0 +1,15 @@
+.navbar-wrapper{class: local_assigns[:class]}
+  %a.logo{href: root_path}
+    %img{src: local_assigns[:logo] || asset_path("logo_light.png")}
+  %ul
+    - if user_signed_in?
+      %li
+        %a.active{href: destroy_user_session_path}
+          Log out
+    - else
+      %li
+        %a{href: new_user_registration_path}
+          Sign up
+      %li
+        %a.active{href: new_user_session_path}
+          Login

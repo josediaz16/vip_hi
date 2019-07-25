@@ -7,7 +7,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     if resource.origin.present?
       resource.origin
     else
-      new_celebrity_path
+      after_sign_in_path_for(resource)
     end
   end
 end
