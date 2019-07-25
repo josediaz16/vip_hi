@@ -22,7 +22,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
     fill_in "message_request[to]",       with: input[:to]
     fill_in "message_request[brief]",    with: input[:brief]
 
-    click_on "Comprar saludo $350000"
+    click_on "Comprar saludo COP 350.000"
     wait_for_ajax
   end
 
@@ -43,7 +43,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
     visit celebrity_path(celebrity)
     fill_form
     good_expectations
-  end
+ end
 
   context "The input is valid" do
     context "The user is logged in" do
@@ -113,7 +113,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
       fill_in "message_request[from]",     with: input[:from]
       fill_in "message_request[to]",       with: input[:to]
 
-      click_button "Comprar saludo $350000"
+      click_button "Comprar saludo COP 350.000"
       wait_for_ajax
 
       expect(current_path).to eq celebrity_path(celebrity)

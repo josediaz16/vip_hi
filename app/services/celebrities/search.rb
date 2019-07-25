@@ -1,11 +1,17 @@
 module Celebrities
+  ItemsByEnv = {
+    "development" => 8,
+    "production" => 8,
+    "test" => 4
+  }
+
   DefaultOptions = {
     fields: ["known_as", "name", "country"],
     match: :word_start,
     load: false,
     misspellings: {below: 5},
     suggest: true,
-    per_page: 8
+    per_page: ItemsByEnv[Rails.env]
   }
 
   Search = -> query, options = Hash.new, &block do
