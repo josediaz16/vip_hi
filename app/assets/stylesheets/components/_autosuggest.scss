@@ -27,6 +27,7 @@
     border: none;
     width: 94%;
     left: 10px;
+    z-index: 1;
 
     @media(min-width: $breakpoint-xmedium) {
       left: 20px;

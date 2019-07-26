@@ -35,7 +35,7 @@ class MessageRequestForm extends React.Component {
     return (
       <React.Fragment>
         {
-          showErrorAlert && <Alert message={t.alerts.error} onClose={onCloseAlert}/>
+          showErrorAlert && <Alert t={t.alerts} type="error" onClose={onCloseAlert}/>
         }
         <form className="std-box darken-form" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
           <h3>{`${t.titles.request_message} ${celebrity.user.known_as}`}</h3>
@@ -107,12 +107,12 @@ class MessageRequestForm extends React.Component {
 
               <NativeInput error={mrTouched.phone_to && mrErrors.phone_to}>
                 <label className="with-middle-icon">
-                  {t.labels.whatsapp.start} <Icon icon="social-whatsapp"/> <strong> whatsapp </strong> {t.labels.whatsapp.end}
+                  {t.labels.whatsapp.start} <Icon icon="social-whatsapp" className="dark"/> <strong> whatsapp </strong> {t.labels.whatsapp.end}
                 </label>
 
                 <input
                   id="whatsapp"
-                  type="phone"
+                  type="tel"
                   placeholder="318 4856 317"
                   value={message_request.phone_to}
                   name="message_request[phone_to]"

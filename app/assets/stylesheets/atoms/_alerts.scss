@@ -16,12 +16,6 @@ div.alert-wrapper {
   justify-content: center;
   flex-direction: column;
   display: flex;
-
-  @media(min-width: $breakpoint-xmedium) {
-    background: transparent;
-    display: block;
-    top: 5px;
-  }
 }
 
 div.alert {
@@ -34,8 +28,6 @@ div.alert {
   width: 50%;
 
   @media(min-width: $breakpoint-xmedium) {
-    border-radius: 10px;
-    padding: 10px 20px;
     width: fit-content;
   }
 
@@ -50,6 +42,7 @@ div.alert {
     font-size: 14px;
     color: #6c6c6f;
     margin: 0 0 30px;
+    max-width: 250px;
   }
 
   svg {

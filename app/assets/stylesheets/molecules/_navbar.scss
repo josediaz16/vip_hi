@@ -1,9 +1,14 @@
 .navbar-wrapper {
-  padding: 10px;
   position: absolute;
+  padding: 10px;
+  z-index: 5;
   right: 0;
   left: 0;
   top: 0;
+
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 
   @media(min-width: $breakpoint-xmedium) {
     padding: 10px 150px 10px 60px;
@@ -12,16 +17,16 @@
   &.red-wrapper {
     transition: all 0.5s ease-out 0s;
     background: transparent;
-
-    &:hover {
-      background: #eb144c;
-      opacity: 0.53;
-    }
   }
 
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
+  &.no-logo-mobile {
+    @media(max-width: $breakpoint-medium) {
+
+      a.logo {
+        display: none;
+      }
+    }
+  }
 
   a.logo {
     position: relative;
@@ -41,6 +46,10 @@
     }
   }
 
+  a {
+    line-height: 0;
+  }
+
   ul {
     display: flex;
     margin: 0;
@@ -54,8 +63,8 @@
     }
 
     a {
-      color: #fff;
       position: relative;
+      color: #fff;
 
       &.active {
         font-weight: bold;
@@ -71,5 +80,9 @@
         }
       }
     }
+  }
+
+  svg {
+    margin-right: 10px;
   }
 }

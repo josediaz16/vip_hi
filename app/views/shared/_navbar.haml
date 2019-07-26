@@ -1,7 +1,10 @@
 .navbar-wrapper{class: local_assigns[:class]}
   %a.logo{href: root_path}
     %img{src: local_assigns[:logo] || asset_path("logo_light.png")}
-  %ul
+
+  = content_for(:go_back)
+
+  %ul.hide-on-mobile
     - if user_signed_in?
       %li
         %a.active{href: destroy_user_session_path}
@@ -13,3 +16,11 @@
       %li
         %a.active{href: new_user_session_path}
           Login
+
+  .show-on-mobile-only
+    - if user_signed_in?
+      %a.active{href: destroy_user_session_path}
+        = render "shared/icon", icon_class: "icon-sign-out", class: "medium"
+    - else
+      %a.active{href: new_user_session_path}
+        = render "shared/icon", icon_class: "icon-sign-in", class: "medium"

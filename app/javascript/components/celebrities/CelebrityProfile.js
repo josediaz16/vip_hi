@@ -2,6 +2,7 @@ import React from 'react'
 
 import MessageRequest from 'components/celebrities/MessageRequest'
 import Footer         from 'components/footer'
+import Icon           from 'components/inputs/Icon'
 
 class CelebrityProfile extends React.Component {
   render() {
@@ -15,6 +16,11 @@ class CelebrityProfile extends React.Component {
       <React.Fragment>
         <div className="celebrity-profile">
           <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
+
+            <a href="/celebrities" className="hide-on-mobile">
+              <Icon icon="arrow-13" className="back"/>
+            </a>
+
             <h1>{celebrity.user.known_as}</h1>
             <h4>{celebrity.handle}</h4>
           </div>

@@ -3,6 +3,8 @@
 #############################################################################*/
 
 .show-on-mobile-only {
+  line-height: 0;
+
   @media(min-width: $breakpoint-medium) {
     display: none !important;
   }
