@@ -67,7 +67,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
         expect(current_email).to have_content("You can confirm your account email through the link below")
         visit user_confirmation_path(confirmation_token: user.confirmation_token)
 
-        expect(current_path).to eq(new_celebrity_path)
+        expect(current_path).to eq(celebrities_path)
       end
     end
   end

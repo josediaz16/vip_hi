@@ -7,10 +7,10 @@ class Admins::CelebritiesController < ApplicationController
     result = Users::CreateCelebrity.(celebrity_params)
 
     if result.success?
-      flash[:success] = t("components.user_creator.alerts.create_resource", resource: t("resources.user"))
+      flash[:success] = t("components.user_creator.alerts.messages.create_resource", resource: t("resources.user"))
       redirect_to admins_celebrities_path
     else
-      flash.now[:error] = t("components.user_creator.alerts.error")
+      flash.now[:error] = t("components.user_creator.alerts.messages.error")
       @presenter = Presenters::UsersPresenter.new({}, errors: result.failure[:errors])
       render :new
     end
