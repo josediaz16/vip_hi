@@ -14,6 +14,9 @@ const defaultProps = {
     },
     1024: {
       items: 4
+    },
+    1600: {
+      items: 6
     }
   }
 }

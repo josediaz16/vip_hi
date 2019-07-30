@@ -1,39 +1,49 @@
 = render "shared/flash"
 
-= form_for(:user, url: admins_celebrities_path) do |form|
-  %div
-    = form.label t("components.user_creator.labels.email")
-    = form.email_field :email
-    = @presenter.content_error(:email)
-  %div
-    = form.label t("components.user_creator.labels.name")
-    = form.text_field :name
-  %div
-    = form.label t("components.user_creator.labels.country")
-    = form.select(:country, Country.order(:name).pluck(:name, :code_iso), include_blank: true)
-    = @presenter.content_error(:country_id)
-  %div
-    = form.label "Price"
-    = form.number_field :price, step: 0.5
-    = @presenter.content_error(:price)
-  %div
-    = form.label t("components.user_creator.labels.phone")
-    = form.phone_field :phone
-    = @presenter.content_error(:phone)
-  %div
-    = form.label t("components.user_creator.labels.known_as")
-    = form.text_field :known_as
-    = @presenter.content_error(:known_as)
-  %div
-    = form.label t("components.user_creator.labels.password")
-    = form.password_field :password
-    = @presenter.content_error(:password)
-  %div
-    = form.label t("components.user_creator.labels.password_confirmation")
-    = form.password_field :password_confirmation
-    = @presenter.content_error(:password_confirmation)
-  %div
-    = form.label t("components.user_creator.labels.photo")
-    = form.file_field :photo
-  %div
-    = form.submit t("components.user_creator.actions.submit")
+%h1 Crear Celebridad
+
+= form_for(:user, url: admins_celebrities_path, html: {class: "form-wrapper"}) do |form|
+  .grid-block
+    .span-sm-12.span-md-6
+      .grid-block.grid-gap-40
+        .span-sm-12.span-md-6
+          .input-wrapper
+            = form.label t("components.user_creator.labels.email")
+            = form.email_field :email, tabindex: 1
+            = @presenter.content_error(:email)
+          .input-wrapper
+            = form.label t("components.user_creator.labels.name")
+            = form.text_field :name, tabindex: 3
+          .input-wrapper
+            = form.label t("components.user_creator.labels.country")
+            = form.select(:country, Country.order(:name).pluck(:name, :code_iso), {include_blank: true}, {tabindex: 5})
+            = @presenter.content_error(:country_id)
+          .input-wrapper
+            = form.label t("components.user_creator.labels.phone")
+            = form.phone_field :phone, tabindex: 7
+            = @presenter.content_error(:phone)
+          .input-wrapper
+            = form.label t("components.user_creator.labels.password")
+            = form.password_field :password, tabindex: 9
+            = @presenter.content_error(:password)
+        .span-sm-12.span-md-6
+          .input-wrapper
+            = form.label t("components.user_creator.labels.known_as")
+            = form.text_field :known_as, tabindex: 2
+            = @presenter.content_error(:known_as)
+          .input-wrapper
+            = form.label t("components.user_creator.labels.handle")
+            = form.text_field :handle, tabindex: 4
+            = @presenter.content_error(:handle)
+          .input-wrapper
+            = form.label "Price"
+            = form.select(:price, [100_000, 200_000], {include_blank: true}, {tabindex: 6})
+            = @presenter.content_error(:price)
+          .input-wrapper
+            = form.label t("components.user_creator.labels.photo")
+            = form.file_field :photo, tabindex: 8
+          .input-wrapper
+            = form.label t("components.user_creator.labels.password_confirmation")
+            = form.password_field :password_confirmation, tabindex: 10
+            = @presenter.content_error(:password_confirmation)
+      = form.submit t("components.user_creator.actions.submit"), class: "button-primary"

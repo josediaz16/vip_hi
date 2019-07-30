@@ -1,9 +1,10 @@
 .react-phone-number-input {
   border: 1px solid $primary-light-gray;
+  font-family: 'Noto Sans', sans-serif;
   border-radius: 22px;
   font-size: 0.875rem;
   padding: 9px 12px;
-  font-family: 'Noto Sans', sans-serif;
+  background: #fff;
 
   .react-phone-number-input__icon {
     font-size: 0rem;
@@ -17,6 +18,7 @@
   }
 
   .react-phone-number-input__input {
+    background: transparent;
     height: auto;
     border: none;
   }

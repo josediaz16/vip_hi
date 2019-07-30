@@ -7,7 +7,6 @@ import classNames    from 'classnames'
 
 import CelebrityCard  from 'components/celebrities/CelebrityCard'
 import Footer         from 'components/footer'
-import NavBar         from 'components/NavBar'
 
 // Util Functions
 import { getRequest, isPresent } from 'components/Utils'
@@ -81,18 +80,19 @@ class CelebrityList extends React.Component {
     const { search, searchText } = this.state
     const { search_url, t, logoPath } = this.props
 
+    const withSuggestions = search.suggestions.length > 0 && search.results.length === 0
+
     const inputProps = {
       id: "search_celebrity",
       placeholder: t.placeholders.search,
       value: searchText,
       onChange: this.onChangeInput,
       onKeyDown: this.onKeyDown,
-      className: classNames("react-autosuggest__input", {"with-suggestion": search.suggestions.length > 0})
+      className: classNames("react-autosuggest__input", {"with-suggestion": withSuggestions})
     }
 
     return (
       <React.Fragment>
-        <NavBar />
         <div className="search-page">
           <div className="top-section stretch">
             <div className="search-box-instructions">
@@ -109,7 +109,7 @@ class CelebrityList extends React.Component {
                 getSuggestionValue={this.getSuggestionValue}
               />
 
-              { search.suggestions.length > 0 && search.results.length === 0 &&
+              { withSuggestions &&
                 <div className="suggestions">
                   <span>
                     {`${t.labels.did_you_mean} `}

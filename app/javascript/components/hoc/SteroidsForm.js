@@ -22,7 +22,7 @@ class SteroidsForm extends React.Component {
 
       if (!isValid) {
         setStatus({showErrorAlert: true})
-        window.scrollTo(0, 0)
+        //window.scrollTo(0, 0)
       }
     }, 100)
   }

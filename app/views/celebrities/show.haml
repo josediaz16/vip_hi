@@ -1,3 +1,9 @@
+- content_for(:go_back) do
+  %a.show-on-mobile-only{href: celebrities_path}
+    = render "shared/icon", icon_class: "icon-arrow-13", class: "back"
+
+= render "shared/navbar", logo: asset_path("logo_dark.png"), class: "red-wrapper no-logo-mobile"
+
 = react_component("celebrities/CelebrityProfile",
   { celebrity: @presenter.json_data,
     t: component_translations("celebrity_profile", deep_resolve: true),

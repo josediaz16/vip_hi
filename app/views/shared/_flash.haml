@@ -1,4 +1,4 @@
 - if flash.any?
   - key, message = flash.first
 
-  = react_component("Alert", {message: message, alertClass: "alert-#{key}"}, {style: "position: fixed;"})
+  = react_component("Alert", {message: message, t: t(:"components.alerts"), type: "#{key}"})

@@ -13,10 +13,10 @@ const NavBar = ({logoPath, className}) => {
 
       <ul>
         <li>
-          <a href="">Sign up</a>
+          <a href="/users/sign_up">Sign up</a>
         </li>
         <li>
-          <a className="active" href="">Login</a>
+          <a className="active" href="/users/sign_in">Login</a>
         </li>
       </ul>
     </div>

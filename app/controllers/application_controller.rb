@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     else
       options = {
         [:admin] => new_admins_celebrity_path,
+        [:celebrity] => new_celebrity_path,
         [:fan]   => celebrities_path
       }
       roles = user.roles.names_ordered.map(&:to_sym)

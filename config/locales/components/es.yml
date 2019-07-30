@@ -2,9 +2,6 @@ es:
   components:
     actions:
       submit: 'Enviar'
-    alerts:
-      error: 'Tu formulario tiene errores, por favor no seas un idiota'
-      create_resource: 'Se ha creado el %{resource} correctamente'
     front_validations:
       email:
         format: "El formato no es válido"
