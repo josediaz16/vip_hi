@@ -118,7 +118,7 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
 
       expect(current_path).to eq celebrity_path(celebrity)
 
-      expect(page).to have_content("Tu formulario tiene errores, por favor no seas un idiota")
+      expect(page).to have_content("Tu formulario tiene errores, por favor verfica los datos")
       expect(page).to have_content("El formato no es válido")
 
       expect(MessageRequest.count).to eq(0)

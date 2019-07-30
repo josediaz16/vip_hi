@@ -86,7 +86,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
 
       expect(current_path).to eq(new_user_registration_path)
 
-      expect(page).to have_content("Tu formulario tiene errores, por favor no seas un idiota")
+      expect(page).to have_content("Tu formulario tiene errores, por favor verfica los datos")
       expect(page).to have_content("El formato no es válido")
       expect(page).to have_content("Las contraseñas deben coincidir")
 
@@ -109,7 +109,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       wait_for_ajax
 
       expect(current_path).to eq(new_user_registration_path)
-      expect(page).to have_content("Tu formulario tiene errores, por favor no seas un idiota")
+      expect(page).to have_content("Tu formulario tiene errores, por favor verfica los datos")
       expect(page).to have_content("ya ha sido tomado")
 
       expect(User.count).to eq(1)

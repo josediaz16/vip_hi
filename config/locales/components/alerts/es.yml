@@ -7,5 +7,5 @@ es:
         success: 'Bien hecho'
         notice: 'Bien hecho'
       messages:
-        error: 'Tu formulario tiene errores, por favor no seas un idiota'
+        error: 'Tu formulario tiene errores, por favor verfica los datos'
         create_resource: 'Se ha creado el %{resource} correctamente'

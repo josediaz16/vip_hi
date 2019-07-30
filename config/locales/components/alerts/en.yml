@@ -7,5 +7,5 @@ en:
         success: 'Success'
         notice: 'Success'
       messages:
-        error: 'Your submission has errors, please do not be an idiot'
+        error: 'Your submission has errors, please check your data'
         create_resource: 'The %{resource} has been successfully created'
