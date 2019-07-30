@@ -2,6 +2,7 @@ es:
   components:
     user_creator:
       labels:
+        handle: '@handle'
         name: 'Nombre'
         known_as: 'Nombre artistico'
         email: 'Email'

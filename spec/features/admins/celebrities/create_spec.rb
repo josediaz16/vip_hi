@@ -16,7 +16,7 @@ RSpec.feature "POST /admins/celebrities/", js: true do
     scenario "Should create a celebrity" do
       fill_in "user[email]",                  with: "pepito@mail.com"
       fill_in "user[name]",                   with: "Pepito Perez"
-      fill_in "user[price]",                  with: 3.5
+      select 100_000,                         from: "user[price]"
       fill_in "user[known_as]",               with: "Ken Addams"
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
@@ -39,6 +39,7 @@ RSpec.feature "POST /admins/celebrities/", js: true do
       expect(user.phone).to  eq("3245678900")
       expect(user.confirmed_at).not_to  be_blank
       expect(user.photo.attached?).to be_truthy
+      expect(user.celebrity.price).to eq(100_000)
       expect(user.roles.pluck(:name)).to eq ["celebrity"]
       expect(page).to have_content("Se ha creado el usuario correctamente")
 
