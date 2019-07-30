@@ -35,12 +35,12 @@ const mapPropsToValues = (key) => {
   })
 }
 
-const BuildValidator = (schemaName, schema) => {
+const BuildValidator = (schemaName, schema, mapStatus) => {
   return (t, onSubmit) => {
     return withFormik({
       validationSchema: schema(t),
       mapPropsToValues: mapPropsToValues(schemaName),
-      mapPropsToStatus: mapPropsToStatus,
+      mapPropsToStatus: mapStatus || mapPropsToStatus,
       handleSubmit: onSubmit
     })(SteroidsForm)
   }

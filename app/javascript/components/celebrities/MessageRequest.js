@@ -11,18 +11,24 @@ import {
 
 import MRValidator   from 'components/validators/MRValidator'
 import Alert         from 'components/Alert'
+import withinModal   from 'components/Modal'
+
+import PaymentForm   from 'components/PaymentForm'
 
 import { onSubmit }  from 'components/SubmitHandlers'
+
+const PaymentFormModal = withinModal(PaymentForm)
 
 class MessageRequestForm extends React.Component {
   render() {
     const {
       values: {message_request, formRef},
-      status: {showErrorAlert},
+      status: {showErrorAlert, solucionis_notitia},
       handleChange,
       errors:  {message_request: mrErrors={}},
       touched: {message_request: mrTouched={}},
       t,
+      uyapAtad,
       celebrity,
       message_request_url,
       actionText,
@@ -37,8 +43,8 @@ class MessageRequestForm extends React.Component {
         {
           showErrorAlert && <Alert t={t.alerts} type="error" onClose={onCloseAlert}/>
         }
-        <form className="std-box darken-form" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
-          <h3>{`${t.titles.request_message} ${celebrity.user.known_as}`}</h3>
+        <form className="std-box darken-form envelope" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
+          <h3 className="form-heading">{`${t.titles.request_message} ${celebrity.user.known_as}`}</h3>
 
           <div className="grid-block">
             <div className="span-sm-12 span-md-10">
@@ -128,6 +134,21 @@ class MessageRequestForm extends React.Component {
             {t.actions.buy} { Currency(celebrity.price) }
           </button>
         </form>
+
+        { solucionis_notitia &&
+          <PaymentFormModal
+            amount={celebrity.price}
+            description={`Saludo Famoso de ${celebrity.user.known_as}`}
+            referenceCode={solucionis_notitia.reference_code}
+            signature={solucionis_notitia.signature}
+            isOpen={true}
+            wrapperClass="centered small-content"
+            t={t.payment_form}
+            name={message_request.from}
+            {...uyapAtad}
+          />
+        }
+
       </React.Fragment>
     )
   }
@@ -140,9 +161,9 @@ const handle401 = ({apiResponse, payload}) => {
   }
 }
 
-const handleSuccess = ({redirect_url}) => {
+const handleSuccess = ({redirect_url, solucionis_notitia}, formikBag) => {
   sessionStorage.removeItem('messageRequest')
-  window.location.assign(redirect_url)
+  formikBag.setStatus({solucionis_notitia: solucionis_notitia})
 }
 
 class MessageRequest extends React.Component {
@@ -183,6 +204,7 @@ class MessageRequest extends React.Component {
         showErrorAlert={false}
         message_request={this.initialState}
         formRef={this.formRef}
+        solucionis_notitia={null}
       >
         <MessageRequestForm/>
       </EnhancedForm>
