@@ -19,6 +19,10 @@ const MRSchema = ({email: {format: emailFormat}}) => {
   })
 }
 
-const MRValidator = BuildValidator("message_request", MRSchema)
+const MRValidator = BuildValidator(
+  "message_request",
+  MRSchema,
+  ({showErrorAlert, solucionis_notitia}) => ({showErrorAlert, solucionis_notitia})
+)
 
 export default MRValidator

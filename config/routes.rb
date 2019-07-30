@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :celebrities, only: [:new, :index, :show] do
     resources :message_requests, only: [:create]
   end
+
+  get  '/payments/response',     to: 'payments#show'
+  post '/payments/confirmation', to: 'payments#create'
+
   namespace :admins do
     resources :celebrities, only: [:new, :create, :index]
   end

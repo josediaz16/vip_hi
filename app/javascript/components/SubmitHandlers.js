@@ -24,9 +24,14 @@ const handleError = (errorConfig, formikBag, payload, errorHandler, apiResponse)
 
     if (!isValid) {
       setStatus({showErrorAlert: true})
-      window.scrollTo(0, 0)
+      //window.scrollTo(0, 0)
     }
   }, 100)
+}
+
+const handleSuccess = (successHandler, formikBag, response) => {
+  const handler = successHandler || changeLocation
+  handler({...response}, formikBag)
 }
 
 const onSubmit = (errorConfig, {errorHandler, successHandler}={}) => {
@@ -39,7 +44,7 @@ const onSubmit = (errorConfig, {errorHandler, successHandler}={}) => {
     const method = formikBag.props.method || "POST"
 
     makeRequest(form.action, method, formData)
-      .then(successHandler || changeLocation)
+      .then(data => handleSuccess(successHandler, formikBag, data))
       .catch(errors => handleError(errorConfig, formikBag, payload, errorHandler, errors) )
   }
 }

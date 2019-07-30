@@ -1,0 +1,9 @@
+es:
+  components:
+    payment_form:
+      title: 'Información de pago'
+      placeholders:
+        name: 'Nombre completo de quien realiza el pago'
+        email: 'Email de quien realiza el pago'
+      actions:
+        pay: 'Ir a pagar'

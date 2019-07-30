@@ -9,7 +9,8 @@ class CelebrityProfile extends React.Component {
     const {
       celebrity,
       message_request_url,
-      t
+      t,
+      uyapAtad
     } = this.props
 
     return (
@@ -37,6 +38,7 @@ class CelebrityProfile extends React.Component {
                 celebrity={celebrity}
                 message_request_url={message_request_url}
                 t={t.message_request}
+                uyapAtad={uyapAtad}
               />
             </div>
           </div>
