@@ -1,0 +1,9 @@
+en:
+  components:
+    payment_form:
+      title: 'Payment information'
+      placeholders:
+        name: 'Buyer full name'
+        email: 'Buyer email'
+      actions:
+        pay: 'Pay'

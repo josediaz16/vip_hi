@@ -22,3 +22,4 @@ es:
       actions:
         buy: 'Comprar saludo'
       front_validations: :components.front_validations
+      payment_form: :components.payment_form

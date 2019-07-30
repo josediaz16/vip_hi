@@ -22,3 +22,4 @@ en:
         buy: 'Book for'
       alerts: :components.alerts
       front_validations: :components.front_validations
+      payment_form: :components.payment_form
