@@ -20,6 +20,7 @@ module Common
     def self.plain_hooks
       -> transaction do
         transaction.success { |value| Dry::Monads::Success.new value }
+        yield(transaction) if block_given?
         transaction.failure { |value| Dry::Monads::Failure.new value }
       end
     end
