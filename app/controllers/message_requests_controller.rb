@@ -5,7 +5,7 @@ class MessageRequestsController < ApplicationController
 
   def create
     json_service(MessageRequests::Create, message_request_params) do |result, blueprint|
-      blueprint.merge redirect_url: celebrities_path
+      blueprint.merge redirect_url: celebrities_path, solucionis_notitia: Payments::GetPaymentData.(result[:model])
     end
   end
 
