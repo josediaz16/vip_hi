@@ -3,10 +3,10 @@ import NativeInput from 'components/inputs/NativeInput'
 
 const PaymentForm = ({t, ...props}) => {
   return (
-    <div className=" std-box">
-      <h3 class="form-heading">{t.title}</h3>
-
+    <div className="std-box">
       <form className="darken-form" method="post" action={props.paymentUrl}>
+        <h3 class="form-heading">{t.title}</h3>
+
         <input name="merchantId"    type="hidden" value="508029"/>
         <input name="accountId"     type="hidden" value="512321"/>
         <input name="referenceCode" type="hidden" value={props.referenceCode}/>
@@ -17,8 +17,8 @@ const PaymentForm = ({t, ...props}) => {
         <input name="currency"      type="hidden" value="COP"/>
         <input name="signature"     type="hidden" value={props.signature}/>
         <input name="test"          type="hidden" value="1"/>
-        <NativeInput placeholder={t.placeholders.name} defaultValue={props.name} name="buyerFullName" />
-        <NativeInput placeholder={t.placeholders.email} type="email" name="buyerEmail" />
+        <NativeInput placeholder={t.placeholders.name} defaultValue={props.name} name="buyerFullName" required/>
+        <NativeInput placeholder={t.placeholders.email} type="email" name="buyerEmail" required/>
         <input name="confirmationUrl" type="hidden" value={props.confirmationUrl}/>
 
         <button className="button-primary" type="submit">

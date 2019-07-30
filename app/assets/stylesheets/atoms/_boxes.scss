@@ -19,5 +19,8 @@
 
 .std-box {
   @extend .box;
-  padding: 25px 37px;
+
+  @media (min-width: $breakpoint-medium) {
+    padding: 25px 37px;
+  }
 }
