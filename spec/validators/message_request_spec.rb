@@ -10,6 +10,7 @@ describe Validators::MessageRequests::Create do
       from: "Pepito",
       recipient_type: "someone_else",
       brief: "Quiero que le digan a juanito que es un imbecil!",
+      reference_code: 'my_custom_code',
       celebrity_id: 1,
       fan_id: 1
     }

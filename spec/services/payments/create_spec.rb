@@ -5,7 +5,7 @@ RSpec.describe Payments::Create do
 
   let(:result) { subject.(input) }
 
-  let(:message_request) { create(:message_request) }
+  let!(:message_request) { create(:message_request, reference_code: "fgreet_001") }
 
   let(:input) do
     {
@@ -70,7 +70,7 @@ RSpec.describe Payments::Create do
       billing_city: "",
       pse_reference1: "",
       cus: "00000000",
-      reference_sale: "fgreet_00#{message_request.id}",
+      reference_sale: "fgreet_001",
       authorization_code: "00000000",
       pse_reference3: "",
       pse_reference2: ""

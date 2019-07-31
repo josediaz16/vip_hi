@@ -23,11 +23,7 @@ module Payments
     end
 
     def find_message_request(input)
-      message_request = Dry::Monads.Maybe(input[:reference_sale])
-        .fmap { |code| code.match(/fgreet_00(\d+)/) }
-        .fmap { |regex_match| regex_match[1] }
-        .fmap { |id| MessageRequest.find_by(id: id) }
-        .value_or(nil)
+      message_request = MessageRequest.find_by(reference_code: input[:reference_sale])
 
       if message_request.present?
         Success response: input, message_request: message_request
