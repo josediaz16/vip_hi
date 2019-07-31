@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_160515) do
+ActiveRecord::Schema.define(version: 2019_07_31_200014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_160515) do
     t.bigint "celebrity_id"
     t.bigint "fan_id"
     t.string "recipient_type", default: "", null: false
+    t.string "reference_code", default: "", null: false
     t.index ["celebrity_id"], name: "index_message_requests_on_celebrity_id"
     t.index ["fan_id"], name: "index_message_requests_on_fan_id"
   end
