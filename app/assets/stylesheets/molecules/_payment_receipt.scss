@@ -6,6 +6,10 @@ div.payment-receipt {
   @media(min-width: $breakpoint-large) {
     height: 100vh;
   }
+
+  .pink {
+    color: $primary-normal-pink;
+  }
 }
 
 div.payment-wrapper {
@@ -116,7 +120,11 @@ div.payment-detail {
   .footer-info {
     padding: 10px 0;
 
-    a {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+    a.site {
       color: #4682c0;
       font-size: 14px;
     }

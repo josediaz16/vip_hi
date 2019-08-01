@@ -42,4 +42,5 @@
           %h4= t(:"components.payment_receipt.titles.hi", name: @presenter.recipient)
           %p= t(:"components.payment_receipt.full_description.html", celebrity: @presenter.celebrity_name, price: price, email: @presenter.email, phone: @presenter.phone_to)
         .footer-info
-          %a{href: "https://www.saludofamosos.com"} www.saludofamosos.com
+          %a.site{href: "https://www.saludofamosos.com"} www.saludofamosos.com
+          %a.button-primary{href: root_path}= t(:back)
