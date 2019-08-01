@@ -21,6 +21,10 @@ module AppConfig
     def call(input)
       super input, &Common::Utils.default_hooks
     end
+
+    def to_proc
+      -> input { self.(input) }
+    end
   end
 
   class Transaction < Module

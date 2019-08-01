@@ -3,6 +3,8 @@ class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def show
+    message_request = MessageRequest.find_by reference_code: params[:referenceCode]
+    @presenter = Presenters::PaymentsPresenter.new(message_request, params: params)
   end
 
   def create
