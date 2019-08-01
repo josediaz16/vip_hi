@@ -36,7 +36,9 @@ RSpec.feature "POST /celebrities/:celebrity_id/message_requests", js: true do
     expect(message_request.brief).to eq     input[:brief]
     expect(message_request.celebrity).to eq celebrity
 
-    expect(current_path).to eq(celebrities_path)
+    within("#payment_form") do
+      expect(page).to have_content("Información de pago")
+    end
   end
 
   def good_scenario

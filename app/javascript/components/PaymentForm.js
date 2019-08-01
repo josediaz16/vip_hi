@@ -3,7 +3,7 @@ import NativeInput from 'components/inputs/NativeInput'
 
 const PaymentForm = ({t, ...props}) => {
   return (
-    <div className="std-box">
+    <div id="payment_form" className="std-box">
       <form className="darken-form" method="post" action={props.paymentUrl}>
         <h3 class="form-heading">{t.title}</h3>
 

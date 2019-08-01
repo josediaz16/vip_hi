@@ -2,6 +2,7 @@ div.top-section {
   background: asset-url('background_search.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top center;
   padding: 200px 0;
 
   @media(min-width: $breakpoint-xmedium) {

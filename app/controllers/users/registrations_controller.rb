@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
-    json_service(Users::CreateRouter, user_params) do |blueprint, result|
+    json_service(Users::CreateRouter, user_params) do |result, blueprint|
       blueprint.merge redirect_url: confirmation_alert_path(result[:model].confirmation_token)
     end
   end
