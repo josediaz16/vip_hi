@@ -1,0 +1,36 @@
+#!/bin/bash
+
+function awakenings {
+  while [ $(curl -I --ssl https://testingsf.tk:443/stage/ --silent | head -n1 | awk '{print $2}') != "404" ]
+  do
+    echo "Preparing green version....................................."
+    sleep 1s
+  done
+}
+ACTUAL_PROCESS=$(ls /etc/nginx/sites-enabled | grep saludosfamosos)
+
+if [ $ACTUAL_PROCESS = "saludosfamosos-a" ]; then
+  NEW_PROCESS="saludosfamosos-b"
+  NEW_SOCKET="unix:///tmp/saludosfamosos.saludosfamosos-b.socket"
+  NEW_PID="/tmp/puma.saludosfamosos.saludosfamosos-b.pid"
+  OLD_PID="/tmp/puma.saludosfamosos.saludosfamosos-a.pid"
+else
+  NEW_PROCESS="saludosfamosos-a"
+  NEW_SOCKET="unix:///tmp/saludosfamosos.saludosfamosos-a.socket"
+  NEW_PID="/tmp/puma.saludosfamosos.saludosfamosos-a.pid"
+  OLD_PID="/tmp/puma.saludosfamosos.saludosfamosos-b.pid"
+fi
+
+echo "Running Puma................................................."
+RAILS_ENV=production SOCKET=$NEW_SOCKET PID_FILE=$NEW_PID bundle exec puma -C config/puma/production.rb -d
+echo "Puma Up......................................................"
+
+awakenings
+
+sudo ln -s /etc/nginx/sites-available/$NEW_PROCESS /etc/nginx/sites-enabled/$NEW_PROCESS
+sudo rm /etc/nginx/sites-enabled/$ACTUAL_PROCESS
+echo "Doing reload...................................................."
+sudo service nginx reload
+echo "Killing old puma process....................................."
+sudo kill -QUIT $(cat $OLD_PID)
+echo "Finished!"

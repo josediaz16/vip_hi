@@ -1,0 +1,5 @@
+#!/bin/bash --login
+# Full Deploy with Docker
+
+sudo docker-compose -f docker-compose.yml run web bundle exec cap production deploy
+sudo docker-compose -f docker-compose.yml run web script/full_reload

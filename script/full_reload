@@ -1,0 +1,4 @@
+#!/bin/bash --login
+# Reload code in servers. Maybe Ips could be replaced by alias adding ssh config on Docker Image
+
+ssh -o StrictHostKeyChecking=no deploy@ec2-54-213-107-175.us-west-2.compute.amazonaws.com "source ~/.profile; cd /var/www/saludos_famosos/current; bundle; yarn install; RAILS_ENV=production bundle exec rails db:migrate; RAILS_ENV=production bundle exec rake assets:precompile; script/reload"
