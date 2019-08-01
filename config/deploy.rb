@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 set :application, "saludos_famosos"
 set :repo_url, "git@github.com:josediaz16/vip_hi.git"
 set :linked_files, fetch(:linked_files, []).push('config/application.yml', '.ruby-version', '.ruby-gemset')
-set :linked_dirs, fetch(:linked_dirs, []).push('public/assets', 'public/system', 'public/uploads', 'log')
+set :linked_dirs, fetch(:linked_dirs, []).push('public/assets', 'public/system', 'public/uploads', 'log', 'storage')
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
