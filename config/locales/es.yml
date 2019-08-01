@@ -1,3 +1,4 @@
 es:
   resources:
     user: 'usuario'
+  back: 'Volver'

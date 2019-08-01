@@ -1,0 +1,51 @@
+@mixin modal() {
+  background: rgba(56, 54, 54, 0.5);
+  transition: all 0.5s;
+  pointer-events: none;
+  overflow-y: hidden;
+  position: fixed;
+  z-index: 10;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  &.open-modal {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
+.generic-modal {
+  @include modal;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.centered {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  &.small-content {
+    padding: 5%;
+
+    @media(min-width: $breakpoint-xmedium) {
+      padding: 25% 30%;
+    }
+  }
+
+
+  //@media only screen and (max-width: 640px) and (max-height: 400px) {
+  //  display: block;
+  //}
+
+  a.close-button {
+    @media only screen and (max-width: 640px) and (max-height: 400px) {
+      right: 50px;
+    }
+  }
+}

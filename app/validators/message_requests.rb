@@ -6,6 +6,7 @@ module Validators
       required(:phone_to,       DTypes::String).filled(:phone?)
       required(:to,             DTypes::String).filled
       required(:brief,          DTypes::String).value(size?: 20..700)
+      required(:reference_code, DTypes::String).filled
       required(:celebrity_id,   DTypes::Integer).filled
       optional(:fan_id,         DTypes::Integer).filled
       optional(:from,           DTypes::String).value(:str?)

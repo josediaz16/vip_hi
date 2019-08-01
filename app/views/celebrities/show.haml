@@ -7,4 +7,5 @@
 = react_component("celebrities/CelebrityProfile",
   { celebrity: @presenter.json_data,
     t: component_translations("celebrity_profile", deep_resolve: true),
+    uyapAtad: @presenter.payu_data,
     message_request_url: celebrity_message_requests_path(@presenter.id)})

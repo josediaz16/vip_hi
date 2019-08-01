@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_185050) do
+ActiveRecord::Schema.define(version: 2019_07_31_200014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_185050) do
     t.bigint "celebrity_id"
     t.bigint "fan_id"
     t.string "recipient_type", default: "", null: false
+    t.string "reference_code", default: "", null: false
     t.index ["celebrity_id"], name: "index_message_requests_on_celebrity_id"
     t.index ["fan_id"], name: "index_message_requests_on_fan_id"
   end
@@ -95,6 +96,22 @@ ActiveRecord::Schema.define(version: 2019_07_19_185050) do
     t.datetime "updated_at", null: false
     t.index ["message_request_id", "most_recent"], name: "index_mr_transitions_parent_most_recent", unique: true, where: "most_recent"
     t.index ["message_request_id", "sort_key"], name: "index_mr_transitions_parent_sort", unique: true
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "cc_holder", default: "", null: false
+    t.decimal "value", precision: 10, scale: 2, default: "0.0", null: false
+    t.string "email_buyer", default: "", null: false
+    t.string "response_code", default: "", null: false
+    t.string "payment_method_name", default: "", null: false
+    t.string "transaction_id", default: "", null: false
+    t.string "currency", default: "", null: false
+    t.datetime "transaction_date", null: false
+    t.bigint "message_request_id", null: false
+    t.jsonb "response", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_request_id"], name: "index_payments_on_message_request_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -143,6 +160,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_185050) do
   add_foreign_key "message_requests", "celebrities"
   add_foreign_key "message_requests", "fans"
   add_foreign_key "mr_transitions", "message_requests"
+  add_foreign_key "payments", "message_requests"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
   add_foreign_key "users", "countries"

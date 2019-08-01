@@ -1,0 +1,133 @@
+div.payment-receipt {
+  background: asset-url("background_payment.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media(min-width: $breakpoint-large) {
+    height: 100vh;
+  }
+
+  .pink {
+    color: $primary-normal-pink;
+  }
+}
+
+div.payment-wrapper {
+  padding: 10px;
+
+  @media(min-width: $breakpoint-xmedium) {
+    padding: 100px;
+  }
+  @media(min-width: $breakpoint-large) {
+    padding: 100px 300px;
+  }
+}
+
+div.payment-box {
+  background: #fff;
+  display: grid;
+
+  @media(min-width: $breakpoint-xmedium) {
+    grid-template-columns: 2fr 3fr;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+div.payment-summary {
+  background: $primary-normal-pink;
+
+  @media(min-width: $breakpoint-xmedium) {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  li {
+    display: flex;
+    margin: 20px;
+    border-bottom: 1px solid #d00439;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    svg {
+      padding-top: 6px;
+      margin-right: 30px;
+    }
+  }
+
+  p, label {
+    color: #fff;
+  }
+
+  p {
+    font-weight: bold;
+    margin: 5px 0 15px;
+
+    &#transaction_id {
+      font-size: 11px;
+    }
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  div.payment-summary-item.important {
+    label {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+div.payment-detail {
+  padding: 0 20px;
+
+  p {
+    color: #9da0a2;
+    font-size: 14px;
+  }
+
+  .header-info {
+    border-bottom: 1px solid #ccc;
+    padding: 30px 0 10px;
+
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  .main-info {
+    border-bottom: 1px solid #ccc;
+    padding: 30px 0 10px;
+
+    h4 {
+      color: #5b6064;
+      font-weight: bold;
+    }
+
+    span.email {
+      color: #4682c0;
+    }
+  }
+
+  .footer-info {
+    padding: 10px 0;
+
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+    a.site {
+      color: #4682c0;
+      font-size: 14px;
+    }
+  }
+}
+

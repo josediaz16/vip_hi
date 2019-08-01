@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
       model = result.success[:model]
       blueprint = {record: BlueprintContainer[model.class].render_as_hash(model)}
 
-      json_data = block_given? ? yield(blueprint, result.success) : blueprint
+      json_data = block_given? ? yield(result.success, blueprint) : blueprint
       render json: json_data, status: 200
     else
       render json: result.failure, status: 422

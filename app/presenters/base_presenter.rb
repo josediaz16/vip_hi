@@ -3,11 +3,12 @@ require 'dry/monads/maybe'
 class Presenters::BasePresenter < SimpleDelegator
   include ActionView::Helpers
 
-  attr_reader :source, :errors
+  attr_reader :source, :errors, :params
 
-  def initialize(source, errors: [])
+  def initialize(source, errors: [], params: {})
     @source = source
     @errors = errors
+    @params = params
     super(source)
   end
 

@@ -20,15 +20,18 @@
 @import "helpers/mobile";
 
 @import "atoms/label";
+@import "atoms/headings";
 @import "atoms/hints";
 @import "atoms/icons";
 @import "atoms/inputs";
 @import "atoms/radio_buttons";
 @import "atoms/buttons";
+@import "atoms/images";
 @import "atoms/alerts";
 @import "atoms/links";
 @import "atoms/boxes";
 @import "atoms/footer";
+@import "atoms/modal";
 
 @import "molecules/forms";
 @import "molecules/onboarding_wrapper";
@@ -36,6 +39,7 @@
 @import "molecules/empty_state";
 @import "molecules/navbar";
 @import "molecules/celebrity_profile";
+@import "molecules/payment_receipt";
 
 @import "components/phone_input";
 @import "components/carousel";

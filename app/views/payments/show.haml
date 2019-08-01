@@ -1,0 +1,46 @@
+- price = @presenter.price
+.payment-receipt
+  .payment-wrapper
+    .payment-box
+      .payment-summary
+        %ul
+          %li
+            .payment-summary-item.important
+              %label= t(:"components.payment_receipt.labels.receipt_from")
+              %p.value Saludos Famosos
+          %li
+            = render "shared/icon", icon_class: "icon-wallet-3"
+            .payment-summary-item
+              %label= t(:"components.payment_receipt.labels.price")
+              %p.value= price
+          %li
+            = render "shared/icon", icon_class: "icon-calendar"
+            .payment-summary-item
+              %label= t(:"components.payment_receipt.labels.date")
+              %p.value=@presenter.date
+          %li
+            = render "shared/icon", icon_class: "icon-star-1"
+            .payment-summary-item
+              %label= t(:"components.payment_receipt.labels.store")
+              %p.value= params[:merchant_name]
+          %li
+            = render "shared/icon", icon_class: "icon-receipt-4-1"
+            .payment-summary-item
+              %label= t(:"components.payment_receipt.labels.confirmation_number")
+              %p.value#transaction_id= params[:transactionId]
+
+      .payment-detail
+        .header-info
+          %a.logo
+            %img{src: asset_path("logo.png")}
+          %p= @presenter.formatted_now
+
+        .main-info
+          %h4= params[:description]
+          %p.price= "Total: #{price}"
+
+          %h4= t(:"components.payment_receipt.titles.hi", name: @presenter.recipient)
+          %p= t(:"components.payment_receipt.full_description.html", celebrity: @presenter.celebrity_name, price: price, email: @presenter.email, phone: @presenter.phone_to)
+        .footer-info
+          %a.site{href: "https://www.saludofamosos.com"} www.saludofamosos.com
+          %a.button-primary{href: root_path}= t(:back)
