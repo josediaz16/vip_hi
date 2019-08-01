@@ -16,6 +16,9 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get update && apt-get install yarn && \
     rm -rf /var/lib/apt/lists/*
 
+ADD ./.ssh /root/.ssh
+RUN chown -R `whoami` /root/.ssh
+
 RUN mkdir /vip_hi
 WORKDIR /vip_hi
 ENTRYPOINT ["./script/docker_entrypoint"]
