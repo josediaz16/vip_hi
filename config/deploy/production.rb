@@ -1,4 +1,4 @@
-role :app, %w(34.221.30.105)
+role :app, %w(ec2-54-213-107-175.us-west-2.compute.amazonaws.com)
 set :keep_releases, 3
 
 set :ssh_options, {
