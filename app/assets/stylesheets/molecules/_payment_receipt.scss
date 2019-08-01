@@ -2,24 +2,42 @@ div.payment-receipt {
   background: url("https://images.pexels.com/photos/988872/pexels-photo-988872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+
+  @media(min-width: $breakpoint-large) {
+    height: 100vh;
+  }
 }
 
 div.payment-wrapper {
-  padding: 100px 300px;
+  padding: 10px;
+
+  @media(min-width: $breakpoint-xmedium) {
+    padding: 100px;
+  }
+  @media(min-width: $breakpoint-large) {
+    padding: 100px 300px;
+  }
 }
 
 div.payment-box {
-  grid-template-columns: 2fr 3fr;
-  border-radius: 10px;
   background: #fff;
   display: grid;
+
+  @media(min-width: $breakpoint-xmedium) {
+    grid-template-columns: 2fr 3fr;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
 div.payment-summary {
   background: $primary-normal-pink;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+
+  @media(min-width: $breakpoint-xmedium) {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
 
   li {
     display: flex;
