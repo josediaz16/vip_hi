@@ -20,7 +20,7 @@ const PaymentForm = ({t, ...props}) => {
         <NativeInput placeholder={t.placeholders.name} defaultValue={props.name} name="buyerFullName" required/>
         <NativeInput placeholder={t.placeholders.email} type="email" name="buyerEmail" required/>
         <input name="confirmationUrl" type="hidden" value={props.confirmationUrl}/>
-        <input name="responseUrl"     type="hidden" value="http://392c88cc.ngrok.io/payments/response"/>
+        <input name="responseUrl"     type="hidden" value={props.responseUrl}/>
 
         <button className="button-primary" type="submit">
           {t.actions.pay}

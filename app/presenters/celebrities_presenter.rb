@@ -5,7 +5,8 @@ class Presenters::CelebritiesPresenter < Presenters::BasePresenter
 
   def payu_data
     {
-      confirmationUrl: "http://392c88cc.ngrok.io/payments/confirmation",
+      confirmationUrl: ENV["PAYU_CONFIRMATION_URL"],
+      responseUrl: ENV["PAYU_RESPONSE_URL"],
       paymentUrl: ENV["PAYU_URL"],
       merchantId: ENV["PAYU_MERCHANTID"],
       accountId:  ENV["PAYU_ACCOUNTID"],
