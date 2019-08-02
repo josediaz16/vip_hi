@@ -1,0 +1,8 @@
+en:
+  mailers:
+    devise:
+      confirmation:
+        hi:
+          html: 'Hi <span class="red" style="color:#ff5151;">%{name}</span>, welcome to saludosfamosos.com'
+        body: "We are just about to begin.Let us know if this is really your email address, to help us keep your account and website secure. Confirm your email and let's get started!"
+        confirm_email: 'CONFIRM EMAIL'

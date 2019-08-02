@@ -1,4 +1,64 @@
-%p
-  Welcome #{@email}!
-%p You can confirm your account email through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+//%p
+//  Welcome #{@email}!
+//%p You can confirm your account email through the link below:
+//%p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+%table.gwfw{:bgcolor => "#fcfcfc", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+  %tr
+    %td{:align => "center", :valign => "top"}
+      / Main
+      %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+        %tr
+          %td.pb0{:align => "center", :style => "padding-bottom: 40px;"}
+            / Shell
+            %table.m-shell{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "800"}
+              %tr
+                %td.td{:style => "width:800px; min-width:800px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;"}
+                  / Header
+                  %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                    %tr
+                      %td.bg{:background => asset_url("background_email.jpg"), :bgcolor => "#2e2e2e", :height => "576", :style => "height:auto !important; -webkit-background-size:cover !important; background-size:cover !important; width:100% !important;", :valign => "top", :width => "800"}
+                        /[if gte mso 9]
+                          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:800px; height: 576px">
+                          <v:fill type="frame" src="images/header.jpg" color="#2e2e2e" />
+                          <v:textbox inset="0,0,0,0">
+                        %div
+                          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                            %tr
+                              %td.content-spacing{:style => "font-size:0pt; line-height:0pt; text-align:left;", :width => "75"}
+                              %td{:style => "padding: 40px 0px;"}
+                                %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                                  %tr
+                                    %td.p30-15{:style => "padding: 30px 0px 40px 0px;"}
+                                      %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                                        %tr
+                                          %th.column{:style => "font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;", :width => "200"}
+                                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                                              %tr
+                                                %td.img.m-center{:style => "font-size:0pt; line-height:0pt; text-align:left;"}
+                                                  %a{:href => "#", :target => "_blank"}
+                                                    %img{:alt => "", :border => "0", :height => "30", :src => asset_url("logo_light.png"), :width => "180"}/
+                                          %th.column{:style => "padding-bottom:20px !important; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;", :width => "1"}
+                                  %tr
+                                    %td{:style => "padding: 30px 0px;"}
+                                      %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                                        %tr
+                                          %td.h2.white.hero{:style => "padding-bottom: 20px; font-family:'Montserrat', Arial, sans-serif; font-size:28px; line-height:40px; text-align:left; font-weight:500; color:#ffffff;"}
+                                            = t(:"mailers.devise.confirmation.hi.html", name: @resource.known_as.presence || @resource.name)
+                                        %tr
+                                          %td.img{:style => "padding-bottom: 22px; font-size:0pt; line-height:0pt; text-align:left;"}
+                                            %img{:alt => "", :border => "0", :height => "3", :src => asset_url("title_separator.jpg"), :width => "25"}/
+                                        %tr
+                                          %td.text.white{:style => "padding-bottom: 35px; font-family:Arial, sans-serif; font-size:16px; line-height:30px; text-align:left; min-width:auto !important; color:#ffffff;"}
+                                            = t(:"mailers.devise.confirmation.body")
+                                        %tr
+                                          %td{:align => "left"}
+                                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                              %tr
+                                                %td.text-button{:style => "color:#ffffff; background:#ff5151; border-radius:4px; font-family:'Montserrat', Arial, sans-serif; font-size:14px; line-height:18px; text-align:center; font-weight:700; padding:12px 25px;"}
+                                                  %a.link-white{:href => confirmation_url(@resource, confirmation_token: @token), :style => "color:#ffffff; text-decoration:none;", :target => "_blank"}
+                                                    %span.link-white{:style => "color:#ffffff; text-decoration:none;"}= t(:"mailers.devise.confirmation.confirm_email")
+                              %td.content-spacing{:style => "font-size:0pt; line-height:0pt; text-align:left;", :width => "75"}
+                        /[if gte mso 9]
+                          </v:textbox>
+                          </v:rect>
+                  / END Header
