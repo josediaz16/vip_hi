@@ -25,6 +25,11 @@ en:
           text:
             html: "We connect you <br>with your favorite celebrities"
 
+    confirmation_alert:
+      title: "Account created successfully"
+      hi: "Hi %{name},"
+      full_description: "Congratulations! You just created your account! We have sent you an email with instructions to activate your account, please check your inbox."
+
     passwords:
       new:
         title: 'Reset password'

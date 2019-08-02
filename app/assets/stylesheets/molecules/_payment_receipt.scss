@@ -2,6 +2,7 @@ div.payment-receipt {
   background: asset-url("background_payment.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 
   @media(min-width: $breakpoint-large) {
     height: 100vh;
@@ -83,6 +84,18 @@ div.payment-summary {
     p {
       font-size: 20px;
     }
+  }
+}
+
+div.icon-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+
+  img {
+    width: 200px;
+    padding: 20px 0;
   }
 }
 

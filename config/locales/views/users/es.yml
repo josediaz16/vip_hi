@@ -25,6 +25,11 @@ es:
           text:
             html: "Te conectamos con<br>tus celebridades favoritas"
 
+    confirmation_alert:
+      title: "Registro de cuenta exitoso"
+      hi: "Hola %{name},"
+      full_description: "Felicidades! Haz creado tu cuenta correctamente! Te hemos enviado un correo con instrucciones para activar tu cuenta, por favor verifica en tu bandeja de entrada."
+
     passwords:
       new:
         title: 'Reestablecer contraseña'

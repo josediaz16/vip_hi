@@ -1,1 +1,19 @@
-%p Buen trabajo, ahora confirma tu correo
+.payment-receipt
+  .payment-wrapper
+    .payment-box
+      .payment-summary
+        .icon-container
+          %img{src: asset_path("email.png")}
+
+      .payment-detail
+        .header-info
+          %a.logo
+            %img{src: asset_path("logo.png")}
+
+        .main-info
+          %h4= t(:"users.confirmation_alert.title")
+
+          %h4= t(:"users.confirmation_alert.hi", name: @user.known_as.presence || @user.name)
+          %p= t(:"users.confirmation_alert.full_description")
+        .footer-info
+          %a.site{href: "https://www.saludofamosos.com"} www.saludofamosos.com

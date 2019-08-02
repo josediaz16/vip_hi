@@ -3,6 +3,6 @@ es:
     devise:
       confirmation:
         hi:
-          html: 'Hola <span class="red" style="color:#ff5151;">%{name}</span> te damos la bienvenida a saludosfamosos.com'
+          html: 'Hola <span class="red" style="color:#ff5151;">%{name}</span> te damos la bienvenida a saludos famosos'
         body: 'Estamos solo a un paso de empezar. Dejanos saber si este es tu correo electronico y ayudanos a mantener tu cuenta segura. Confirma tu cuenta y empecemos!'
         confirm_email: 'CONFIRMAR EMAIL'

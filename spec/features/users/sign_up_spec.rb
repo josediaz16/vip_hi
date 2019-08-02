@@ -30,10 +30,10 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
         expect(user.email).to eq("pepito@mail.com")
         expect(user.known_as).to  eq("Ken Addams")
         expect(user.roles.pluck(:name)).to eq ["celebrity"]
-        expect(page).to have_content("Buen trabajo, ahora confirma tu correo")
+        expect(page).to have_content("Registro de cuenta exitoso")
 
         open_email("pepito@mail.com")
-        expect(current_email).to have_content("You can confirm your account email through the link below")
+        expect(current_email).to have_content("CONFIRMAR EMAIL")
         visit user_confirmation_path(confirmation_token: user.confirmation_token)
 
         expect(current_path).to eq(new_celebrity_path)
@@ -61,10 +61,10 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
         expect(user.email).to eq("pepito@mail.com")
         expect(user.name).to  eq("Ken Addams")
         expect(user.roles.pluck(:name)).to eq ["fan"]
-        expect(page).to have_content("Buen trabajo, ahora confirma tu correo")
+        expect(page).to have_content("Registro de cuenta exitoso")
 
         open_email("pepito@mail.com")
-        expect(current_email).to have_content("You can confirm your account email through the link below")
+        expect(current_email).to have_content("CONFIRMAR EMAIL")
         visit user_confirmation_path(confirmation_token: user.confirmation_token)
 
         expect(current_path).to eq(celebrities_path)
