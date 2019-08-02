@@ -1,0 +1,21 @@
+en:
+  components:
+    new_celebrity:
+      title: 'Complete your profile'
+      labels:
+        price: 'Price'
+        bio: 'Bio'
+        handle: 'Handle'
+        photo: 'Photo'
+      hints:
+        price: "This is the price your fans will pay for every video you make, 50% will belong to you"
+        bio: "A short description about your self inviting your fans to send greetings to their friends"
+      actions:
+        finish: 'Finish'
+      big_box:
+        title:
+          html: 'The <strong>last</strong> step'
+        text:
+          html: "Decide how your fans see you<br>and set your price"
+      alerts:
+        success: "Your profile is updated"

@@ -1,0 +1,35 @@
+.onboarding-wrapper
+  = render "shared/flash"
+
+  .form-container
+    %a{href: root_path}
+      %img.logo{src: asset_path("logo.png") }
+
+    = form_for(@celebrity, url: celebrities_path, html: {class: "std-box fix-height form-wrapper"}) do |f|
+      %h2= t(:"components.new_celebrity.title")
+
+      .inputs
+        .input-wrapper
+          = f.label t(:"components.new_celebrity.labels.price")
+          = f.select :price, [["COP $100.000", 100_000], ["COP $200.000", 200_000]], {include_blank: true}, {required: true}
+          .span-link
+            %span= t(:"components.new_celebrity.hints.price")
+        .input-wrapper
+          = f.label t(:"components.new_celebrity.labels.bio")
+          = f.text_area :biography, rows: 4, required: true
+          .span-link
+            %span= t(:"components.new_celebrity.hints.bio")
+        .input-wrapper
+          = f.label t(:"components.new_celebrity.labels.handle")
+          = f.text_field :handle, placeholder: "@micuenta"
+        .input-wrapper
+          = f.label t(:"components.new_celebrity.labels.photo")
+          = f.file_field :photo, required: true, accept: "image/*"
+
+      .bottom
+        %input{type: "hidden", name: "origin", value: params[:origin]}
+        = f.submit t(:"components.new_celebrity.actions.finish"), class: "button-primary"
+
+  .big-instructions-box
+    %h1= t(:"components.new_celebrity.big_box.title.html")
+    %p= t(:"components.new_celebrity.big_box.text.html")

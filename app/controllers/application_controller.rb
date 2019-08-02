@@ -12,12 +12,20 @@ class ApplicationController < ActionController::Base
       params[:origin]
     else
       options = {
-        [:admin] => new_admins_celebrity_path,
-        [:celebrity] => new_celebrity_path,
-        [:fan]   => celebrities_path
+        [:admin] => -> { new_admins_celebrity_path },
+        [:celebrity] => -> { find_celebrity_path(user) },
+        [:fan]   => -> { celebrities_path }
       }
       roles = user.roles.names_ordered.map(&:to_sym)
-      options[roles]
+      options[roles].()
+    end
+  end
+
+  def find_celebrity_path(user)
+    if user.celebrity.present?
+      celebrities_path
+    else
+      new_celebrity_path
     end
   end
 

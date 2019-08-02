@@ -7,7 +7,12 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     if resource.origin.present?
       resource.origin
     else
-      after_sign_in_path_for(resource)
+      options = {
+        [:celebrity] => new_celebrity_path,
+        [:fan]   => celebrities_path
+      }
+      roles = resource.roles.names_ordered.map(&:to_sym)
+      options[roles]
     end
   end
 end

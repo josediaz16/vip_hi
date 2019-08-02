@@ -21,6 +21,9 @@ module Celebrities
       register("create_celebrity", -> input do
         Celebrities::Create.(user_id: input[:model].id, **input[:original].slice(:biography, :price, :handle))
       end)
+
+      register("validate_complete_profile", Common::Operations::Validate.new(validator: Validators::Celebrities::Complete))
+      register("complete_celebrity_profile", Common::Operations::Persist.new(model_class: Celebrity))
     end
   end
 end

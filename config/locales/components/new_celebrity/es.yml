@@ -1,0 +1,21 @@
+es:
+  components:
+    new_celebrity:
+      title: 'Completa tu perfil'
+      labels:
+        price: 'Precio'
+        bio: 'Bio'
+        handle: 'Handle'
+        photo: 'Foto'
+      hints:
+        price: "Este es el precio que pagaran tus fans por cada vídeo que realices, del cual el 50% sera solo para ti"
+        bio: "Una breve descripción tuya con una invitación a tus fans para que le envíen tus saludos a sus amigos"
+      actions:
+        finish: 'Finalizar'
+      big_box:
+        title:
+          html: 'El <strong>último</strong> paso'
+        text:
+          html: "Decide como te verán tus fans<br>y establece tu precio"
+      alerts:
+        success: "Tu perfil esta actualizado"
