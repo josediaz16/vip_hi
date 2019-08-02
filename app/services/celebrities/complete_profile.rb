@@ -6,7 +6,7 @@ module Celebrities
     map  :parse_input
     step :complete_profile, with: "ops.complete_celebrity_profile"
     tee  :update_photo
-    #tee  :index_on_es
+    tee  :index_on_es
 
     def parse_input(input)
       {original: input, attributes: input.slice(:biography, :price, :handle, :user_id)}
