@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function awakenings {
-  while [ $(curl -I --ssl https://testingsf.tk:443/stage/ --silent | head -n1 | awk '{print $2}') != "404" ]
+  while [ $(curl -I --ssl https://saludofamosos.com:443/stage/ --silent | head -n1 | awk '{print $2}') != "404" ]
   do
     echo "Preparing green version....................................."
     sleep 1s
