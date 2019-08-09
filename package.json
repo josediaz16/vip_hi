@@ -17,6 +17,7 @@
     "react-dom": "^16.8.6",
     "react-paginate": "^6.3.0",
     "react-phone-number-input": "^2.3.11",
+    "react-responsive": "^7.0.0",
     "react-textarea-autosize": "^7.1.0",
     "react_ujs": "^2.5.0",
     "throttle-debounce": "^2.1.0",

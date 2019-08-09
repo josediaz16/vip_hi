@@ -1,8 +1,24 @@
-import React from 'react'
+import React      from 'react'
+import MediaQuery from 'react-responsive'
 
 import MessageRequest from 'components/celebrities/MessageRequest'
 import Footer         from 'components/footer'
 import Icon           from 'components/inputs/Icon'
+
+const CelebrityHeader = ({celebrity, style, children}) => {
+  return (
+    <div className="celebrity-header" style={style}>
+
+      <a href="/celebrities" className="hide-on-mobile">
+        <Icon icon="arrow-13" className="back"/>
+      </a>
+
+      <h1>{celebrity.user.known_as}</h1>
+      <h4>{celebrity.handle}</h4>
+      {children}
+    </div>
+  )
+}
 
 class CelebrityProfile extends React.Component {
   render() {
@@ -12,19 +28,23 @@ class CelebrityProfile extends React.Component {
       t,
       uyapAtad
     } = this.props
+    const style = {backgroundImage: `url(${celebrity.user.photo})`}
 
     return (
       <React.Fragment>
         <div className="celebrity-profile">
-          <div className="celebrity-header" style={{backgroundImage: `url(${celebrity.user.photo})`}}>
 
-            <a href="/celebrities" className="hide-on-mobile">
-              <Icon icon="arrow-13" className="back"/>
-            </a>
+          <MediaQuery maxWidth={878}>
+            <CelebrityHeader celebrity={celebrity} style={style}/>
+          </MediaQuery>
 
-            <h1>{celebrity.user.known_as}</h1>
-            <h4>{celebrity.handle}</h4>
-          </div>
+          <MediaQuery minWidth={878}>
+            <CelebrityHeader celebrity={celebrity}>
+              <div className="celebrity-photo" style={style}>
+              </div>
+            </CelebrityHeader>
+          </MediaQuery>
+
           <div className="main-container">
             <div className="celebrity-info">
               <h3>{t.titles.country}</h3>

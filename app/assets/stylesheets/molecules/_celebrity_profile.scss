@@ -10,6 +10,8 @@ div.celebrity-profile {
 
     @media(min-width: $breakpoint-xmedium) {
       padding: 0 210px 20px;
+      background-image: none;
+      height: 300px;
     }
 
     justify-content: flex-end;
@@ -40,6 +42,21 @@ div.celebrity-profile {
       line-height: 1;
     }
 
+    div.celebrity-photo {
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      position: absolute;
+      height: 280px;
+      width: 280px;
+      bottom: -140px;
+      right: 10%;
+
+      @media(min-width: $breakpoint-large) {
+        right: 20%;
+      }
+    }
+
     &:after {
       background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(255,0,0,1));
       position: absolute;
@@ -50,6 +67,13 @@ div.celebrity-profile {
       content: "";
       left: 0;
       top: 0;
+
+      @media(min-width: $breakpoint-xmedium) {
+        background: none;
+        background-image: asset-url("bg_celebrity.png");
+        background-size: cover;
+        opacity: 1;
+      }
     }
 
     svg.back {
