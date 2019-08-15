@@ -2,6 +2,10 @@ en:
   components:
     celebrity_list:
       pagination: :components.pagination
+      titles:
+        main: '!Hi!'
+        mobile: 'Great!'
+        description: 'Would you like your favorite celebrity to send you a video message? How about surprising someone with a message from their favorite celebrity? Do it now!'
       labels:
         did_you_mean: 'Did you mean'
       placeholders:

@@ -6,7 +6,7 @@ div.top-section {
   padding: 200px 0;
 
   @media(min-width: $breakpoint-xmedium) {
-    padding: 160px 210px 60px;
+    padding: 180px 210px 60px;
   }
 
   &.stretch {
@@ -22,27 +22,26 @@ div.top-section {
     font-family: 'Noto Sans', sans-serif;
     text-align: center;
     color: #fff;
+    padding: 0 20px;
 
     @media(min-width: $breakpoint-xmedium) {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       text-align: left;
+      padding: 0 90px;
     }
 
     h1 {
+      text-align: center;
       font-weight: bold;
+      margin: 0 0 10px;
       line-height: 1;
-      margin: 0;
     }
 
     p {
+      text-align: center;
       font-size: 1.2rem;
       font-weight: bold;
       margin: 0;
-
-      @media(min-width: $breakpoint-xmedium) {
-        font-size: 1.75rem;
-        padding-left: 20px;
-      }
     }
   }
 
@@ -64,7 +63,7 @@ div.top-section {
       background: #fff;
 
       a {
-        color: $primary-normal-pink;
+        color: $primary-normal-purple;
         text-decoration: underline;
         cursor: pointer;
       }
@@ -89,7 +88,7 @@ div.top-section {
     }
 
     .react-autosuggest__container--open + .search {
-      background: $primary-normal-pink;
+      background: $primary-normal-purple;
       fill: #fff;
     }
   }
@@ -137,7 +136,7 @@ div.results-wrapper {
       color: #353535;
 
       strong {
-        color: $primary-normal-pink;
+        color: $primary-normal-purple;
       }
     }
 
@@ -148,7 +147,7 @@ div.results-wrapper {
       float: right;
 
       strong {
-        color: $primary-normal-pink;
+        color: $primary-normal-purple;
       }
     }
   }

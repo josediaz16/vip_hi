@@ -33,7 +33,7 @@ input[type="submit"], {
 
 .button-primary {
   @extend .button-base;
-  @include button-base-properties($primary-normal-pink);
+  @include button-base-properties($primary-normal-purple);
 }
 
 button.centered {
