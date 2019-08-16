@@ -10,8 +10,17 @@ div.top-section {
   }
 
   &.stretch {
+
+    .search-box-component {
+      @media(max-width: $breakpoint-xmedium) {
+        margin-bottom: -45px;
+        padding: 20px;
+      }
+    }
+
     @media(max-width: $breakpoint-xmedium) {
-      padding: 70px 0 30px;
+      padding: 100px 0 0;
+
       p {
         display: none;
       }
@@ -39,14 +48,18 @@ div.top-section {
 
     p {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
       margin: 0;
+
+      @media(min-width: $breakpoint-xmedium) {
+        font-size: 1.2rem;
+      }
     }
   }
 
   .search-box-component {
-    padding: 20px 10px;
+    padding: 40px 10px 20px;
     margin-bottom: 30px;
     position: relative;
 
@@ -81,7 +94,7 @@ div.top-section {
     .search {
       border-radius: 10px;
       position: absolute;
-      top: 31px;
+      top: 51px;
       right: 31px;
       fill: #a5adba;
       padding: 5px;
@@ -137,6 +150,10 @@ div.results-wrapper {
 
       strong {
         color: $primary-normal-purple;
+      }
+
+      &.push-down {
+        margin-top: 15px;
       }
     }
 
