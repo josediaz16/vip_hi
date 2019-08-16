@@ -10,11 +10,17 @@ const CelebrityCard = ({
   biography,
   price,
   photo_url,
-  detail_path}) => {
+  detail_path,
+  photo_position}) => {
+
+  const style = {
+    backgroundImage: `url(${photo_url})`,
+    backgroundPosition: photo_position
+  }
 
   return (
     <div className="celebrity-card" onClick={() => window.location.assign(detail_path) }>
-      <div className="profile-image" style={{backgroundImage: `url(${photo_url})`}}>
+      <div className="profile-image" style={style}>
         <span className="price-tag">
           {Currency(price)}
         </span>

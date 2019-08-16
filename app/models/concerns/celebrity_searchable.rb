@@ -21,7 +21,8 @@ module CelebritySearchable
         country: user.country.name,
         code_iso: user.country.code_iso,
         photo_url: Common::UploadUtils.get_attachment_url(user.photo),
-        created_at: created_at
+        created_at: created_at,
+        photo_position: photo_position
       }
     end
   end
