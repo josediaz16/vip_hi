@@ -23,7 +23,10 @@ es:
           title:
             html: 'Hola, <strong>bienvenid@!</strong>'
           text:
-            html: "Te conectamos con<br>tus celebridades favoritas"
+            fan:
+              html: "Te conectamos con<br>tus celebridades favoritas"
+            celebrity:
+              html: "Conectate con tus fans y envíales <br> los mejores mensajes"
 
     confirmation_alert:
       title: "Registro de cuenta exitoso"

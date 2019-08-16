@@ -23,7 +23,10 @@ en:
           title:
             html: 'Hello <strong>there!</strong>'
           text:
-            html: "We connect you <br>with your favorite celebrities"
+            celebrity:
+              html: "Connect with your fans and <br> send them the best messages"
+            fan:
+              html: "We connect you <br>with your favorite celebrities"
 
     confirmation_alert:
       title: "Account created successfully"

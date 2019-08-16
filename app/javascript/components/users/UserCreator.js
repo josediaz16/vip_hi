@@ -24,6 +24,7 @@ class UserForm extends React.Component {
       t,
       url,
       signInUrl,
+      signUpUrl,
       role,
       origin,
       actionText,
@@ -100,6 +101,10 @@ class UserForm extends React.Component {
           <div className="span-link">
             <span>{t.instructions.already_have_account}</span>
             <a className="primary-link underline-link" href={signInUrl}>{t.instructions.sign_in_here}</a>
+          </div>
+          <div className="span-link">
+            <span>{t.instructions.are_you_not[role]}</span>
+            <a className="primary-link underline-link" href={signUpUrl}>{t.instructions.sign_up_here}</a>
           </div>
         </div>
 
