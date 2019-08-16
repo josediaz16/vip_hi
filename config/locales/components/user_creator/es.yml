@@ -14,8 +14,12 @@ es:
       hints:
         password: 'La contraseña debe tener al menos 6 caracteres'
       instructions:
+        are_you_not:
+          celebrity: 'Eres fan? '
+          fan: 'Eres celebridad? '
         already_have_account: 'Ya tienes una cuenta? '
         sign_in_here: 'Inicia sesión aquí'
+        sign_up_here: 'Registrate aquí'
       front_validations: :components.front_validations
       actions: :components.actions
       alerts: :components.alerts

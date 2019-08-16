@@ -87,8 +87,8 @@ class HomePage extends React.Component {
         <div className="search-page">
           <div className="top-section">
             <div className="search-box-instructions">
-              <h1>!Hola!</h1>
-              <p>que tal si buscas tu celebridad favorita para..... </p>
+              <h1>{t.titles.main}</h1>
+              <p>{t.titles.description}</p>
             </div>
             <div className="search-box-component">
               <AutoSuggest

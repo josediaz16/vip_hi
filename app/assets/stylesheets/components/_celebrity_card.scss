@@ -3,7 +3,7 @@ div.celebrity-card {
   margin-bottom: 20px;
   border-radius: 8px;
   cursor: pointer;
-  width: 220px;
+  width: 223px;
 
   div.profile-image {
     background-position: center top;
@@ -32,12 +32,13 @@ div.celebrity-card {
   }
 
   span.price-tag {
-    background: $primary-normal-pink;
+    background: $primary-normal-purple;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     padding: 3px 11px;
     font-weight: bold;
     font-size: 1rem;
+    opacity: 0.9;
     color: #fff;
   }
 
@@ -48,7 +49,7 @@ div.celebrity-card {
     border-bottom-right-radius: 8px;
 
     h5.country-name {
-      color: $primary-normal-pink;
+      color: $primary-normal-purple;
       font-size: 0.75rem;
     }
 

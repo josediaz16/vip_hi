@@ -2,6 +2,10 @@ es:
   components:
     celebrity_list:
       pagination: :components.pagination
+      titles:
+        main: '!Hola!'
+        mobile: 'Genial!'
+        description: 'Quieres que tu famoso favorito te mande un saludo en video? O quieres sorprender a alguien enviando un saludo de su persona favorita? Hazlo ya!'
       labels:
         did_you_mean: 'Quisiste decir'
       placeholders:

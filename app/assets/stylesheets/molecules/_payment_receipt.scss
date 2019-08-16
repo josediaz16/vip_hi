@@ -9,7 +9,7 @@ div.payment-receipt {
   }
 
   .pink {
-    color: $primary-normal-pink;
+    color: $primary-normal-purple;
   }
 }
 
@@ -37,7 +37,7 @@ div.payment-box {
 }
 
 div.payment-summary {
-  background: $primary-normal-pink;
+  background: $primary-normal-purple;
 
   @media(min-width: $breakpoint-xmedium) {
     border-top-left-radius: 10px;
@@ -47,7 +47,7 @@ div.payment-summary {
   li {
     display: flex;
     margin: 20px;
-    border-bottom: 1px solid #d00439;
+    border-bottom: 1px solid #3a20d0;
 
     &:last-child {
       border-bottom: none;

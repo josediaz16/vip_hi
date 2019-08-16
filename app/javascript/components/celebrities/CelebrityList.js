@@ -96,8 +96,8 @@ class CelebrityList extends React.Component {
         <div className="search-page">
           <div className="top-section stretch">
             <div className="search-box-instructions">
-              <h1>!Hola!</h1>
-              <p>que tal si buscas tu celebridad favorita para..... </p>
+              <h1 className="hide-on-mobile">{t.titles.main}</h1>
+              <p>{t.titles.description}</p>
             </div>
             <div className="search-box-component">
               <AutoSuggest
@@ -128,7 +128,7 @@ class CelebrityList extends React.Component {
             <div className="result-section">
               { search.results.length > 0 &&
                 <React.Fragment>
-                  <h3 className="section-title">Resultados de tu busqueda</h3>
+                  <h3 className="section-title push-down">Resultados de tu busqueda</h3>
                   <div className="results-grid">
                     {
                       search.results.map((item, index) => {
