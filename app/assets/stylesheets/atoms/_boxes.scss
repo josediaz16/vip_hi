@@ -24,3 +24,21 @@
     padding: 25px 37px;
   }
 }
+
+.legal {
+  background: rgba(24, 0, 163, 0.08);
+  padding: 20px 150px;
+
+  h3 {
+    font-weight: bold;
+    color: $primary-normal-purple;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    span {
+      line-height: 1.5;
+    }
+  }
+}

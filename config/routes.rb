@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get  '/payments/response',     to: 'payments#show'
   post '/payments/confirmation', to: 'payments#create'
 
+  get '/legal', to: 'home#legal'
+
   namespace :admins do
     resources :celebrities, only: [:new, :create, :index]
   end
