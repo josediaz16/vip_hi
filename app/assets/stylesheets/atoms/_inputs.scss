@@ -10,7 +10,7 @@ textarea {
   color: $primary-dark-gray;
   font-size:  0.875rem;
   border-radius: 22px;
-  padding: 9px 12px;
+  padding: 6px 12px;
   outline: none;
 
   &:focus {
@@ -32,7 +32,7 @@ div.stateful-input {
     cursor: pointer;
     fill: #fff;
     right: 5%;
-    top: 25%;
+    top: 20%;
   }
 }
 

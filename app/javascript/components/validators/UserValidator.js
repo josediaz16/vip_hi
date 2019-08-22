@@ -7,13 +7,17 @@ import {
   BuildValidator
 } from './Base'
 
-const GeneralUser = ({front_validations: {email, password_confirmation}}) => {
+const GeneralUser = ({
+  front_validations: {email, password_confirmation, terms_and_conditions}
+  }) => {
+
   return {
     email: RequiredEmail(email.format),
     phone: Yup.string(),
     photo: Yup.mixed(),
     password: RequiredBlankString,
-    password_confirmation: ConfirmationString("password", password_confirmation)
+    password_confirmation: ConfirmationString("password", password_confirmation),
+    terms_and_conditions: Yup.boolean().oneOf([true], terms_and_conditions)
   }
 }
 

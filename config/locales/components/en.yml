@@ -6,3 +6,4 @@ en:
       email:
         format: "Invalid format"
       password_confirmation: 'Passwords must match'
+      terms_and_conditions: 'Must accept terms and conditions'

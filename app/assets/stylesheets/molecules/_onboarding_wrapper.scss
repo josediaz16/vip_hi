@@ -7,6 +7,7 @@
   display: grid;
   margin: 0 auto;
   height: 100vh;
+  overflow-y: hidden;
 
   @media(min-width: $breakpoint-xmedium) {
     grid-template-columns: 2fr 3fr;
@@ -27,7 +28,7 @@
 
     img.logo {
       cursor: pointer;
-      width: 250px;
+      width: 200px;
     }
 
     .std-box {
@@ -62,6 +63,10 @@
       button {
         margin-bottom: 15px;
       }
+    }
+
+    .terms-and-conditions {
+      font-size: 0.875rem;
     }
 
   }

@@ -11,6 +11,9 @@ class HomeController < ApplicationController
   def legal
   end
 
+  def protection_policy
+  end
+
   def add_celebrity_path
     -> result { result.merge detail_path: celebrity_path(result["id"]) }
   end

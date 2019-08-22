@@ -17,7 +17,6 @@ a {
 
 a.primary-link {
   color: $primary-normal-purple;
-  font-size: 12px;
 }
 
 a.underline-link {
@@ -36,5 +35,6 @@ a.underline-link {
 
   span + a {
     display: inline;
+    font-size: 12px;
   }
 }
