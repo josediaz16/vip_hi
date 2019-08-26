@@ -52,8 +52,16 @@ div.celebrity-profile {
       bottom: -140px;
       right: 10%;
 
+      justify-content: center;
+      align-items: end;
+      display: grid;
+
       @media(min-width: $breakpoint-large) {
         right: 20%;
+      }
+
+      a.button-primary {
+        margin-bottom: -20px;
       }
     }
 

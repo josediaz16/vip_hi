@@ -24,6 +24,10 @@
   border: 1px solid $color;
   background-color: $color;
   cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 button,
@@ -33,7 +37,7 @@ input[type="submit"], {
 
 .button-primary {
   @extend .button-base;
-  @include button-base-properties($primary-normal-purple);
+  @include button-base-properties($primary-light-purple);
 }
 
 button.centered {
