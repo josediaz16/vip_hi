@@ -2,6 +2,8 @@ en:
   components:
     celebrity_profile:
       message_request: :components.message_request
+      actions:
+        buy: 'Book now'
       titles:
         country: Country
         bio: Bio

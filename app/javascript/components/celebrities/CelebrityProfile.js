@@ -41,6 +41,7 @@ class CelebrityProfile extends React.Component {
           <MediaQuery minWidth={878}>
             <CelebrityHeader celebrity={celebrity}>
               <div className="celebrity-photo" style={style}>
+                <a className="button-primary" href="#purchase_form">{t.actions.buy}</a>
               </div>
             </CelebrityHeader>
           </MediaQuery>

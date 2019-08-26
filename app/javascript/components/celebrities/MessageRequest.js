@@ -43,7 +43,7 @@ class MessageRequestForm extends React.Component {
         {
           showErrorAlert && <Alert t={t.alerts} type="error" onClose={onCloseAlert}/>
         }
-        <form className="std-box darken-form envelope" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
+        <form id="purchase_form" className="std-box darken-form envelope" action={message_request_url} ref={formRef} onSubmit={onSubmit} noValidate>
           <h3 className="form-heading">{`${t.titles.request_message} ${celebrity.user.known_as}`}</h3>
 
           <div className="grid-block">

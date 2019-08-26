@@ -2,6 +2,8 @@ es:
   components:
     celebrity_profile:
       message_request: :components.message_request
+      actions:
+        buy: 'Comprar saludo'
       titles:
         country: País de origen
         bio: Bio
