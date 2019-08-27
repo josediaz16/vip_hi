@@ -104,7 +104,7 @@ class UserForm extends React.Component {
               />
 
               <span className="terms-and-conditions">
-                {t.labels.terms_and_conditions.part_1} <a className="primary-link underline-link" href="/legal">{t.labels.terms_and_conditions.link_1}</a> {t.labels.terms_and_conditions.part_2} <a className="primary-link underline-link" href="/protection_policy">{t.labels.terms_and_conditions.link_2}</a>
+                {t.labels.terms_and_conditions.part_1} <a className="primary-link underline-link" href="#">{t.labels.terms_and_conditions.link_1}</a> {t.labels.terms_and_conditions.part_2} <a className="primary-link underline-link" href="#">{t.labels.terms_and_conditions.link_2}</a>
               </span>
             </div>
           </NativeInput>
