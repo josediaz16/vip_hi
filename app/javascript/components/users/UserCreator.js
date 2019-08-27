@@ -92,6 +92,23 @@ class UserForm extends React.Component {
             error={userTouched.password_confirmation && userErrors.password_confirmation}
           />
 
+          <NativeInput
+            error={userTouched.terms_and_conditions && userErrors.terms_and_conditions}
+          >
+            <div>
+              <input
+                type="checkbox"
+                name="user[terms_and_conditions]"
+                value={user.terms_and_conditions}
+                onChange={handleChange}
+              />
+
+              <span className="terms-and-conditions">
+                {t.labels.terms_and_conditions.part_1} <a className="primary-link underline-link" href="#">{t.labels.terms_and_conditions.link_1}</a> {t.labels.terms_and_conditions.part_2} <a className="primary-link underline-link" href="#">{t.labels.terms_and_conditions.link_2}</a>
+              </span>
+            </div>
+          </NativeInput>
+
           <input type="hidden" name="user[role]"   value={role || "celebrity"}/>
           <input type="hidden" name="user[origin]" value={origin || ""}/>
         </div>
@@ -126,7 +143,8 @@ class UserCreator extends React.Component {
       password: '',
       password_confirmation: '',
       country: 'CO',
-      photo: ''
+      photo: '',
+      terms_and_conditions: false
     }
 
     this.formRef = React.createRef()

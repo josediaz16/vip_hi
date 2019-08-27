@@ -11,6 +11,11 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
         photo: 'Foto'
+        terms_and_conditions:
+          part_1: 'He leído, entiendo y acepto los '
+          part_2: 'y la'
+          link_1: 'Términos y condiciones'
+          link_2: 'Política de privacidad'
       hints:
         password: 'La contraseña debe tener al menos 6 caracteres'
       instructions:

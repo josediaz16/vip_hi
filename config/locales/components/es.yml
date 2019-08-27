@@ -6,3 +6,4 @@ es:
       email:
         format: "El formato no es válido"
       password_confirmation: 'Las contraseñas deben coincidir'
+      terms_and_conditions: 'Debes aceptar los términos y condiciones'

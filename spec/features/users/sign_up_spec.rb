@@ -19,6 +19,8 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
         fill_in "user[password]",               with: "mypassword"
         fill_in "user[password_confirmation]",  with: "mypassword"
 
+        find(:css, "input[name='user[terms_and_conditions]']").set(true)
+
         click_button "Enviar"
 
         wait_for_ajax
@@ -49,6 +51,8 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
         fill_in "user[phone]",                  with: "3245678900"
         fill_in "user[password]",               with: "mypassword"
         fill_in "user[password_confirmation]",  with: "mypassword"
+
+        find(:css, "input[name='user[terms_and_conditions]']").set(true)
 
         click_button "Enviar"
 
@@ -104,6 +108,7 @@ RSpec.describe "Users Sign up", type: :feature, js: true do
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
+      find(:css, "input[name='user[terms_and_conditions]']").set(true)
 
       click_button "Enviar"
       wait_for_ajax

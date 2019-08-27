@@ -11,6 +11,11 @@ en:
         password: 'Password'
         password_confirmation: 'Confirm password'
         photo: 'Photo'
+        terms_and_conditions:
+          part_1: 'I read, understand and accept the '
+          part_2: 'and the'
+          link_1: 'Terms and conditions'
+          link_2: 'Privacy policy'
       hints:
         password: 'Your password must consist of at least 6 characters'
       instructions:
