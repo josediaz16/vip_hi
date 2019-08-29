@@ -3,6 +3,15 @@ class Admins::CelebritiesController < ApplicationController
     @presenter = Presenters::UsersPresenter.new({})
   end
 
+  def index
+    @celebrities = Celebrity
+      .joins(:user)
+      .includes(user: :country)
+      .order(:"users.known_as")
+      .page(params[:page])
+      .per(8)
+  end
+
   def create
     result = Users::CreateCelebrity.(celebrity_params)
 
