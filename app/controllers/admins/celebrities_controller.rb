@@ -21,7 +21,7 @@ class Admins::CelebritiesController < ApplicationController
   def celebrity_params
     params
       .require(:user)
-      .permit(:name, :known_as, :password, :password_confirmation, :email, :country, :phone, :photo, :price)
+      .permit(:name, :known_as, :password, :password_confirmation, :email, :country, :phone, :photo, :price, :handle, :biography)
       .to_h.merge(confirmed_at: Time.now)
       .symbolize_keys
   end

@@ -37,7 +37,7 @@
             = @presenter.content_error(:handle)
           .input-wrapper
             = form.label "Price"
-            = form.select(:price, [100_000, 200_000], {include_blank: true}, {tabindex: 6})
+            = form.select(:price, [100_000, 149_900], {include_blank: true}, {tabindex: 6})
             = @presenter.content_error(:price)
           .input-wrapper
             = form.label t("components.user_creator.labels.photo")
@@ -46,4 +46,12 @@
             = form.label t("components.user_creator.labels.password_confirmation")
             = form.password_field :password_confirmation, tabindex: 10
             = @presenter.content_error(:password_confirmation)
+
+      .grid-block.grid-gap-40
+        .span-sm-12
+          .input-wrapper
+            = form.label "Biography"
+            = form.text_area :biography, tabindex: 10, rows: 3
+            = @presenter.content_error(:biography)
+
       = form.submit t("components.user_creator.actions.submit"), class: "button-primary"
