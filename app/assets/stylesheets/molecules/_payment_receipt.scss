@@ -8,9 +8,6 @@ div.payment-receipt {
     height: 100vh;
   }
 
-  .pink {
-    color: $primary-normal-purple;
-  }
 }
 
 div.payment-wrapper {
@@ -123,10 +120,6 @@ div.payment-detail {
     h4 {
       color: #5b6064;
       font-weight: bold;
-    }
-
-    span.email {
-      color: #4682c0;
     }
   }
 

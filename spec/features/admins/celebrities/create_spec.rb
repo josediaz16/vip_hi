@@ -21,13 +21,15 @@ RSpec.feature "POST /admins/celebrities/", js: true do
       fill_in "user[phone]",                  with: "3245678900"
       fill_in "user[password]",               with: "mypassword"
       fill_in "user[password_confirmation]",  with: "mypassword"
+      fill_in "user[handle]",                 with: "@pepito"
+      fill_in "user[biography]",              with: "Esta es mi biografia"
+
 
       attach_file "user[photo]", file_fixture("profile_photo.jpg")
 
       select "Colombia", from: "user[country]"
 
       click_button "Enviar"
-
 
       expect(User.count).to eq(2)
       expect(Celebrity.count).to eq(1)
@@ -40,6 +42,8 @@ RSpec.feature "POST /admins/celebrities/", js: true do
       expect(user.confirmed_at).not_to  be_blank
       expect(user.photo.attached?).to be_truthy
       expect(user.celebrity.price).to eq(100_000)
+      expect(user.celebrity.biography).to eq("Esta es mi biografia")
+      expect(user.celebrity.handle).to eq("@pepito")
       expect(user.roles.pluck(:name)).to eq ["celebrity"]
       expect(page).to have_content("Se ha creado el usuario correctamente")
 

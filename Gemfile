@@ -17,6 +17,7 @@ gem 'devise'
 
 # Views and Html
 gem "haml-rails", "~> 2.0"
+gem "kaminari"
 
 # React and webpack
 gem 'webpacker'

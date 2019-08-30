@@ -22,4 +22,7 @@ var ReactRailsUJS = require("react_ujs");
 
 window.jQuery = $;
 window.$ = $;
+
+require("@rails/ujs").start()
+
 ReactRailsUJS.useContext(componentRequireContext);

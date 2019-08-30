@@ -1,6 +1,17 @@
 class Admins::CelebritiesController < ApplicationController
+  layout "admin_layout"
+
   def new
     @presenter = Presenters::UsersPresenter.new({})
+  end
+
+  def index
+    @celebrities = Celebrity
+      .joins(:user)
+      .includes(user: :country)
+      .order(:"users.known_as")
+      .page(params[:page])
+      .per(8)
   end
 
   def create
@@ -21,7 +32,7 @@ class Admins::CelebritiesController < ApplicationController
   def celebrity_params
     params
       .require(:user)
-      .permit(:name, :known_as, :password, :password_confirmation, :email, :country, :phone, :photo, :price)
+      .permit(:name, :known_as, :password, :password_confirmation, :email, :country, :phone, :photo, :price, :handle, :biography)
       .to_h.merge(confirmed_at: Time.now)
       .symbolize_keys
   end

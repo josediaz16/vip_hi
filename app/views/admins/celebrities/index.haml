@@ -1,2 +1,24 @@
-= render "shared/flash"
-%h1 List of Celebrities
+.panel-header
+  %h1 Celebrities
+  %a.button-primary{href: new_admins_celebrity_path}
+    Crear Celebridad
+
+%section.admin#celebrities
+
+  %table.default
+    %tr
+      %th Nombre
+      %th Correo
+      %th Pais
+      %th Precio
+      %th Telefono
+
+    - @celebrities.each do |celebrity|
+      %tr
+        %td= celebrity.user.known_as
+        %td.email= celebrity.user.email
+        %td= celebrity.user.country.name
+        %td= celebrity.price
+        %td= celebrity.user.phone
+
+  = paginate @celebrities, window: 2

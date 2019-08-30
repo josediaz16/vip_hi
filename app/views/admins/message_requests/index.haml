@@ -1,0 +1,33 @@
+.panel-header
+  %h1 Mensajes
+
+%section.admin#messages
+
+  .grid-block.grid-gap-40
+    - @message_requests.each do |message|
+      .span-sm-12.span-md-4.std-box
+        %h3.pink= message.celebrity.user.known_as
+        %p= message.brief
+
+        %ul
+          %li
+            %strong De
+            = message.from
+          %li
+            %strong Para
+            = message.to
+          %li
+            %strong Enviar a
+            = message.phone_to
+          %li
+            %strong Precio
+            = message.celebrity.price
+          %li
+            %strong Status
+            = message.current_state
+
+        - if message.in_state?(:purchased)
+          = link_to "Entregar", admins_message_request_path(message, to_state: "delivered"), method: :put, class: "button-primary-small"
+
+        - if not message.in_state?(:cancelled)
+          = link_to "Cancelar", admins_message_request_path(message, to_state: "cancelled"), method: :put, class: "button-secondary-small"

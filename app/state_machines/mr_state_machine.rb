@@ -9,7 +9,7 @@ class MRStateMachine
   state :cancelled
   state :delivered
 
-  transition from: :pending,   to: [:purchased]
+  transition from: :pending,   to: [:purchased, :cancelled]
   transition from: :purchased, to: [:accepted, :rejected, :cancelled, :delivered]
   transition from: :accepted,  to: [:cancelled, :delivered]
   transition from: :cancelled, to: [:pending]
