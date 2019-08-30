@@ -36,11 +36,16 @@
           %p= @presenter.formatted_now
 
         .main-info
-          %h4= params[:description]
-          %p.price= "Total: #{price}"
+          - if @presenter.transaction_approved?
+            %h4= params[:description]
+            %p.price= "Total: #{price}"
 
-          %h4= t(:"components.payment_receipt.titles.hi", name: @presenter.recipient)
-          %p= t(:"components.payment_receipt.full_description.html", celebrity: @presenter.celebrity_name, price: price, email: @presenter.email, phone: @presenter.phone_to)
+            %h4= t(:"components.payment_receipt.titles.hi", name: @presenter.recipient)
+            %p= t(:"components.payment_receipt.full_description.html", celebrity: @presenter.celebrity_name, price: price, email: @presenter.email, phone: @presenter.phone_to)
+
+          - else
+            %h3= t(:"components.payment_receipt.titles.declined")
+
         .footer-info
           %a.site{href: "https://www.saludofamosos.com"} www.saludofamosos.com
           %a.button-primary{href: root_path}= t(:back)

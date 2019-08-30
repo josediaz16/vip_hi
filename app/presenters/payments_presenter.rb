@@ -27,4 +27,8 @@ class Presenters::PaymentsPresenter < Presenters::BasePresenter
   def recipient
     from.presence || to
   end
+
+  def transaction_approved?
+    params[:lapTransactionState].eql?("APPROVED")
+  end
 end

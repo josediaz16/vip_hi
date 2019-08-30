@@ -9,5 +9,6 @@ en:
         confirmation_number: 'Transaction N:°'
       titles:
         hi: 'Hi %{name},'
+        declined: 'Declined transaction'
       full_description:
         html: 'You bougth a unique video from %{celebrity} by <br>%{price}<br><br>We sent your receipt to <span class="email">%{email}</span><br><br>The video will be sent to the number <strong>%{phone}</strong> from the official saludofamosos.com number <strong class="pink">+57 301 740 1600</strong>.'
