@@ -1,0 +1,10 @@
+.admin-sidebar
+  .logo-c
+    %img{src: asset_path("favicon.png")}
+
+  %ul
+    %li
+      %a{href: admins_celebrities_path}
+        = render "atoms/svg_icon", icon: "user-1"
+    %li
+      = render "atoms/svg_icon", icon: "phone-vibration"

@@ -1,4 +1,6 @@
 class Admins::CelebritiesController < ApplicationController
+  layout "admin_layout"
+
   def new
     @presenter = Presenters::UsersPresenter.new({})
   end

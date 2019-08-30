@@ -1,0 +1,48 @@
+div.admin-layout {
+  grid-template-columns: 80px 1fr;
+  background: #f8faf9;
+  display: grid;
+}
+
+.admin-sidebar {
+  background: $primary-normal-purple;
+  grid-template-rows: 100px 1fr;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  height: 100vh;
+
+  div.logo-c {
+    text-align: center;
+    align-self: start;
+    padding: 20px 0;
+
+    img {
+      width: 50px;
+    }
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    svg {
+      height: 35px;
+      width: 35px;
+    }
+  }
+}
+
+.panel-header {
+  padding: 10px 20px;
+  background: #fff;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
