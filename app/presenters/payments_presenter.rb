@@ -1,3 +1,5 @@
+require 'dry/monads/maybe'
+
 class Presenters::PaymentsPresenter < Presenters::BasePresenter
   def price
     number_to_currency(params[:TX_VALUE], delimiter: ".", precision: 0, unit: "COP $")
@@ -8,7 +10,10 @@ class Presenters::PaymentsPresenter < Presenters::BasePresenter
   end
 
   def date
-    Time.parse(params[:processingDate]).strftime("%b %d %Y")
+    Dry::Monads.Maybe(params[:processingDate])
+      .fmap(Time.method(:parse))
+      .fmap { |time| time.strftime("%b %d %Y") }
+      .value_or("N/A")
   end
 
   def formatted_now
