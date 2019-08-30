@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :celebrities, only: [:new, :create, :index]
+    resources :message_requests, only: [:index, :update]
   end
 end

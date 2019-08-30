@@ -40,6 +40,33 @@ input[type="submit"], {
   @include button-base-properties($primary-light-purple);
 }
 
+.button-secondary {
+  @extend .button-base;
+  border: 1px solid $primary-light-purple;
+  background-color: #fff;
+  color: $primary-light-purple;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-light-purple;
+  }
+}
+
+.button-small {
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+.button-primary-small {
+  @extend .button-primary;
+  @extend .button-small;
+}
+
+.button-secondary-small {
+  @extend .button-secondary;
+  @extend .button-small;
+}
+
 button.centered {
   margin: 0 auto;
   display: block;
