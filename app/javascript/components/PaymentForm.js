@@ -16,7 +16,7 @@ const PaymentForm = ({t, ...props}) => {
         <input name="taxReturnBase" type="hidden" value="0"/>
         <input name="currency"      type="hidden" value="COP"/>
         <input name="signature"     type="hidden" value={props.signature}/>
-        <input name="test"          type="hidden" value="1"/>
+        <input name="test"          type="hidden" value={props.test}/>
         <NativeInput placeholder={t.placeholders.name} defaultValue={props.name} name="buyerFullName" required/>
         <NativeInput placeholder={t.placeholders.email} type="email" name="buyerEmail" required/>
         <input name="confirmationUrl" type="hidden" value={props.confirmationUrl}/>
