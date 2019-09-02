@@ -106,6 +106,11 @@ class HomePage extends React.Component {
                 onClick={this.redirectToSearchPath}
               />
             </div>
+
+            <a target="_blank" className="contact-whatsapp" href="https://wa.me/573005252306?text=Quiero%20pedirle%20un%20saludo%20a%20">
+              <Icon icon="social-whatsapp"/>
+              300 525 2306
+            </a>
           </div>
 
           <div className="results-wrapper">

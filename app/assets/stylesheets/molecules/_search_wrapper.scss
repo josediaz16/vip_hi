@@ -105,6 +105,27 @@ div.top-section {
       fill: #fff;
     }
   }
+
+  a.contact-whatsapp {
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    right: 100px;
+    color: #fff;
+
+    @media(min-width: $breakpoint-xmedium) {
+      position: absolute;
+    }
+
+    svg {
+      border-radius: 20px;
+      margin-right: 10px;
+      background: #fff;
+      fill: #6de777;
+    }
+  }
 }
 
 div.results-wrapper {

@@ -6,14 +6,8 @@ const Footer = ({t}) => {
     <footer>
       <h4>No olvides seguirnos en nuestras redes sociales</h4>
       <div className="social-networks">
-        <a href="">
-          <Icon icon="facebook"/>
-        </a>
-        <a href="">
+        <a href="https://www.instagram.com/saludofamosos/">
           <Icon icon="instagram"/>
-        </a>
-        <a href="">
-          <Icon icon="twitter"/>
         </a>
       </div>
     </footer>

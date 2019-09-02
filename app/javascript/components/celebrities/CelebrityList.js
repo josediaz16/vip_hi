@@ -7,6 +7,7 @@ import classNames    from 'classnames'
 
 import CelebrityCard  from 'components/celebrities/CelebrityCard'
 import Footer         from 'components/footer'
+import Icon           from 'components/inputs/Icon'
 
 // Util Functions
 import { getRequest, isPresent } from 'components/Utils'
@@ -122,6 +123,11 @@ class CelebrityList extends React.Component {
                 </div>
               }
             </div>
+
+            <a target="_blank" className="contact-whatsapp" href="https://wa.me/573005252306?text=Quiero%20pedirle%20un%20saludo%20a%20">
+              <Icon icon="social-whatsapp"/>
+              300 525 2306
+            </a>
 
           </div>
           <div className="results-wrapper">

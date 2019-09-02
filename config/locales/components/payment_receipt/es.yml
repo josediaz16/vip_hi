@@ -11,4 +11,4 @@ es:
         hi: 'Hola %{name},'
         declined: 'Transacción declinada'
       full_description:
-        html: 'Compraste un saludo único a %{celebrity} por <br>%{price}<br><br>Enviamos tu recibo a <span class="email">%{email}</span><br><br>El vídeo sera enviado al número <strong>%{phone}</strong> desde el numero oficial de saludofamosos.com <strong class="pink">301 740 1600</strong>.'
+        html: 'Compraste un saludo único a %{celebrity} por <br>%{price}<br><br>Enviamos tu recibo a <span class="email">%{email}</span><br><br>El vídeo sera enviado al número <strong>%{phone}</strong> desde el numero oficial de saludofamosos.com <strong class="pink">300 525 2306</strong>.'
