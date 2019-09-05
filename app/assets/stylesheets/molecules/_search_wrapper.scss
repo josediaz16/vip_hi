@@ -25,6 +25,10 @@ div.top-section {
         display: none;
       }
     }
+
+    svg.search {
+      top: 31px;
+    }
   }
 
   .search-box-instructions {
@@ -154,13 +158,22 @@ div.results-wrapper {
       &:after {
         content: "";
         position: absolute;
-        top: 93%;
-        left: -20px;
-        width: 150%;
+        top: 99%;
+        left: -128px;
+        width: 100%;
         height: 100%;
         background: $primary-light-white;
         transform: rotate(4deg);
       }
+
+      @media(min-width: $breakpoint-xmedium) {
+        &:after {
+          top: 97%;
+          left: -400px;
+          width: 130%;
+        }
+      }
+
     }
 
     h3.section-title {
@@ -178,13 +191,20 @@ div.results-wrapper {
       }
     }
 
-    span.result-count {
+    .result-count {
       font-size: 0.875rem;
       margin-bottom: 10px;
       color: #353535;
-      float: right;
+      text-align: right;
 
       strong {
+        color: $primary-normal-purple;
+      }
+    }
+
+    p.end-scroll-message {
+      text-align: center;
+      b {
         color: $primary-normal-purple;
       }
     }
@@ -201,8 +221,9 @@ div.results-grid {
   }
 
   div.celebrity-card {
+    background: #fff;
     @media(max-width: $breakpoint-xmedium) {
-      width: 160px;
+      width: auto;
 
       div.profile-info {
         p.bio {
@@ -211,4 +232,5 @@ div.results-grid {
       }
     }
   }
+
 }

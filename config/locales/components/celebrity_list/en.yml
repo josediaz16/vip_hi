@@ -10,5 +10,17 @@ en:
         did_you_mean: 'Did you mean'
       placeholders:
         search: 'Search by name or country'
+      loading: 'Loading...'
+      seen_all:
+        for_now: 'You have seen it all.'
+        text_us: 'Text us'
+        tell_us: 'and tell us which celebrity your are looking for'
+      favorites:
+        the_favorites: 'The favorites of'
+      showing: 'Showing'
+      of: 'of'
+      search_results: 'Your search results'
+      no_results: 'Oops, we could not find any results!'
+      our_celebrities: 'Our celebrities'
       actions:
         request_message: 'Request a message'

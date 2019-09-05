@@ -10,5 +10,17 @@ es:
         did_you_mean: 'Quisiste decir'
       placeholders:
         search: 'Busca famosos...'
+      loading: 'Cargando...'
+      seen_all:
+        for_now: 'Es todo por ahora.'
+        text_us: 'Escribenos'
+        tell_us: 'y cuentanos a que famoso buscas'
+      favorites:
+        the_favorites: 'Los favoritos de'
+      showing: 'Mostrando'
+      of: 'de'
+      search_results: 'Resultados de tu busqueda'
+      our_celebrities: 'Nuestras celebridades'
+      no_results: 'Oops, no encontramos resultados para tu busqueda!'
       actions:
         request_message: 'Pide un mensaje'
