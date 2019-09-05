@@ -2,8 +2,7 @@
 = render "shared/flash"
 
 = react_component("HomePage",
-  { initial_results: {results: []},
-    most_recent: @results[:most_recent][:results],
+  { initial_results: @results[:initial_results],
     favorites: @results[:favorites][:results],
     search_url: celebrities_path,
     t: component_translations("celebrity_list")})

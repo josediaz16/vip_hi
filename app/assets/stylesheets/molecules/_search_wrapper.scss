@@ -154,9 +154,9 @@ div.results-wrapper {
       &:after {
         content: "";
         position: absolute;
-        top: 93%;
-        left: -20px;
-        width: 150%;
+        top: 97%;
+        left: -400px;
+        width: 130%;
         height: 100%;
         background: $primary-light-white;
         transform: rotate(4deg);
@@ -178,11 +178,11 @@ div.results-wrapper {
       }
     }
 
-    span.result-count {
+    .result-count {
       font-size: 0.875rem;
       margin-bottom: 10px;
       color: #353535;
-      float: right;
+      text-align: right;
 
       strong {
         color: $primary-normal-purple;

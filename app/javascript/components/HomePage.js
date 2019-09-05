@@ -5,60 +5,94 @@ import Footer        from 'components/footer'
 import Icon          from 'components/inputs/Icon'
 
 import CelebrityCarousel from 'components/CelebrityCarousel'
+import CelebrityCard  from 'components/celebrities/CelebrityCard'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { debounce }  from 'throttle-debounce'
+import classNames    from 'classnames'
 
 import { getRequest, isPresent } from 'components/Utils'
+
+const getUrlParams = () => {
+  return new URLSearchParams(window.location.search)
+}
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props)
 
+    const searchText = getUrlParams().get("search")
+
     this.state = {
       search: props.initial_results,
-      searchText: '',
+      searchText: searchText || '',
+      pageNumber: 1
     }
   }
+
   componentWillMount() {
     this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
   }
 
-  // Begin AutoComplete Handlers
-  onSuggestionsFetch = ({value}) => {
-    getRequest(this.props.search_url, {query: value, page: 0})
-      .then(this.handleSuccess)
+  // Events
+  // This function makes http request
+  onSuggestionsFetch = ({value}, handleSuccess) => {
+    getRequest(this.props.search_url, {query: value, page: this.state.pageNumber})
+      .then(handleSuccess)
   }
 
+  // Event fired when input is backspaced
   onSuggestionsClear = () => {
     setTimeout(() => {
       const value = isPresent(this.state.searchText) ? this.state.searchText : "*"
-      this.onSuggestionsFetch({value})
+      this.onSuggestionsFetch({value}, this.handleSuccessSearch)
     }, 100)
   }
 
-  handleSuccess = (search) => this.setState({search})
-
+  // Event fired when misspelled suggestion is selected
   onSuggestionSelected = (value) => {
     this.setState({searchText: value}, () => {
-      //this.onSuggestionsFetch({value})
+      this.onSuggestionsFetch({value}, this.handleSuccessSearch)
     })
   }
 
-  onItemSuggestionSelected = (event, {suggestionValue}) => {
-    window.location.assign(`celebrities?search=${suggestionValue}`)
+  // Event fired when scrolling down
+  onFetchScroll = () => {
+    const value = isPresent(this.state.searchText) ? this.state.searchText : "*"
+
+    this.setState({pageNumber: this.state.pageNumber + 1}, () => {
+      this.onSuggestionsFetch({value}, this.handleSuccessScroll)
+    })
   }
 
-  onChangeInput = (event, { newValue }) => this.setState({searchText: newValue})
+  // Event fired when autosuggest item is selected
+  onItemSuggestionSelected = (event, {suggestion}) => {
+    window.location.assign(`celebrities/${suggestion.id}`)
+  }
 
-  redirectToSearchPath = () => {
-    window.location.assign(`celebrities?search=${this.state.searchText}`)
+  // Event fired when input value changes
+  onChangeInput = (event, { newValue }) => {
+    const value = isPresent(this.state.searchText) ? this.state.searchText : "*"
+    this.setState({searchText: newValue, pageNumber: 1}, () => {
+      this.onSuggestionsFetch({value}, this.handleSuccessSearch)
+    })
   }
 
   onKeyDown = (event) => {
     if (event.key === 'Enter') {
-      this.redirectToSearchPath()
+      event.target.blur()
     }
   }
+
+  handleSuccessScroll = ({results, ...otherProps}) => {
+    const search = {
+      results: this.state.search.results.concat(results),
+      ...otherProps
+    }
+    this.setState({search})
+  }
+
+  handleSuccessSearch = (search) => this.setState({search, pageNumber: 1})
 
   getSuggestionValue = (suggestion) => {
     return suggestion.known_as
@@ -74,12 +108,15 @@ class HomePage extends React.Component {
     const { search, searchText } = this.state
     const { search_url, t, most_recent, favorites } = this.props
 
+    const withSuggestions = search.suggestions.length > 0 && search.results.length === 0
+
     const inputProps = {
       id: "search_celebrity",
       placeholder: t.placeholders.search,
       value: searchText,
       onChange: this.onChangeInput,
       onKeyDown: this.onKeyDown,
+      className: classNames("react-autosuggest__input", {"with-suggestion": withSuggestions})
     }
 
     return (
@@ -100,6 +137,20 @@ class HomePage extends React.Component {
                 getSuggestionValue={this.getSuggestionValue}
                 onSuggestionSelected={this.onItemSuggestionSelected}
               />
+
+              { withSuggestions &&
+                <div className="suggestions">
+                  <span>
+                    {`${t.labels.did_you_mean} `}
+
+                    <a onClick={this.onSuggestionSelected.bind(this, search.suggestions[0])}>
+                      {search.suggestions[0]}
+                    </a>
+                    ?
+                  </span>
+                </div>
+              }
+
               <Icon
                 icon="enter-1"
                 className="search show-on-mobile-only"
@@ -114,16 +165,39 @@ class HomePage extends React.Component {
           </div>
 
           <div className="results-wrapper">
+            { searchText === "" &&
+              <div className="result-section">
+                <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
+                <h4 className="result-count">Mostrando <strong>4</strong> de {favorites.length}</h4>
+                <CelebrityCarousel items={favorites}/>
+              </div>
+            }
+
             <div className="result-section">
-              <h3 className="section-title">Últimas celebridades agregadas</h3>
-              <span className="result-count">Mostrando <strong>4</strong> de {most_recent.length}</span>
-              <CelebrityCarousel items={most_recent}/>
+              <h3 className="section-title">Nuestras celebridades</h3>
+              <h4 className="result-count">Mostrando <strong>{search.results.length}</strong> de {search.total}</h4>
+
+              <InfiniteScroll
+                dataLength={search.results.length}
+                next={this.onFetchScroll}
+                hasMore={search.results.length < search.total}
+                loader={<h4>Cargando...</h4>}
+                endMessage={
+                 <p style={{textAlign: 'center'}}>
+                   <b>Yay! You have seen it all</b>
+                 </p>
+                }
+              >
+                <div className="results-grid">
+                  {
+                    search.results.map((item, index) => {
+                      return <CelebrityCard key={index} {...item}/>
+                    })
+                  }
+                </div>
+              </InfiniteScroll>
             </div>
-            <div className="result-section">
-              <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
-              <span className="result-count">Mostrando <strong>4</strong> de {favorites.length}</span>
-              <CelebrityCarousel items={favorites}/>
-            </div>
+
           </div>
         </div>
 
