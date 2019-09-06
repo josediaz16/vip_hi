@@ -1,7 +1,0 @@
-= render "shared/navbar"
-
-= react_component("celebrities/CelebrityList",
-    { initial_results: @initial_results,
-      search_url: celebrities_path,
-      t: component_translations("celebrity_list"),
-      logoPath: asset_path("logo_light.png")})
