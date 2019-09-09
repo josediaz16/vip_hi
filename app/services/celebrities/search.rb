@@ -20,6 +20,7 @@ module Celebrities
     {
       results: JsonResults.(searchkick, &block),
       pages: searchkick.total_pages,
+      total: searchkick.total_count,
       suggestions: FilterSuggestions.(searchkick.suggestions, query)
     }
   end

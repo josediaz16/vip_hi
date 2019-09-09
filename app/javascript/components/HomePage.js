@@ -1,128 +1,142 @@
-import React         from 'react'
-import ReactPaginate from 'react-paginate'
-import AutoSuggest   from 'react-autosuggest'
-import Footer        from 'components/footer'
-import Icon          from 'components/inputs/Icon'
+import React          from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
+
+import Footer         from 'components/footer'
+import Icon           from 'components/inputs/Icon'
 
 import CelebrityCarousel from 'components/CelebrityCarousel'
+import SearchBox         from 'components/search/SearchBox'
+import ResultsScroll     from 'components/search/ResultsScroll'
 
 import { debounce }  from 'throttle-debounce'
+import classNames    from 'classnames'
 
 import { getRequest, isPresent } from 'components/Utils'
+
+const getUrlParams = () => {
+  return new URLSearchParams(window.location.search)
+}
+
+const doNothing = () => {}
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props)
 
+    const searchText = getUrlParams().get("search")
+
     this.state = {
       search: props.initial_results,
-      searchText: '',
+      searchText: searchText || '',
+      pageNumber: 1
     }
   }
+
   componentWillMount() {
     this.onSuggestionsFetch = debounce(500, this.onSuggestionsFetch)
   }
 
-  // Begin AutoComplete Handlers
-  onSuggestionsFetch = ({value}) => {
-    getRequest(this.props.search_url, {query: value, page: 0})
-      .then(this.handleSuccess)
+  // Events
+  // This function makes http request
+  onSuggestionsFetch = ({value}, handleSuccess) => {
+    getRequest(this.props.search_url, {query: value, page: this.state.pageNumber})
+      .then(handleSuccess)
   }
 
-  onSuggestionsClear = () => {
-    setTimeout(() => {
-      const value = isPresent(this.state.searchText) ? this.state.searchText : "*"
-      this.onSuggestionsFetch({value})
-    }, 100)
-  }
-
-  handleSuccess = (search) => this.setState({search})
-
+  // Event fired when misspelled suggestion is selected
   onSuggestionSelected = (value) => {
     this.setState({searchText: value}, () => {
-      //this.onSuggestionsFetch({value})
+      this.onSuggestionsFetch({value}, this.handleSuccessSearch)
     })
   }
 
-  onItemSuggestionSelected = (event, {suggestionValue}) => {
-    window.location.assign(`celebrities?search=${suggestionValue}`)
+  // Event fired when scrolling down
+  onFetchScroll = () => {
+    const value = isPresent(this.state.searchText) ? this.state.searchText : "*"
+
+    this.setState({pageNumber: this.state.pageNumber + 1}, () => {
+      this.onSuggestionsFetch({value}, this.handleSuccessScroll)
+    })
   }
 
-  onChangeInput = (event, { newValue }) => this.setState({searchText: newValue})
-
-  redirectToSearchPath = () => {
-    window.location.assign(`celebrities?search=${this.state.searchText}`)
+  // Event fired when autosuggest item is selected
+  onItemSuggestionSelected = (event, {suggestion}) => {
+    window.location.assign(`celebrities/${suggestion.id}`)
   }
 
-  onKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      this.redirectToSearchPath()
+  // Event fired when input value changes
+  onChangeInput = (event, { newValue }) => {
+    this.setState({searchText: newValue, pageNumber: 1}, () => {
+      const value = isPresent(this.state.searchText) ? this.state.searchText : "*"
+      this.onSuggestionsFetch({value}, this.handleSuccessSearch)
+    })
+  }
+
+  handleSuccessScroll = ({results, ...otherProps}) => {
+    const search = {
+      results: this.state.search.results.concat(results),
+      ...otherProps
     }
+    this.setState({search})
   }
 
-  getSuggestionValue = (suggestion) => {
-    return suggestion.known_as
-  }
-
-  renderSuggestion = (suggestion) => {
-    return (
-     <span>{suggestion.known_as}</span>
-    )
-  }
+  handleSuccessSearch = (search) => this.setState({search, pageNumber: 1})
 
   render() {
     const { search, searchText } = this.state
     const { search_url, t, most_recent, favorites } = this.props
 
-    const inputProps = {
-      id: "search_celebrity",
-      placeholder: t.placeholders.search,
-      value: searchText,
-      onChange: this.onChangeInput,
-      onKeyDown: this.onKeyDown,
-    }
+    const isSearching     = searchText !== ""
+
+    const resultsTitle = isSearching ? t.search_results : t.our_celebrities
+
+    const topSectionClass = classNames("top-section", {stretch: isSearching})
+    const whatsAppClass = classNames("contact-whatsapp", {"hide-on-mobile": isSearching})
+    const titleClass = classNames({"hide-on-mobile": isSearching})
 
     return (
       <React.Fragment>
         <div className="search-page">
-          <div className="top-section">
-            <div className="search-box-instructions">
-              <h1>{t.titles.main}</h1>
+
+          <div className={topSectionClass}>
+            <div className='search-box-instructions'>
+              <h1 className={titleClass}>{t.titles.main}</h1>
               <p>{t.titles.description}</p>
             </div>
-            <div className="search-box-component">
-              <AutoSuggest
-                suggestions={search.results}
-                inputProps={inputProps}
-                onSuggestionsFetchRequested={this.onSuggestionsFetch}
-                onSuggestionsClearRequested={this.onSuggestionsClear}
-                renderSuggestion={this.renderSuggestion}
-                getSuggestionValue={this.getSuggestionValue}
-                onSuggestionSelected={this.onItemSuggestionSelected}
-              />
-              <Icon
-                icon="enter-1"
-                className="search show-on-mobile-only"
-                onClick={this.redirectToSearchPath}
-              />
-            </div>
 
-            <a target="_blank" className="contact-whatsapp" href="https://wa.me/573043883409?text=Quiero%20pedirle%20un%20saludo%20a%20">
+            <SearchBox
+              t={t}
+              searchText={searchText}
+              search={search}
+              onChangeInput={this.onChangeInput}
+              onSuggestionsFetchRequested={this.onSuggestionsFetch}
+              onSuggestionsClearRequested={doNothing}
+              onSuggestionSelected={this.onItemSuggestionSelected}
+              onSuggestionAccepted={this.onSuggestionSelected}
+            />
+
+            <a target="_blank" className={whatsAppClass} href="https://wa.me/573043883409?text=Quiero%20pedirle%20un%20saludo%20a%20">
               <Icon icon="social-whatsapp"/>
               +57 304 388 3409
             </a>
           </div>
 
           <div className="results-wrapper">
+            { !isSearching &&
+              <div className="result-section">
+                <h3 className="section-title">{t.favorites.the_favorites} <strong>saludofamosos</strong></h3>
+                <h4 className="result-count">{t.showing} <strong>4</strong> {t.of} {favorites.length}</h4>
+                <CelebrityCarousel items={favorites}/>
+              </div>
+            }
+
             <div className="result-section">
-              <h3 className="section-title">Últimas celebridades agregadas</h3>
-              <span className="result-count">Mostrando <strong>4</strong> de {most_recent.length}</span>
-              <CelebrityCarousel items={most_recent}/>
-            </div>
-            <div className="result-section">
-              <h3 className="section-title">Los favoritos de <strong>saludofamosos</strong></h3>
-              <span className="result-count">Mostrando <strong>4</strong> de {favorites.length}</span>
-              <CelebrityCarousel items={favorites}/>
+              <h3 className="section-title">{resultsTitle}</h3>
+              <ResultsScroll
+                t={t}
+                search={search}
+                onFetchScroll={this.onFetchScroll}
+              />
             </div>
           </div>
         </div>

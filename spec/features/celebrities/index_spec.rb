@@ -76,7 +76,7 @@ RSpec.describe "GET /celebrities", js: true do
   before { Celebrity.reindex }
 
   scenario "It should render the matching celebrities" do
-    visit celebrities_path
+    visit root_path
 
     expect(page).to have_content("Juanes")
     expect(page).to have_content("Shakira")
@@ -84,11 +84,8 @@ RSpec.describe "GET /celebrities", js: true do
     expect(page).to have_content("Alejandro Fernandez")
 
     expect(page).not_to have_content("Leo messi")
-
-    within(".pagination") do
-      find(:css, "li.next a").click
-      wait_for_ajax
-    end
+    page.execute_script('window.scrollTo(0,100000)')
+    wait_for_ajax
 
     expect(page).to have_content("Leo messi")
 

@@ -23,17 +23,10 @@ class CelebritiesController < ApplicationController
   end
 
   def index
-    respond_to do |format|
-      format.html { render_component }
-      format.json { render json: search_celebrities }
-    end
+    render json: search_celebrities
   end
 
   private
-
-  def render_component
-    @initial_results = Celebrities::Search.(params[:search] || "*", &add_celebrity_path)
-  end
 
   def search_celebrities
     Celebrities::Search.(params[:query], params.permit(:page, :per_page).to_h, &add_celebrity_path)
