@@ -3,7 +3,7 @@ en:
     celebrity_list:
       pagination: :components.pagination
       titles:
-        main: '!Hi!'
+        main: '¡Hi!'
         mobile: 'Great!'
         description: 'Would you like your favorite celebrity to send you a video message? How about surprising someone with a message from their favorite celebrity? Do it now!'
       labels:
