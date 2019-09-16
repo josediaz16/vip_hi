@@ -49,3 +49,8 @@
         .footer-info
           %a.site{href: "https://www.saludofamosos.com"} www.saludofamosos.com
           %a.button-primary{href: root_path}= t(:back)
+
+:javascript
+  dataLayer = [{
+  'orderID': new URL(window.location.href).searchParams.get("referenceCode")
+  }];
