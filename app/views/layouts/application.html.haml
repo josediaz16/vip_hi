@@ -14,4 +14,9 @@
     = render 'layouts/google_analytics'
     = javascript_pack_tag 'application'
   %body
+    - if Rails.env.production?
+      <!-- Google Tag Manager (noscript) -->
+      %noscript
+        %iframe{src:"https://www.googletagmanager.com/ns.html?id=GTM-WK3D9ZZ", height: "0", width: "0", style: "display:none;visibility:hidden"}
+      <!-- End Google Tag Manager (noscript) -->
     = yield
