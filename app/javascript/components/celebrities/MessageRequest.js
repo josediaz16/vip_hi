@@ -164,6 +164,7 @@ const handle401 = ({apiResponse, payload}) => {
 const handleSuccess = ({redirect_url, solucionis_notitia}, formikBag) => {
   sessionStorage.removeItem('messageRequest')
   formikBag.setStatus({solucionis_notitia: solucionis_notitia})
+  window.location.href = "#payment_form"
 }
 
 class MessageRequest extends React.Component {
