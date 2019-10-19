@@ -13,4 +13,8 @@ class MRStateMachine
   transition from: :purchased, to: [:accepted, :rejected, :cancelled, :delivered]
   transition from: :accepted,  to: [:cancelled, :delivered]
   transition from: :cancelled, to: [:pending]
+
+  after_transition do |model, transition|
+    model.update(status: transition.to_state)
+  end
 end

@@ -95,6 +95,7 @@ RSpec.describe Payments::Create do
       expect(payment.response.symbolize_keys).to eq(input)
 
       expect(message_request.current_state).to eq("purchased")
+      expect(message_request.status).to eq("purchased")
     end
   end
 
@@ -117,6 +118,7 @@ RSpec.describe Payments::Create do
       expect(payment.response.symbolize_keys).to eq(input)
 
       expect(message_request.current_state).to eq("pending")
+      expect(message_request.current_state).to eq("pending")
     end
   end
 
@@ -129,6 +131,7 @@ RSpec.describe Payments::Create do
       message_request.reload
       expect(Payment.count).to eq(0)
       expect(message_request.current_state).to eq("pending")
+      expect(message_request.status).to eq("pending")
     end
   end
 
@@ -141,6 +144,7 @@ RSpec.describe Payments::Create do
       message_request.reload
       expect(Payment.count).to eq(0)
       expect(message_request.current_state).to eq("pending")
+      expect(message_request.status).to eq("pending")
     end
   end
 end
