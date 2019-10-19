@@ -10,7 +10,7 @@ div.admin-layout {
   justify-content: center;
   align-items: center;
   display: grid;
-  height: 100vh;
+  min-height: 100vh;
 
   div.logo-c {
     text-align: center;

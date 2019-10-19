@@ -7,7 +7,7 @@
     - @message_requests.each do |message|
       .span-sm-12.span-md-4.std-box
         %h3.pink= message.celebrity.user.known_as
-        %p= message.brief
+        %p.wrapped= message.brief
 
         %ul
           %li
@@ -29,5 +29,7 @@
         - if message.in_state?(:purchased)
           = link_to "Entregar", admins_message_request_path(message, to_state: "delivered"), method: :put, class: "button-primary-small"
 
-        - if not message.in_state?(:cancelled)
+        - if not message.in_state?(:cancelled, :delivered)
           = link_to "Cancelar", admins_message_request_path(message, to_state: "cancelled"), method: :put, class: "button-secondary-small"
+
+  = paginate @message_requests, window: 2
