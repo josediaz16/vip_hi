@@ -20,4 +20,15 @@ class MessageRequest < ApplicationRecord
   def initial_state
     :pending
   end
+
+  def self.ordered_by_relevance
+    order("
+      CASE
+        WHEN status = 'purchased' THEN 0
+        WHEN status = 'pending' THEN 1
+        WHEN status = 'delivered' THEN 2
+        WHEN status = 'cancelled' THEN 3
+      END
+    ")
+  end
 end

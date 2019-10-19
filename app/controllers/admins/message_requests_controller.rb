@@ -3,6 +3,7 @@ class Admins::MessageRequestsController < ApplicationController
 
   def index
     @message_requests = MessageRequest
+      .ordered_by_relevance
       .includes(:celebrity)
       .page(params[:page])
       .per(9)
